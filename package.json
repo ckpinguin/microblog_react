@@ -15,8 +15,8 @@
     "stylus": "^0.54.5"
   },
   "scripts": {
-    "build-css": "stylus src/ -o src/",
-    "watch-css": "npm run build-css && stylus src/ -o src/ --watch",
+    "build-css": "stylus src/ -o src/ && stylus src/app -o src/app",
+    "watch-css": "npm run build-css && stylus src/app/ -o src/app/ --watch",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",

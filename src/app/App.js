@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 import './App.css';
+import BlogList from './blog-list/BlogList';
 
 class App extends Component {
     render() {
@@ -16,6 +17,7 @@ class App extends Component {
                 <p className="App-intro" >
                 To get started, edit<code>src / App.js</code> and save to reload.
                 </p>
+                <BlogList />
             </div>
         );
     }
