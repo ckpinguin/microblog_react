@@ -40,7 +40,7 @@ export default class App extends Component {
         const entry = e;
         this.setState(
             {
-                blogentries: [...this.state.blogEntries, entry]
+                blogEntries: [...this.state.blogEntries, entry]
             }
         );
     }
