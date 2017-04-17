@@ -13,7 +13,6 @@ export default class App extends Component {
     static propTypes = {
         title:          PropTypes.string.isRequired,
         blogEntries:    PropTypes.array
-        
     };
     
     static defaultProps = {

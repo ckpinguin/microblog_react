@@ -18,7 +18,6 @@ export default class BlogForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log('handleSubmit: ', e);
         this.props.onSubmit(this.state);
     }
 
@@ -27,7 +26,6 @@ export default class BlogForm extends Component {
         const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-        console.log('handleChange: ', name, value);
         this.setState({
             [name]: value
         });
