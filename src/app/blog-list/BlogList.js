@@ -1,15 +1,24 @@
-import React, { Component } from 'react';
-import { Navbar, Jumbotron, Button } from 'react-bootstrap';
+import React from 'react';
+
+import BlogItem from '../blog-item/BlogItem';
+
 import './BlogList.css';
 
-class BlogList extends Component {
-    render() {
-        return (
-            <div className="BlogList">
-                <p>Hello, this is BlogList!</p>
-            </div>
-        );
-    }
+export default function BlogList({blogEntries}) {
+    const itemList = blogEntries.map((entry) => {
+        return <BlogItem item={entry}>{entry.title}</BlogItem>;
+    });
+    
+    return (
+        <div className="BlogList">
+            <p>List of blog entries:</p>
+            <ul>
+                {itemList}
+            </ul>
+        </div>
+    );
 }
 
-export default BlogList;
+BlogList.proptypes = {
+    blogEntries: React.PropTypes.array.isRequired
+};
