@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 // import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 
 import './Layout.css';
@@ -6,7 +8,7 @@ import './Layout.css';
 import NavBar from '../navbar/NavBar';
 
 Layout.propTypes = { 
-    children:       React.PropTypes.array.isRequired,
+    children:       PropTypes.array.isRequired,
 };
 
 export default function Layout({children}) {

@@ -1,6 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './BlogItem.css';
+
+BlogItem.propTypes = {
+    item:   PropTypes.object.isRequired
+};
 
 export default function BlogItem({item}) {
     return (

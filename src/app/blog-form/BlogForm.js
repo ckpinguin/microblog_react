@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './BlogForm.css';
 
@@ -6,8 +7,8 @@ import ShowError from '../show-error/ShowError';
 
 export default class BlogForm extends Component {
     static propTypes = {
-        newEntry:    React.PropTypes.object.isRequired,
-        onSubmit:    React.PropTypes.func.isRequired,
+        newEntry:    PropTypes.object.isRequired,
+        onSubmit:    PropTypes.func.isRequired,
     };
 
     constructor(props) {

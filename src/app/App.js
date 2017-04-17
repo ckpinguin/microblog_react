@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 // import logo from './logo.svg';
 
 import './App.css';
@@ -9,12 +11,13 @@ import BlogForm from './blog-form/BlogForm';
 
 export default class App extends Component {
     static propTypes = {
-        title:          React.PropTypes.string.isRequired,
-        blogEntries:    React.PropTypes.array.isRequired
+        title:          PropTypes.string.isRequired,
+        blogEntries:    PropTypes.array
+        
     };
     
     static defaultProps = {
-        blogEntries: {},
+        blogEntries: [], // this also gets evaluated with blogEntries!
         title: 'CK\'s microblog!'
     };
 

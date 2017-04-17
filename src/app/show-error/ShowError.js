@@ -1,12 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './ShowError.css';
 
 ShowError.propTypes = {
-    controlPath:    React.PropTypes.string.isRequired,
-    displayname:    React.PropTypes
+    controlPath:    PropTypes.string.isRequired,
+    displayName:    PropTypes.string
 };
-export default function ShowError({form, controlPath, displayName=''}) {
+ShowError.defaultPrps = {
+    displayName: ''
+};
+
+export default function ShowError({form, controlPath, displayName}) {
     const messages = [];
     const control = form.controlPath;
     if (!control || !(control.touched) || !(control.errors)) {

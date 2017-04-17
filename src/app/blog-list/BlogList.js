@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './BlogList.css';
 
 import BlogItem from '../blog-item/BlogItem';
 
 BlogList.proptypes = {
-    blogEntries: React.PropTypes.array.isRequired
+    blogEntries: PropTypes.array.isRequired
 };
 
 export default function BlogList({blogEntries}) {
