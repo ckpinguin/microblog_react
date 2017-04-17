@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './BlogForm.css';
 
+import ShowError from '../show-error/ShowError';
+
 export default class BlogForm extends Component {
     static propTypes = {
         newEntry:    React.PropTypes.object.isRequired,
@@ -42,7 +44,7 @@ export default class BlogForm extends Component {
                             value={this.state.title}
                             onChange={this.handleChange}
                             required />
-                        {/*<ck-show-error path="title" text="Titel"></ck-show-error>*/}
+                        <ShowError form={this} controlPath="title" displayName="Titel" />
                     </div>
                     <div className="form-group">
                         <label>Inhalt</label>

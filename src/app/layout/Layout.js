@@ -5,6 +5,10 @@ import './Layout.css';
 
 import NavBar from '../navbar/NavBar';
 
+Layout.propTypes = { 
+    children:       React.PropTypes.array.isRequired,
+};
+
 export default function Layout({children}) {
     return (
         <div className="Layout">
@@ -29,7 +33,3 @@ export default function Layout({children}) {
         </div>
     );
 }
-
-Layout.propTypes = { 
-    children:       React.PropTypes.array.isRequired,
-};

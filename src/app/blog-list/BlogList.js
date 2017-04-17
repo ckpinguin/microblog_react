@@ -4,6 +4,10 @@ import './BlogList.css';
 
 import BlogItem from '../blog-item/BlogItem';
 
+BlogList.proptypes = {
+    blogEntries: React.PropTypes.array.isRequired
+};
+
 export default function BlogList({blogEntries}) {
     const itemList = blogEntries.map((entry) => {
         return <BlogItem key={entry.id} item={entry}>{entry}</BlogItem>;
@@ -19,6 +23,3 @@ export default function BlogList({blogEntries}) {
     );
 }
 
-BlogList.proptypes = {
-    blogEntries: React.PropTypes.array.isRequired
-};
