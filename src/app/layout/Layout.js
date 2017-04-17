@@ -1,30 +1,35 @@
 import React from 'react';
 // import { Navbar, Jumbotron, Button } from 'react-bootstrap';
-import NavBar from '../navbar/NavBar';
-import BlogList from '../blog-list/BlogList';
 
 import './Layout.css';
 
-export default function Layout({title, blogEntries}) {
+import NavBar from '../navbar/NavBar';
+
+export default function Layout({children}) {
     return (
         <div className="Layout">
             <NavBar />
             <div className="title">
-                <h1>{title}</h1>    
+                {children[0]}
             </div>
-            <div className="mainContent"></div>
+            <div className="mainContent">
+                {children[1]}
+            </div>
             <div className="jumbotron">
-                <div className="focusItem"></div>
+                <div className="attentionItem">
+                    {children[2]}
+                </div>
             </div>
             <div className="listContent">
-                <BlogList blogEntries={blogEntries} />
+                {children[3]}
             </div>
-            <div className="footer"></div>
+            <div className="footer">
+                <p>© Christof Kälin</p>
+            </div>
         </div>
     );
 }
 
 Layout.propTypes = { 
-    title:       React.PropTypes.string.isRequired,
-    blogEntries: React.PropTypes.array.isRequired
+    children:       React.PropTypes.array.isRequired,
 };

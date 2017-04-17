@@ -4,7 +4,8 @@ import App from './app/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-const blogEntries = [{
+const initialBlogEntries = [
+    {
         id: 0,
         title: 'Testentry',
         text: 'Just a little\n test',
@@ -22,9 +23,9 @@ const blogEntries = [{
     }
 ];
 
-const title = 'CK\'s microblog!';
+// const title = 'CK\'s microblog!';
 
 ReactDOM.render(
-    <App title={title} blogEntries={blogEntries} /> ,
+    <App initialBlogEntries={initialBlogEntries} /> ,
     document.getElementById('root')
 );
