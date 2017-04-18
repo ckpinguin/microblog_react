@@ -13,7 +13,7 @@ ShowError.defaultPrps = {
 
 export default function ShowError({form, controlPath, displayName}) {
     const messages = [];
-    const control = form.controlPath;
+    const control = {};// form.controlPath;
     if (!control || !(control.touched) || !(control.errors)) {
         return null;
     }
@@ -22,27 +22,32 @@ export default function ShowError({form, controlPath, displayName}) {
             const error = control.errors[code];
             let message = '';
             switch (code) {
-                case 'required':
-                    message = `${displayName} ist ein Pflichtfeld`;
-                    break;
-                case 'minlength':
-                    message = `${displayName} muss mindestens
-                                   ${error.requiredLength}  Zeichen enthalten`;
-                    break;
-                default:
-                    message = `${name} ist nicht gültig`;
+            case 'required':
+                message = `${displayName} ist ein Pflichtfeld`;
+                break;
+            case 'minlength':
+                message = `${displayName} muss mindestens
+                           ${error.requiredLength}  Zeichen enthalten`;
+                break;
+            default:
+                message = `${displayName} ist nicht gültig`;
             }
             messages.push(message);
         }
     }
 
+    let messageDisplay;
+    if (messages) {
+        messageDisplay = (<div className="alert alert-danger">
+                {messages}
+                {this.props.list.map(function(data, i) {
+                    return (<p key={i}>{data}</p>);
+                })}
+            </div>);
+    }
     return (
         <div className="ShowError">
-            {/*            <div *ngIf="errorMessages" class="alert alert-danger">
-                            <div *ngFor="let errorMessage of errorMessages">
-                                {{errorMessage}}
-                            </div>
-                        </div>*/}
+            {messageDisplay}
         </div>
     );
 }

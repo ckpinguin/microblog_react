@@ -16,8 +16,8 @@ export default class App extends Component {
     };
     
     static defaultProps = {
-        blogEntries: [], // this also gets evaluated with blogEntries!
-        title: 'CK\'s microblog!'
+        title: 'CK\'s microblog!',
+        blogEntries: [{}] // this also gets evaluated with blogEntries!
     };
 
     constructor(props) {
