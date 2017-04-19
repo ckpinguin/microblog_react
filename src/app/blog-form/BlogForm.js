@@ -19,6 +19,7 @@ export default class BlogForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.onSubmit(this.state);
+        this.state = this.props.newEntry;
     }
 
     handleChange = (e) => {

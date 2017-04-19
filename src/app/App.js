@@ -23,28 +23,36 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = this.getInitialState();
-        this.newEntry = {
-            id: this.state.blogEntries[this.state.blogEntries.length-1].id+1,
-            title: '',
-            text: '',
-            image: ''
-        };
+        console.log('constructor state: ', this.state);
     }
 
     getInitialState () {
         return {
-            blogEntries: this.props.initialBlogEntries
+            blogEntries: this.props.initialBlogEntries,
+            newEntry: {
+                title: '',
+                text: '',
+                image: ''
+            }
         };
     }
 
     saveBlogEntry(e) {
         console.log('Saving entry: ', e);
         const entry = e;
+        entry.id = this.state.blogEntries[this.state.blogEntries.length-1].id + 1;
         this.setState(
             {
-                blogEntries: [...this.state.blogEntries, entry]
-            }
+                blogEntries: [...this.state.blogEntries, entry],
+                newEntry: {
+                    title: '',
+                    text: '',
+                    image: ''
+                }
+            },
+            () => {console.log('top new state: ', this.state);}
         );
+        
     }
 
     render() {
@@ -54,7 +62,7 @@ export default class App extends Component {
                 children, more explicit props would also work here */}
                 <Layout>
                     <h1>{this.props.title}</h1>
-                    <BlogForm newEntry={this.newEntry} onSubmit={ e => this.saveBlogEntry(e) } />
+                    <BlogForm newEntry={this.state.newEntry} onSubmit={ e => this.saveBlogEntry(e) } />
                     <p>Attention item</p>
                     <BlogList blogEntries={this.state.blogEntries} />
                 </Layout>
