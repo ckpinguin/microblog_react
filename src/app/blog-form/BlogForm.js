@@ -42,7 +42,7 @@ export default class BlogForm extends Component {
                             placeholder="Titel eingeben..."
                             value={this.state.title}
                             onChange={this.handleChange}
-                            required />
+                            required minLength="5" maxLength="128"/>
                         <ShowError form={this} controlPath="title" displayName="Titel" />
                     </div>
                     <div className="form-group">

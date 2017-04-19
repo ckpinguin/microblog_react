@@ -12,19 +12,19 @@ import BlogForm from './blog-form/BlogForm';
 export default class App extends Component {
     static propTypes = {
         title:          PropTypes.string.isRequired,
-        blogEntries:    PropTypes.array
+        initialBlogEntries:    PropTypes.array
     };
     
     static defaultProps = {
         title: 'CK\'s microblog!',
-        blogEntries: [{}] // this also gets evaluated with blogEntries!
+        initialBlogEntries: [{}] // this also gets evaluated with blogEntries!
     };
 
     constructor(props) {
         super(props);
         this.state = this.getInitialState();
         this.newEntry = {
-            id: undefined,
+            id: this.state.blogEntries[this.state.blogEntries.length-1].id+1,
             title: '',
             text: '',
             image: ''
