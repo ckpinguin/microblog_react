@@ -12,6 +12,9 @@ export default class BlogForm extends Component {
         onSubmit:    PropTypes.func.isRequired,
     };
 
+    pristine = true;
+    titleTouched = false;
+
     constructor(props) {
         super(props);
         this.state = props.newEntry;
@@ -20,47 +23,47 @@ export default class BlogForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.onSubmit(this.state);
-        this.state = this.props.newEntry;
-    }
-
-    handleChange = (e) => {
-        e.preventDefault();
-        const target = e.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-        this.setState({
-            [name]: value
-        });
-        this.validateTitle(e.target.value);
+        this.state = this.props.newEntry; // anti-pattern?
     }
 
     render() {
         const linked = Link.all(this, 'title', 'text', 'image');
         const titleLink = linked.title
-            .check(x => x, 'Title is required')
-            .check(x => x.length > 5, 'Title must be greater than 5 characters long')
-            .check(x => x.length < 128, 'Title must be less than 128 characters long');
+            .check(x => x, 'Titel ist ein Pflichtfeld')
+            .check(x => x.length > 5, 'Titel muss mindestens 5 Zeichen enthalten')
+            .check(x => x.length < 128, 'Titel darf maximal 128 Zeichen enthalten');
         return (
             <div className="BlogForm">
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label>Titel</label>
                         <Input type="text"
+                            valueLink={titleLink}
+                            onBlur={() => this.setState({titleTouched: true})}
                             className="form-control"
-                            valueLink={titleLink} />
+                            placeholder="Titel eingeben..."
+                            maxLength="128" />
+                        <div style={{display: 
+                                (this.state.titleTouched && titleLink.error) ? 'block' : 'none'}}
+                            className="alert alert-danger error-placeholder">
+                            {titleLink.error || ''}
+                        </div>
                     </div>
                     <div className="form-group">
                         <label>Inhalt</label>
-                        <TextArea className="form-control"
-                            valueLink={linked.text} />
+                        <TextArea
+                            valueLink={linked.text}
+                            className="form-control"
+                            placeholder="Textinhalt eingeben..." />
                     </div>
                     <div className="form-control">
                         <label>Bild-URL:</label>
-                        <Input type="text" id="image" name="image"
-                            valueLink={linked.image} />
+                        <Input type="text"
+                            valueLink={linked.image}
+                            placeholder="Bildadresse eingeben..." />
                     </div>
                     <button type="submit" className="btn btn-default"
-                        disabled={titleLink.error}>
+                        disabled={this.pristine || titleLink.error}>
                         Blogeintrag speichern
                     </button>
                 </form>
