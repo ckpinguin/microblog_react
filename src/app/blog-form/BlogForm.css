@@ -1,0 +1,6 @@
+input.invalid.required {
+    border-color: #ccc;
+}
+input.invalid {
+    border-color: #a94442;
+}

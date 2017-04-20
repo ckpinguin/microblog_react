@@ -6,13 +6,16 @@
     "bootstrap": "^3.3.7",
     "react": "^15.5.3",
     "react-bootstrap": "^0.30.8",
-    "react-dom": "^15.5.3"
+    "react-dom": "^15.5.3",
+    "valuelink": "^1.4.3"
   },
   "devDependencies": {
     "npm-run-all": "^4.0.2",
+    "react-awesome-form-validator": "^1.4.3",
     "react-scripts": "0.9.5",
     "stylint": "^1.5.9",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "valuelink": "^1.4.3"
   },
   "scripts": {
     "build-css": "stylus src/ -o src/ && stylus src/app -o src/app",

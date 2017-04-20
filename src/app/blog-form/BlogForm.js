@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './BlogForm.css';
+import Link from 'valuelink';
+import { Input, TextArea } from 'valuelink/tags';
 
-import ShowError from '../show-error/ShowError';
+import './BlogForm.css';
 
 export default class BlogForm extends Component {
     static propTypes = {
@@ -30,39 +31,36 @@ export default class BlogForm extends Component {
         this.setState({
             [name]: value
         });
+        this.validateTitle(e.target.value);
     }
 
     render() {
+        const linked = Link.all(this, 'title', 'text', 'image');
+        const titleLink = linked.title
+            .check(x => x, 'Title is required')
+            .check(x => x.length > 5, 'Title must be greater than 5 characters long')
+            .check(x => x.length < 128, 'Title must be less than 128 characters long');
         return (
             <div className="BlogForm">
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label>Titel</label>
-                        <input type="text" className="form-control"
-                            id="title" name="title"
-                            placeholder="Titel eingeben..."
-                            value={this.state.title}
-                            onChange={this.handleChange}
-                            required minLength="5" maxLength="128"/>
-                        <ShowError form={this} controlPath="title" displayName="Titel" />
+                        <Input type="text"
+                            className="form-control"
+                            valueLink={titleLink} />
                     </div>
                     <div className="form-group">
                         <label>Inhalt</label>
-                        <textarea className="form-control"
-                            id="text" name="text"
-                            placeholder="Textinhalt eingeben..."
-                            value={this.state.text}
-                            onChange={this.handleChange} />
-                        {/*<ck-show-error path="text" text="Text" />*/}
+                        <TextArea className="form-control"
+                            valueLink={linked.text} />
                     </div>
                     <div className="form-control">
                         <label>Bild-URL:</label>
-                        <input type="text" id="image" name="image"
-                            value={this.state.image}
-                            onChange={this.handleChange} />
+                        <Input type="text" id="image" name="image"
+                            valueLink={linked.image} />
                     </div>
-                    <button type="submit" className="btn btn-default">
-                        {/*disabled="!form.valid"*/}
+                    <button type="submit" className="btn btn-default"
+                        disabled={titleLink.error}>
                         Blogeintrag speichern
                     </button>
                 </form>

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './ShowError.css';
 
 ShowError.propTypes = {
+    form:           PropTypes.string,
     controlPath:    PropTypes.string.isRequired,
     displayName:    PropTypes.string
 };
@@ -12,8 +13,9 @@ ShowError.defaultPrps = {
 };
 
 export default function ShowError({form, controlPath, displayName}) {
+    console.log('form: ', form);
     const messages = [];
-    const control = {};// form.controlPath;
+    const control = {}; // form.controlPath;
     if (!control || !(control.touched) || !(control.errors)) {
         return null;
     }
@@ -47,6 +49,7 @@ export default function ShowError({form, controlPath, displayName}) {
     }
     return (
         <div className="ShowError">
+            {form}
             {messageDisplay}
         </div>
     );
