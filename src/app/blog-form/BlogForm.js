@@ -13,7 +13,6 @@ export default class BlogForm extends Component {
     };
 
     pristine = true;
-    titleTouched = false;
 
     constructor(props) {
         super(props);
@@ -30,7 +29,7 @@ export default class BlogForm extends Component {
         const linked = Link.all(this, 'title', 'text', 'image');
         const titleLink = linked.title
             .check(x => x, 'Titel ist ein Pflichtfeld')
-            .check(x => x.length > 5, 'Titel muss mindestens 5 Zeichen enthalten')
+            .check(x => x.length >= 5, 'Titel muss mindestens 5 Zeichen enthalten')
             .check(x => x.length < 128, 'Titel darf maximal 128 Zeichen enthalten');
         return (
             <div className="BlogForm">
@@ -63,7 +62,7 @@ export default class BlogForm extends Component {
                             placeholder="Bildadresse eingeben..." />
                     </div>
                     <button type="submit" className="btn btn-default"
-                        disabled={this.pristine || titleLink.error}>
+                        disabled={ titleLink.error}>
                         Blogeintrag speichern
                     </button>
                 </form>
