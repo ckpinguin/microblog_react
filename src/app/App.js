@@ -22,18 +22,15 @@ export default class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = this.getInitialState();
-    }
-
-    getInitialState () {
-        return {
-            blogEntries: this.props.initialBlogEntries,
-            newEntry: {
-                title: '',
-                text: '',
-                image: ''
-            }
-        };
+        this.state = 
+            {
+                blogEntries: this.props.initialBlogEntries,
+                newEntry: {
+                    title: '',
+                    text: '',
+                    image: ''
+                }
+            };
     }
 
     saveBlogEntry(e) {
