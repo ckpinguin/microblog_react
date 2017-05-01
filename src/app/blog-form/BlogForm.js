@@ -21,12 +21,13 @@ export default class EditBlogEntry extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.onSubmit(this.state);
-        this.pristine = true;
         this.setState(this.props.newEntry); // anti-pattern?
+        this.pristine = true;
     }
 
     handleChange = (e) => {
         e.preventDefault();
+        this.pristine = false;
         const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -36,17 +37,23 @@ export default class EditBlogEntry extends Component {
     }
 
     validate = (state) => {
+
+        // const titleLink = linked.title
+        //     .check(x => x, 'Titel ist ein Pflichtfeld')
+        //     .check(x => x.length >= 5, 'Titel muss mindestens 5 Zeichen enthalten')
+        //     .check(x => x.length < 128, 'Titel darf maximal 128 Zeichen enthalten');
         return {
-            title: state.title.length >= 5
+            title: {
+                valid: state.title.length >= 5 && state.title.length < 128,
+                error: ''
+            }
         };
     }
 
+
+
     render() {
         const linked = Link.all(this, 'title', 'text', 'image');
-        const titleLink = linked.title
-            .check(x => x, 'Titel ist ein Pflichtfeld')
-            .check(x => x.length >= 5, 'Titel muss mindestens 5 Zeichen enthalten')
-            .check(x => x.length < 128, 'Titel darf maximal 128 Zeichen enthalten');
         let valid = this.validate(this.state);
         return (
             <div className="BlogForm">
@@ -54,7 +61,7 @@ export default class EditBlogEntry extends Component {
                     <div className="form-group">
                         <label>Titel</label>
                         <MyInput type="text"
-                            valid={valid.value}
+                            valid={this.pristine || valid.title.valid}
                             name="title"
                             id="title"
                             value={this.state.title}
@@ -76,7 +83,9 @@ export default class EditBlogEntry extends Component {
                             placeholder="Bildadresse eingeben..." />
                     </div>
                     <button type="submit" className="btn btn-default"
-                        disabled={ titleLink.error}>
+                        disabled={!valid.title.valid}
+
+                        >
                         Blogeintrag speichern
                     </button>
                 </form>
@@ -87,14 +96,16 @@ export default class EditBlogEntry extends Component {
 
 class MyInput extends Component {
     static propTypes = {
-        value:    PropTypes.string.isRequired,
-        onChange:    PropTypes.func.isRequired,
+        value:      PropTypes.string.isRequired,
+        valid:      PropTypes.bool.isRequired,
+        onChange:   PropTypes.func.isRequired,
     };
 
     constructor(props) {
         super(props);
         this.state = {
             validationStarted: false,
+            validationErrors: {},
             touched: false
         };
     }
@@ -102,7 +113,7 @@ class MyInput extends Component {
     componentWillMount() {
         let startValidation = function() {
             this.setState({
-                validationStarted: true
+                validationStarted: true,
             });
         };
 
@@ -138,12 +149,28 @@ class MyInput extends Component {
                     className={classes}
                     onChange={this.handleChange} />
                 <div style={{display: 
-                    (this.state.touched && this.state.validationStarted && !valid) ? 'block' : 'none'}}
+                    (this.state.validationStarted && !valid) ? 'block' : 'none'}}
                     className="alert alert-danger error-placeholder">
                     {'error' || ''}
                 </div>
             </div>
         );
     }
+}
 
+class Validator {
+    constructor(props) {
+
+    }
+        //     if( !this.error && !whenValid( this.value ) ){
+        //     this.error = error || whenValid.error || defaultError;
+        // }
+    check = (rule) => {
+
+        return this;
+    }
+
+    getValidationError() {
+        return this.error;
+    }
 }
