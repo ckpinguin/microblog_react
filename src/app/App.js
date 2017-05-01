@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 // import logo from './logo.svg';
 
@@ -9,22 +8,24 @@ import Layout from './layout/Layout';
 import BlogList from './blog-list/BlogList';
 import BlogForm from './blog-form/BlogForm';
 
+import configureStore from './store/configureStore';
+import { loadBlogEntries } from './actions';
+
+const store = configureStore();
+let initialBlogEntries;
+store.dispatch(loadBlogEntries());
+((e) => {initialBlogEntries = e;});
+
 export default class App extends Component {
-    static propTypes = {
-        title:          PropTypes.string.isRequired,
-        initialBlogEntries:    PropTypes.array
-    };
-    
     static defaultProps = {
         title: 'CK\'s microblog!',
-        initialBlogEntries: [{}] // this also gets evaluated with blogEntries!
     };
 
     constructor(props) {
         super(props);
         this.state = 
             {
-                blogEntries: this.props.initialBlogEntries,
+                blogEntries: initialBlogEntries,
                 newEntry: {
                     title: '',
                     text: '',
@@ -52,6 +53,7 @@ export default class App extends Component {
     }
 
     render() {
+        console.log('store.getState().xyz: ',store.getState() );
         return (
             <div className="container">
                 {/* Just mimicking angular templating with the 
@@ -60,7 +62,7 @@ export default class App extends Component {
                     <h1>{this.props.title}</h1>
                     <BlogForm newEntry={this.state.newEntry} onSubmit={ e => this.saveBlogEntry(e) } />
                     <p>Attention item</p>
-                    <BlogList blogEntries={this.state.blogEntries} />
+                    <BlogList blogEntries={store.getState().blogEntries} />
                 </Layout>
             </div>
         );

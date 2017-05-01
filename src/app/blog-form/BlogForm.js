@@ -1,135 +1,96 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+// import PropTypes from 'prop-types';
 
-import Input from '../form-tags/input';
-import TextArea from '../form-tags/input';
-import { ruleRunner, run } from '../form-validation/validator';
-import { required, minLength, maxLength } from '../form-validation/rules';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
 
-import update from 'immutability-helper';
-import $ from 'jquery';
+import * as Actions from '../actions';
 
 import './BlogForm.css';
 
-export default class EditBlogEntry extends Component {
-    static propTypes = {
-        newEntry:    PropTypes.object.isRequired,
-        onSubmit:    PropTypes.func.isRequired,
-    };
+import validate from './validate';
 
-    fieldValidations = [
-        ruleRunner('title', 'Title', required, minLength(5), maxLength(128)),
-        ruleRunner('text', 'Text', required)
-    ];
+// const  { DOM: { input, textarea } } = React;
+// import * as Actions from '../actions';
 
-    errorFor = (field) => {
-        return this.state.validationErrors[field];
-    }
+const renderField = ({ input, label, className, placeholder, type, meta: { touched, error } }) => (
+    <div>
+        <label>{label}</label>
+        <div>
+            <input {...input}
+                type={type}
+                className={className}
+                placeholder={placeholder} />
+            {touched && error && <span>{error}</span>}
+        </div>
+    </div>
+);
+const renderTextArea = ({ input, label, className, placeholder, meta: { touched, error } }) => (
+    <div>
+        <label>{label}</label>
+        <div>
+            <textarea {...input}
+                className={className}
+                placeholder={placeholder}  />
+            {touched && error && <span>{error}</span>}
+        </div>
+    </div>
+);
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            showErrors: false,
-            validationErrors: {}
-        };
-        // Run validations on initial state
-        // this.state.validationErrors = run(this.state, fieldValidations);
-    }
-
-    componentWillMount() {
-        this.setState(this.props.newEntry);
-    }
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-        // No submit if errors exist
-        if($.isEmptyObject(this.state.validationErrors) === false) {
-            this.setState({showErrors: true});
-            return null;
-        }
-        // OK, so we submit up the chain
-        this.props.onSubmit(this.state);
-        this.setState(this.props.newEntry); // anti-pattern?
-        this.pristine = true;
-    }
-
-    handleFieldChanged(field) {
-        return (e) => {
-            // update() is provided by immutability-helper
-            let newState = update(this.state, {
-                [field]: {$set: e.target.value}
-            });
-            // let newState2 = {
-            //     ...this.state,
-            //     validationErrors: run(newState, this.fieldValidations)
-            // };
-            newState.validationErrors = run(newState, this.fieldValidations);
-            this.setState(newState);
-        };
-    }
-
-    handleChange = (e) => {
-        e.preventDefault();
-        this.pristine = false;
-        const target = e.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-        const newState = update(this.state, {
-                [name]: {$set: value}
-        });
-        newState.validationErrors = run(newState, this.fieldValidations);
-        this.setState(newState);
-        // this.setState({
-        //     [name]: value
-        // });
-    }
-
-    render() {
-        // let valid = this.validate(this.state);
-        return (
-            <div className="BlogForm">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label>Titel</label>
-                        <Input type="text"
-                            // valid={this.pristine || false}
-                            name="title"
-                            id="title"
-                            showError={this.state.showErrors}
-                            errorText={this.errorFor('title')}
-                            value={this.state.title}
-                            onChange={this.handleChange}
-                            className="form-control"
-                            placeholder="Titel eingeben..." />
-                    </div>
-                    <div className="form-group">
-                        <label>Inhalt</label>
-                        <TextArea
-                            name="text"
-                            showError={this.state.showErrors}
-                            errorText={this.errorFor('text')}
-                            value={this.state.text}
-                            onChange={this.handleChange}
-                            className="form-control"
-                            placeholder="Textinhalt eingeben..." />
-                    </div>
-                    <div className="form-control">
-                        <label>Bild-URL:</label>
-                        <Input type="text"
-                            name="image"
-                            id="image"
-                            value={this.state.image}
-                            onChange={this.handleChange}
-                            placeholder="Bildadresse eingeben..." />
-                    </div>
-                    <button type="submit" className="btn btn-default"
-                        disabled={this.state.showErrors}
-                        >
-                        Blogeintrag speichern
-                    </button>
-                </form>
+const EditBlogEntryForm = (props) => {
+    const { handleSubmit, pristine, reset, submitting } = props;
+    return (
+        <form onSubmit={handleSubmit}>
+            <div className="form-group">
+                <Field name="title"
+                    type="text"
+                    component={renderField}
+                    label="Titel"
+                    className="form-control"
+                    placeholder="Titel eingeben..." />
             </div>
-        );
-    }
+            <div className="form-group">
+                <Field name="text"
+                    component={renderTextArea}
+                    label="Text"
+                    className="form-control"
+                    placeholder="Textinhalt eingeben..." />
+            </div>  
+            <div className="form-group">
+                <Field name="image"
+                    type="text"
+                    component={renderField}
+                    label="Bild-URL:"
+                    className="form-control"
+                    placeholder="Bildadresse eingeben..." />
+            </div>  
+            <div>
+                <button type="submit" className="btn btn-default"
+                    disabled={submitting}>
+                    Blogeintrag speichern
+                </button>
+                <button type="button"
+                    disabled={pristine || submitting}
+                    onClick={reset}>
+                    Formular leeren
+                </button>
+            </div>
+        </form>
+    );
+};
+
+function mapStateToProps(state) {
+    return {
+        entry: state.newEntry
+    };
+}
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(Actions, dispatch);
 }
 
+export default reduxForm({
+    form: 'editBlogEntry',
+    validate,
+})(EditBlogEntryForm);
+// .connect(mapStateToProps, mapDispatchToProps)(EditBlogEntryForm);
