@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Link from 'valuelink';
-import { Input, TextArea } from 'valuelink/tags';
+import Input from '../form-tags/input';
+import TextArea from '../form-tags/input';
+import { ruleRunner, run } from '../form-validation/validator';
+import { required, minLength, maxLength } from '../form-validation/rules';
 
-import _ from 'underscore';
+import update from 'immutability-helper';
+import $ from 'jquery';
 
 import './BlogForm.css';
 
@@ -14,15 +17,55 @@ export default class EditBlogEntry extends Component {
         onSubmit:    PropTypes.func.isRequired,
     };
 
+    fieldValidations = [
+        ruleRunner('title', 'Title', required, minLength(5), maxLength(128)),
+        ruleRunner('text', 'Text', required)
+    ];
+
+    errorFor = (field) => {
+        return this.state.validationErrors[field];
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            showErrors: false,
+            validationErrors: {}
+        };
+        // Run validations on initial state
+        // this.state.validationErrors = run(this.state, fieldValidations);
+    }
+
     componentWillMount() {
         this.setState(this.props.newEntry);
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
+        // No submit if errors exist
+        if($.isEmptyObject(this.state.validationErrors) === false) {
+            this.setState({showErrors: true});
+            return null;
+        }
+        // OK, so we submit up the chain
         this.props.onSubmit(this.state);
         this.setState(this.props.newEntry); // anti-pattern?
         this.pristine = true;
+    }
+
+    handleFieldChanged(field) {
+        return (e) => {
+            // update() is provided by immutability-helper
+            let newState = update(this.state, {
+                [field]: {$set: e.target.value}
+            });
+            // let newState2 = {
+            //     ...this.state,
+            //     validationErrors: run(newState, this.fieldValidations)
+            // };
+            newState.validationErrors = run(newState, this.fieldValidations);
+            this.setState(newState);
+        };
     }
 
     handleChange = (e) => {
@@ -31,39 +74,29 @@ export default class EditBlogEntry extends Component {
         const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-        this.setState({
-            [name]: value
+        const newState = update(this.state, {
+                [name]: {$set: value}
         });
+        newState.validationErrors = run(newState, this.fieldValidations);
+        this.setState(newState);
+        // this.setState({
+        //     [name]: value
+        // });
     }
-
-    validate = (state) => {
-
-        // const titleLink = linked.title
-        //     .check(x => x, 'Titel ist ein Pflichtfeld')
-        //     .check(x => x.length >= 5, 'Titel muss mindestens 5 Zeichen enthalten')
-        //     .check(x => x.length < 128, 'Titel darf maximal 128 Zeichen enthalten');
-        return {
-            title: {
-                valid: state.title.length >= 5 && state.title.length < 128,
-                error: ''
-            }
-        };
-    }
-
-
 
     render() {
-        const linked = Link.all(this, 'title', 'text', 'image');
-        let valid = this.validate(this.state);
+        // let valid = this.validate(this.state);
         return (
             <div className="BlogForm">
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label>Titel</label>
-                        <MyInput type="text"
-                            valid={this.pristine || valid.title.valid}
+                        <Input type="text"
+                            // valid={this.pristine || false}
                             name="title"
                             id="title"
+                            showError={this.state.showErrors}
+                            errorText={this.errorFor('title')}
                             value={this.state.title}
                             onChange={this.handleChange}
                             className="form-control"
@@ -72,19 +105,25 @@ export default class EditBlogEntry extends Component {
                     <div className="form-group">
                         <label>Inhalt</label>
                         <TextArea
-                            valueLink={linked.text}
+                            name="text"
+                            showError={this.state.showErrors}
+                            errorText={this.errorFor('text')}
+                            value={this.state.text}
+                            onChange={this.handleChange}
                             className="form-control"
                             placeholder="Textinhalt eingeben..." />
                     </div>
                     <div className="form-control">
                         <label>Bild-URL:</label>
                         <Input type="text"
-                            valueLink={linked.image}
+                            name="image"
+                            id="image"
+                            value={this.state.image}
+                            onChange={this.handleChange}
                             placeholder="Bildadresse eingeben..." />
                     </div>
                     <button type="submit" className="btn btn-default"
-                        disabled={!valid.title.valid}
-
+                        disabled={this.state.showErrors}
                         >
                         Blogeintrag speichern
                     </button>
@@ -94,83 +133,3 @@ export default class EditBlogEntry extends Component {
     }
 }
 
-class MyInput extends Component {
-    static propTypes = {
-        value:      PropTypes.string.isRequired,
-        valid:      PropTypes.bool.isRequired,
-        onChange:   PropTypes.func.isRequired,
-    };
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            validationStarted: false,
-            validationErrors: {},
-            touched: false
-        };
-    }
-
-    componentWillMount() {
-        let startValidation = function() {
-            this.setState({
-                validationStarted: true,
-            });
-        };
-
-        if (this.props.value) { // input not empty?
-            startValidation();
-        } else {
-            this.delayedValidate = _.debounce(startValidation, 1500);
-        }
-    }
-
-    componentWillUnmount() {
-        this.delayedValidate.cancel();
-    }
-
-    handleChange = (e) => {
-        if (!this.state.validationStarted) {
-            this.delayedValidate();
-        }
-        this.props.onChange(e);
-    }
-
-    render() {
-        const { valid, className, ...rest } = this.props;
-        let classes = className;
-        if (this.state.validationStarted) {
-            classes = (valid ? classes : classes + ' invalid');
-        }
-        return (
-            <div>
-                <input
-                    {...rest}
-                    onBlur={() => this.setState({touched: true})}
-                    className={classes}
-                    onChange={this.handleChange} />
-                <div style={{display: 
-                    (this.state.validationStarted && !valid) ? 'block' : 'none'}}
-                    className="alert alert-danger error-placeholder">
-                    {'error' || ''}
-                </div>
-            </div>
-        );
-    }
-}
-
-class Validator {
-    constructor(props) {
-
-    }
-        //     if( !this.error && !whenValid( this.value ) ){
-        //     this.error = error || whenValid.error || defaultError;
-        // }
-    check = (rule) => {
-
-        return this;
-    }
-
-    getValidationError() {
-        return this.error;
-    }
-}
