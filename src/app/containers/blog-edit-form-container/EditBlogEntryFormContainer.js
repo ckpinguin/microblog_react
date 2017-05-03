@@ -9,7 +9,6 @@ import validate from './validate';
 
 import EditBlogEntryForm from '../../components/blog-edit-form/EditBlogEntryForm';
 
-
 const initialValues = {
     title: 'INITIAL TITLE',
     text: 'Some bogus text'
@@ -24,12 +23,16 @@ let EditBlogEntryFormContainer = ({ saveBlogEntry, ...rest }) => {
     // console.log('rest: ', rest);
     return (
         <div>
-            <EditBlogEntryForm initialValues={initialValues} onSubmit={onSubmit} {...rest} />
+            <EditBlogEntryForm
+                initialValues={initialValues}
+                onSubmit={onSubmit}
+                {...rest}
+            />
         </div>
     );
 };
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
     return bindActionCreators(Actions, dispatch);
 }
 
