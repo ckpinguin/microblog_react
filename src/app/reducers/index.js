@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
-import editBlogEntry from './editBlogEntry';
-import blogEntries from './blogEntries';
+import blogEntriesReducer from './blogEntriesReducer';
+import newBlogEntryReducer from './newBlogEntryReducer';
+import editBlogFormReducer from './editBlogFormReducer';
+import {INSERT_BLOG_ENTRY_SUCCESS} from '../actions';
+
 
 export default combineReducers({
-    editBlogEntry,
-    blogEntries,
-    formReducer
+    blogEntries: blogEntriesReducer,
+    newBlogEntry: newBlogEntryReducer,
+    form: editBlogFormReducer
 });

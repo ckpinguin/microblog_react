@@ -1,20 +1,18 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 
-import * as Actions from '../actions';
+import * as Actions from '../../actions';
+import validate from './validate';
 
 import './BlogForm.css';
 
-import validate from './validate';
-
 // const  { DOM: { input, textarea } } = React;
-// import * as Actions from '../actions';
 
-const renderField = ({ input, label, className, placeholder, type, meta: { touched, error } }) => (
+const renderField = ({ input, label, className, placeholder,
+                       type, meta: { touched, error } }) => (
     <div>
         <label>{label}</label>
         <div>
@@ -22,26 +20,34 @@ const renderField = ({ input, label, className, placeholder, type, meta: { touch
                 type={type}
                 className={className}
                 placeholder={placeholder} />
-            {touched && error && <span>{error}</span>}
+            {touched && error && <div className="alert alert-danger error-placeholder">{error}</div>}
         </div>
     </div>
 );
-const renderTextArea = ({ input, label, className, placeholder, meta: { touched, error } }) => (
+const renderTextArea = ({ input, label, className, placeholder,
+                          meta: { touched, error } }) => (
     <div>
         <label>{label}</label>
         <div>
             <textarea {...input}
                 className={className}
                 placeholder={placeholder}  />
-            {touched && error && <span>{error}</span>}
+            {touched && error && <div className="alert alert-danger error-placeholder">{error}</div>}
         </div>
     </div>
 );
 
-const EditBlogEntryForm = (props) => {
-    const { handleSubmit, pristine, reset, submitting } = props;
+
+let EditBlogEntryForm = ({ newBlogEntry, resetNewBlogEntry, insertBlogEntry, ...rest }) => {
+    const submitMyForm = (data) => {
+        console.log('submitting form with data: ', data);
+        insertBlogEntry(data);
+        //dispatch(Actions.resetNewBlogEntry());
+    };
+
+    const { handleSubmit, pristine, submitting } = rest;
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(submitMyForm)}>
             <div className="form-group">
                 <Field name="title"
                     type="text"
@@ -72,7 +78,7 @@ const EditBlogEntryForm = (props) => {
                 </button>
                 <button type="button"
                     disabled={pristine || submitting}
-                    onClick={reset}>
+                    onClick={resetNewBlogEntry}>
                     Formular leeren
                 </button>
             </div>
@@ -80,17 +86,23 @@ const EditBlogEntryForm = (props) => {
     );
 };
 
-function mapStateToProps(state) {
+function mapStateToProps({newBlogEntry}) {
     return {
-        entry: state.newEntry
+        newBlogEntry
     };
 }
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
     return bindActionCreators(Actions, dispatch);
 }
 
-export default reduxForm({
-    form: 'editBlogEntry',
-    validate,
+// This injects meta: error, touched etc.
+EditBlogEntryForm = reduxForm({
+    form: 'EditBlogEntryForm',
+    validate
 })(EditBlogEntryForm);
-// .connect(mapStateToProps, mapDispatchToProps)(EditBlogEntryForm);
+
+// This injects actions bound to props and initializes local state
+export default connect(
+     mapStateToProps,
+     mapDispatchToProps,
+)(EditBlogEntryForm);
