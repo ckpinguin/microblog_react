@@ -3,7 +3,7 @@ import React from 'react';
 import { Field } from 'redux-form';
 
 
-import './BlogForm.css';
+import './EditBlogEntryForm.css';
 
 // const  { DOM: { input, textarea } } = React;
 
@@ -33,10 +33,10 @@ const renderTextArea = ({ input, label, className, placeholder,
     </div>
 );
 
-const EditBlogEntryForm = ({ submitMyForm, reset, handleSubmit,
+const EditBlogEntryForm = ({ onSubmit, reset, handleSubmit,
                              pristine, submitting, ...rest }) => {
     return (
-        <form onSubmit={handleSubmit(submitMyForm)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
                 <Field name="title"
                     type="text"

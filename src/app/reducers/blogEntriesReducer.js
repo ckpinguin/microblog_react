@@ -1,4 +1,4 @@
-import { LOAD_BLOG_ENTRIES, INSERT_BLOG_ENTRY } from '../actions';
+import { LOAD_BLOG_ENTRIES, SAVE_BLOG_ENTRY } from '../actions';
 
 const initialEntries = [
     {
@@ -24,13 +24,13 @@ export default function blogEntriesReducer(state = initialEntries, action) {
     case LOAD_BLOG_ENTRIES:
         console.log('reducer LOAD_BLOG_ENTRIES called');
         return state;
-    case INSERT_BLOG_ENTRY:
+    case SAVE_BLOG_ENTRY:
         console.log('reducer INSERT_BLOG_ENTRY called with ', action.entry);
         let entry = action.entry;
-        console.log('previous state is: ', state);
+        // console.log('previous state is: ', state);
         entry.id = state[state.length-1].id + 1;
-        console.log('id is now: ', entry.id);
-        console.log('should return ', [...state, entry]);
+        // console.log('id is now: ', entry.id);
+        // console.log('state will be: ', [...state, entry]);
         return [
             ...state,
             entry

@@ -7,20 +7,24 @@ import { reduxForm } from 'redux-form';
 import * as Actions from '../../actions';
 import validate from './validate';
 
-import EditBlogEntryForm from '../../components/blog-form/BlogForm';
+import EditBlogEntryForm from '../../components/blog-edit-form/EditBlogEntryForm';
 
 
-let EditBlogEntryFormContainer = ({ resetNewBlogEntry, insertBlogEntry, ...rest }) => {
+const initialValues = {
+    title: 'INITIAL TITLE',
+    text: 'Some bogus text'
+};
+let EditBlogEntryFormContainer = ({ saveBlogEntry, ...rest }) => {
     const reset = rest.reset;
-    const submitMyForm = (data) => {
+    const onSubmit = (data) => {
         console.log('submitting form with data: ', data);
-        insertBlogEntry(data);
+        saveBlogEntry(data);
         reset();
     };
-    console.log('rest: ', rest);
+    // console.log('rest: ', rest);
     return (
         <div>
-            <EditBlogEntryForm submitMyForm={submitMyForm} {...rest} />
+            <EditBlogEntryForm initialValues={initialValues} onSubmit={onSubmit} {...rest} />
         </div>
     );
 };

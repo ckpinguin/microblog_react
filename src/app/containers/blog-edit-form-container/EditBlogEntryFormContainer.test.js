@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BlogFormContainer from './BlogFormContainer';
+import EditBlogEntryFormContainer from './EditBlogEntryFormContainer';
 
 it('renders without crashing', () => {
     const newEntry = {
@@ -13,5 +13,5 @@ it('renders without crashing', () => {
         console.log('TEST: submit form');
     };
     const div = document.createElement('div');
-    ReactDOM.render(<BlogFormContainer newEntry={newEntry} onSubmit={onSubmit} />, div);
+    ReactDOM.render(<EditBlogEntryFormContainer newEntry={newEntry} onSubmit={onSubmit} />, div);
 });
