@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Layout from './presentation/layout/Layout';
-import BlogList from './container/blog-list/BlogList';
-import BlogForm from './presentation/blog-form/BlogForm';
+import Layout from './components/layout/Layout';
+import BlogList from './containers/blog-list/BlogList';
+import BlogForm from './components/blog-form/BlogForm';
 
 import configureStore from './store/configureStore';
 
