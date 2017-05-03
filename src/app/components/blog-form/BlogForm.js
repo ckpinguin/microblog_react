@@ -42,7 +42,7 @@ let EditBlogEntryForm = ({ newBlogEntry, resetNewBlogEntry, insertBlogEntry, ...
     const submitMyForm = (data) => {
         console.log('submitting form with data: ', data);
         insertBlogEntry(data);
-        //dispatch(Actions.resetNewBlogEntry());
+        resetNewBlogEntry();
     };
 
     const { handleSubmit, pristine, submitting } = rest;
