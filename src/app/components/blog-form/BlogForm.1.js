@@ -38,11 +38,11 @@ const renderTextArea = ({ input, label, className, placeholder,
 );
 
 
-let EditBlogEntryFormContainer = ({ newBlogEntry, resetNewBlogEntry, insertBlogEntry, ...rest }) => {
+let EditBlogEntryForm = ({ newBlogEntry, resetNewBlogEntry, insertBlogEntry, ...rest }) => {
     const submitMyForm = (data) => {
         console.log('submitting form with data: ', data);
         insertBlogEntry(data);
-        //dispatch(Actions.resetNewBlogEntry());
+        resetNewBlogEntry();
     };
 
     const { handleSubmit, pristine, submitting } = rest;
@@ -96,13 +96,13 @@ function mapDispatchToProps (dispatch) {
 }
 
 // This injects meta: error, touched etc.
-EditBlogEntryFormContainer = reduxForm({
+EditBlogEntryForm = reduxForm({
     form: 'EditBlogEntryForm',
     validate
-})(EditBlogEntryFormContainer);
+})(EditBlogEntryForm);
 
 // This injects actions bound to props and initializes local state
 export default connect(
      mapStateToProps,
      mapDispatchToProps,
-)(EditBlogEntryFormContainer);
+)(EditBlogEntryForm);

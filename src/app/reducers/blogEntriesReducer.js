@@ -27,10 +27,14 @@ export default function blogEntriesReducer(state = initialEntries, action) {
     case INSERT_BLOG_ENTRY:
         console.log('reducer INSERT_BLOG_ENTRY called with ', action.entry);
         let entry = action.entry;
+        console.log('previous state is: ', state);
         entry.id = state[state.length-1].id + 1;
         console.log('id is now: ', entry.id);
-        console.log('should return ', state.concat(entry));
-        return state.concat(entry);
+        console.log('should return ', [...state, entry]);
+        return [
+            ...state,
+            entry
+        ];
     default:
         return state;
     }

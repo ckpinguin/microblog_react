@@ -1,11 +1,7 @@
 import React from 'react';
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { Field, reduxForm, reset } from 'redux-form';
+import { Field } from 'redux-form';
 
-import * as Actions from '../../actions';
-import validate from './validate';
 
 import './BlogForm.css';
 
@@ -37,15 +33,8 @@ const renderTextArea = ({ input, label, className, placeholder,
     </div>
 );
 
-
-let EditBlogEntryForm = ({ newBlogEntry, resetNewBlogEntry, insertBlogEntry, ...rest }) => {
-    const submitMyForm = (data) => {
-        console.log('submitting form with data: ', data);
-        insertBlogEntry(data);
-        resetNewBlogEntry();
-    };
-
-    const { handleSubmit, pristine, submitting } = rest;
+const EditBlogEntryForm = ({ submitMyForm, reset, handleSubmit,
+                             pristine, submitting, ...rest }) => {
     return (
         <form onSubmit={handleSubmit(submitMyForm)}>
             <div className="form-group">
@@ -78,7 +67,7 @@ let EditBlogEntryForm = ({ newBlogEntry, resetNewBlogEntry, insertBlogEntry, ...
                 </button>
                 <button type="button"
                     disabled={pristine || submitting}
-                    onClick={resetNewBlogEntry}>
+                    onClick={reset}>
                     Formular leeren
                 </button>
             </div>
@@ -86,23 +75,4 @@ let EditBlogEntryForm = ({ newBlogEntry, resetNewBlogEntry, insertBlogEntry, ...
     );
 };
 
-function mapStateToProps({newBlogEntry}) {
-    return {
-        newBlogEntry
-    };
-}
-function mapDispatchToProps (dispatch) {
-    return bindActionCreators(Actions, dispatch);
-}
-
-// This injects meta: error, touched etc.
-EditBlogEntryForm = reduxForm({
-    form: 'EditBlogEntryForm',
-    validate
-})(EditBlogEntryForm);
-
-// This injects actions bound to props and initializes local state
-export default connect(
-     mapStateToProps,
-     mapDispatchToProps,
-)(EditBlogEntryForm);
+export default EditBlogEntryForm;

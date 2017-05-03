@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import Layout from './components/layout/Layout';
 import BlogList from './containers/blog-list/BlogList';
-import BlogForm from './components/blog-form/BlogForm';
+// import BlogForm from './components/blog-form/BlogForm';
+import BlogFormContainer from './containers/blog-form-container/BlogFormContainer';
 
 import configureStore from './store/configureStore';
 
@@ -24,7 +25,7 @@ export default class App extends Component {
                 children, more explicit props would also work here */}
                 <Layout>
                     <h1>{this.props.title}</h1>
-                    <BlogForm 
+                    <BlogFormContainer
                         // resetForm={ Actions.resetNewBlogEntry }
                         // insertBlogEntry={ Actions.insertBlogEntry }
                         // onSubmit={ Actions.insertBlogEntry }
