@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import * as Actions from '../../actions';
 
-import BlogItem from '../../presentation/blog-item/BlogItem';
+import BlogItem from '../../components/blog-item/BlogItem';
 
 let BlogList = ({ blogEntries }) => {
     let itemList;
