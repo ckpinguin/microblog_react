@@ -3,14 +3,19 @@ import PropTypes from 'prop-types';
 
 import './BlogItem.css';
 
-const BlogItem = ({item}) => {
+const BlogItem = ({item, onDelete}) => {
     return (
         <div className="BlogItem">
-            <div className="blog-image">
+            <hr />
+            {item.image && <div className="blog-image">
                 <img src={item.image} alt={item.title}/>
-            </div>
+            </div>}
             <div className="blog-summary">
-                <h2>{item.title}</h2>
+                <h2>
+                    {item.title}<br />
+                    <div className="fa fa-trash"
+                        onClick={onDelete}/>
+                    </h2>
                 <p>{item.text}</p>
             </div>
         </div>

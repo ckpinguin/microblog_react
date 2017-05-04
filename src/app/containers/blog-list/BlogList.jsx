@@ -17,10 +17,12 @@ let BlogList = ({ blogEntries }) => {
 
     return (
         <div className="BlogList">
-            <p>
-                List of blog entries:
-            </p>export default BlogList;
-            {itemList ? itemList : null}
+            {itemList 
+                ? <div>
+                      <p>List of blog entries:</p>
+                      {itemList}
+                  </div>
+                : <p>No blog entries</p>}
         </div>
     );
 };
