@@ -12,10 +12,12 @@
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
     "redux-form": "^6.6.3",
+    "redux-thunk": "^2.2.0",
     "underscore": "^1.8.3",
     "valuelink": "^1.4.3"
   },
   "devDependencies": {
+    "expect": "^1.20.2",
     "npm-run-all": "^4.0.2",
     "react-awesome-form-validator": "^1.4.3",
     "react-scripts": "0.9.5",

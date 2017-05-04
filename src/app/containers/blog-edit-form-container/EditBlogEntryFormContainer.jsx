@@ -32,9 +32,9 @@ let EditBlogEntryFormContainer = ({ saveBlogEntry, ...rest }) => {
     );
 };
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(Actions, dispatch);
-}
+};
 
 // This injects meta: error, touched etc.
 EditBlogEntryFormContainer = reduxForm({

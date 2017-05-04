@@ -7,11 +7,7 @@ import './Layout.css';
 
 import NavBar from '../navbar/NavBar';
 
-Layout.propTypes = { 
-    children:       PropTypes.array.isRequired,
-};
-
-export default function Layout({children}) {
+const Layout = ({children}) => {
     return (
         <div className="Layout">
             <NavBar />
@@ -34,4 +30,8 @@ export default function Layout({children}) {
             </div>
         </div>
     );
-}
+};
+Layout.propTypes = { 
+    children:       PropTypes.array.isRequired,
+};
+export default Layout;

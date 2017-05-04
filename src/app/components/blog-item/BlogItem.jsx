@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 
 import './BlogItem.css';
 
-BlogItem.propTypes = {
-    item:   PropTypes.object.isRequired
-};
-
-export default function BlogItem({item}) {
+const BlogItem = ({item}) => {
     return (
         <div className="BlogItem">
             <div className="blog-image">
@@ -19,4 +15,8 @@ export default function BlogItem({item}) {
             </div>
         </div>
     );
-}
+};
+BlogItem.propTypes = {
+    item:   PropTypes.object.isRequired
+};
+export default BlogItem;

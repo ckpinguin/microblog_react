@@ -25,11 +25,11 @@ let BlogList = ({ blogEntries }) => {
     );
 };
 
-function mapStateToProps({blogEntries}) {
+const mapStateToProps = ({blogEntries}) => {
     return {
         blogEntries
     };
-}
+};
 
 const mapDispatchToProps = {
     load: Actions.loadBlogEntries

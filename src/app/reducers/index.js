@@ -2,10 +2,10 @@ import { combineReducers } from 'redux';
 
 import blogEntriesReducer from './blogEntriesReducer';
 import editBlogFormReducer from './editBlogFormReducer';
-import formErrorReducer from './formErrorReducer';
+import loginReducer from './loginReducer';
 
 export default combineReducers({
     blogEntries: blogEntriesReducer,
-    formError: formErrorReducer,
+    login: loginReducer,
     form: editBlogFormReducer
 });
