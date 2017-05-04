@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './BlogItem.css';
 
-const BlogItem = ({item, onDelete}) => {
+const BlogItem = ({item, onDelete, onEdit}) => {
     return (
         <div className="BlogItem">
             <hr />
@@ -14,7 +14,9 @@ const BlogItem = ({item, onDelete}) => {
                 <h2>
                     {item.title}<br />
                     <div className="fa fa-trash"
-                        onClick={onDelete}/>
+                        onClick={() => onDelete(item.id)}/>
+                    <div className="fa fa-edit"
+                        onClick={() => onEdit(item.id)} />
                     </h2>
                 <p>{item.text}</p>
             </div>

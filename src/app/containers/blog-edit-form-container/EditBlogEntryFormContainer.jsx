@@ -9,27 +9,29 @@ import validate from './validate';
 
 import EditBlogEntryForm from '../../components/blog-edit-form/EditBlogEntryForm';
 
-const initialValues = {
-    title: 'INITIAL TITLE',
-    text: 'Some bogus text'
-};
-let EditBlogEntryFormContainer = ({ saveBlogEntry, ...rest }) => {
-    const reset = rest.reset;
+let EditBlogEntryFormContainer = ({ saveBlogEntry, currentEntry, unsetCurrentBlogEntry, ...rest }) => {
     const onSubmit = (data) => {
         console.log('submitting form with data: ', data);
         saveBlogEntry(data);
-        reset();
+        // reset();
     };
-    // console.log('rest: ', rest);
+    console.log('rest: ', rest);
     return (
         <div>
             <EditBlogEntryForm
-                initialValues={initialValues}
                 onSubmit={onSubmit}
+                onReset={unsetCurrentBlogEntry}
+                fillForm={currentEntry}
                 {...rest}
             />
         </div>
     );
+};
+
+const mapStateToProps = (state) => {
+    return {
+        currentEntry: state.blog.currentEntry
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -44,6 +46,6 @@ EditBlogEntryFormContainer = reduxForm({
 
 // This injects actions bound to props and initializes local state
 export default connect(
-     undefined,
+     mapStateToProps,
      mapDispatchToProps,
 )(EditBlogEntryFormContainer);

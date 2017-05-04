@@ -1,12 +1,16 @@
 import { reducer as formReducer } from 'redux-form';
 
-import {SAVE_BLOG_ENTRY_SUCCESS} from '../actions';
+import {SAVE_BLOG_ENTRY_SUCCESS, UNSET_CURRENT_BLOG_ENTRY} from '../actions';
 
 
 export default formReducer.plugin({
-    EditBlogEntryForm: (state, action) => { // <------ 'editBlog' is name of form given to reduxForm()
+    EditBlogEntryForm: (state, action) => { // <------ 'EditBlogEntryForm' is name of form given to reduxForm()
         switch(action.type) {
         case SAVE_BLOG_ENTRY_SUCCESS:
+            console.log('formReducer catched SAVE_BLOG_ENTRY_SUCCESS');
+            return undefined;       // <--- blow away form data
+        case UNSET_CURRENT_BLOG_ENTRY:
+            console.log('formReducer catched UNSET_CURRENT_BLOG_ENTRY');
             return undefined;       // <--- blow away form data
         default:
             return state;

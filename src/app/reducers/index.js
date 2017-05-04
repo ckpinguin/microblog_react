@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux';
 
-import blogEntriesReducer from './blogEntriesReducer';
+import blogReducer from './blogReducer';
+
 import editBlogFormReducer from './editBlogFormReducer';
 import loginReducer from './loginReducer';
+// import currentBlogEntryReducer from './currentBlogEntryReducer';
 
 export default combineReducers({
-    blogEntries: blogEntriesReducer,
+    blog: blogReducer,
+    // currentBlogEntry: currentBlogEntryReducer,
     login: loginReducer,
     form: editBlogFormReducer
 });

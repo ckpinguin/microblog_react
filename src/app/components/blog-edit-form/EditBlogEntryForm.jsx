@@ -18,16 +18,22 @@ export default class EditBlogEntryForm extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log('EditBlogEntryForm got props.fillForm', this.props.fillForm);
         if (nextProps.invalid) {
             this.setState({errors: true});
         } else {
             this.setState({errors: false});
         }
+        // Prefill form if asked for...
+        if (nextProps.fillForm !== this.props.fillForm) {
+            nextProps.initialize(nextProps.fillForm);
+        }
     }
 
     render() {
-        const { onSubmit, reset, handleSubmit,
+        const { onSubmit, onReset, handleSubmit,
                 pristine, submitting } = this.props;
+        console.log('EditBlogEntryForm is rendering...');
         return (
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
@@ -60,7 +66,7 @@ export default class EditBlogEntryForm extends React.Component {
                     </button>
                     <button type="button" className="btn btn-default"
                         disabled={pristine || submitting}
-                        onClick={reset}>
+                        onClick={onReset}>
                         Formular leeren
                     </button>
                 </div>

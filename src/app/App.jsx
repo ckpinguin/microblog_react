@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import Layout from './components/layout/Layout';
 import BlogList from './containers/blog-list/BlogList';
-// import BlogForm from './components/blog-form/BlogForm';
 import EditBlogEntryFormContainer from './containers/blog-edit-form-container/EditBlogEntryFormContainer';
 
 // import logo from './logo.svg';
@@ -31,7 +30,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    blogEntries: state.blogEntries
+    blog: state.blog
 });
 
 export default connect(

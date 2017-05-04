@@ -6,12 +6,20 @@ import * as Actions from '../../actions';
 
 import BlogItem from '../../components/blog-item/BlogItem';
 
-let BlogList = ({ blogEntries }) => {
+let BlogList = ({ entries, deleteEntry, setCurrent }) => {
     let itemList;
 
-    if (blogEntries) {
-        itemList = blogEntries.map((entry) => {
-            return <BlogItem key={entry.id} item={entry}>{entry}</BlogItem>;
+    if (entries) {
+        itemList = entries.map((entry) => {
+            return (
+                <BlogItem
+                    key={entry.id}
+                    item={entry}
+                    onDelete={deleteEntry}
+                    onEdit={setCurrent}>
+                    {entry}
+                </BlogItem>
+            );
         });
     }
 
@@ -27,17 +35,17 @@ let BlogList = ({ blogEntries }) => {
     );
 };
 
-const mapStateToProps = ({blogEntries}) => {
+const mapStateToProps = (state) => {
     return {
-        blogEntries
+        entries: state.blog.entries
     };
 };
 
 const mapDispatchToProps = {
-    load: Actions.loadBlogEntries
+    deleteEntry: Actions.deleteBlogEntry,
+    setCurrent: Actions.setCurrentBlogEntryById
 };
 
-// This injects actions bound to props and initializes local state
 export default connect(
      mapStateToProps,
      mapDispatchToProps,
