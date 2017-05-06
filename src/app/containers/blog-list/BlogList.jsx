@@ -36,6 +36,7 @@ let BlogList = ({ entries, deleteEntry, setCurrent }) => {
 };
 
 const mapStateToProps = (state) => {
+    // console.log('entries: ', state.blog.entries);
     return {
         entries: state.blog.entries
     };

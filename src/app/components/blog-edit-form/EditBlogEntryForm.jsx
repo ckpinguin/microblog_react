@@ -18,7 +18,6 @@ export default class EditBlogEntryForm extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('EditBlogEntryForm got props.fillForm', this.props.fillForm);
         if (nextProps.invalid) {
             this.setState({errors: true});
         } else {
@@ -33,10 +32,13 @@ export default class EditBlogEntryForm extends React.Component {
     render() {
         const { onSubmit, onReset, handleSubmit,
                 pristine, submitting } = this.props;
-        console.log('EditBlogEntryForm is rendering...');
         return (
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
+                    <Field name="id"
+                        component={this.renderField}
+                        type="hidden"
+                        />
                     <Field name="title"
                         type="text"
                         component={this.renderField}

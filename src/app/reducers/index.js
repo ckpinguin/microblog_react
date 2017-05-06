@@ -1,14 +1,11 @@
 import { combineReducers } from 'redux';
 
-import blogReducer from './blogReducer';
+import login from './login';
+import blog from './blog';
 
-import editBlogFormReducer from './editBlogFormReducer';
-import loginReducer from './loginReducer';
-// import currentBlogEntryReducer from './currentBlogEntryReducer';
-
+// we only combine top-levels here, rest wil be handled
+// by reducer-composition pattern
 export default combineReducers({
-    blog: blogReducer,
-    // currentBlogEntry: currentBlogEntryReducer,
-    login: loginReducer,
-    form: editBlogFormReducer
+    blog,
+    login
 });

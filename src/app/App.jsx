@@ -11,7 +11,7 @@ import './App.css';
 const appTitle = 'CK\'s microblog!';
 class App extends Component {  
     componentWillReceiveProps(nextProps) {
-        console.log('Store updated: ', nextProps);
+        // console.log('Store updated: ', nextProps);
     }
     render() {
         return (

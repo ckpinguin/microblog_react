@@ -10,16 +10,10 @@ import validate from './validate';
 import EditBlogEntryForm from '../../components/blog-edit-form/EditBlogEntryForm';
 
 let EditBlogEntryFormContainer = ({ saveBlogEntry, currentEntry, unsetCurrentBlogEntry, ...rest }) => {
-    const onSubmit = (data) => {
-        console.log('submitting form with data: ', data);
-        saveBlogEntry(data);
-        // reset();
-    };
-    console.log('rest: ', rest);
     return (
         <div>
             <EditBlogEntryForm
-                onSubmit={onSubmit}
+                onSubmit={saveBlogEntry}
                 onReset={unsetCurrentBlogEntry}
                 fillForm={currentEntry}
                 {...rest}
@@ -30,7 +24,7 @@ let EditBlogEntryFormContainer = ({ saveBlogEntry, currentEntry, unsetCurrentBlo
 
 const mapStateToProps = (state) => {
     return {
-        currentEntry: state.blog.currentEntry
+        currentEntry: state.blog.currentEntry,
     };
 };
 
@@ -38,13 +32,13 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(Actions, dispatch);
 };
 
-// This injects meta: error, touched etc.
+
 EditBlogEntryFormContainer = reduxForm({
     form: 'EditBlogEntryForm',
+    getFormState: (state) => state.blog.editBlogEntryForm,
     validate
 })(EditBlogEntryFormContainer);
 
-// This injects actions bound to props and initializes local state
 export default connect(
      mapStateToProps,
      mapDispatchToProps,
