@@ -6,8 +6,6 @@ export const SET_CURRENT_BLOG_ENTRY = 'SET_CURRENT_BLOG_ENTRY';
 export const UNSET_CURRENT_BLOG_ENTRY = 'UNSET_CURRENT_BLOG_ENTRY';
 export const LOGIN = 'LOGIN';
 
-// TODO: remove console.log's if confident enough with redux...
-
 const guid = () => {
     const s4 = () => {
         return Math.floor((1 + Math.random()) * 0x10000)
@@ -18,63 +16,54 @@ const guid = () => {
     s4() + '-' + s4() + s4() + s4();
 };
 
+export const saveBlogEntrySuccess = () => ({
+    type: SAVE_BLOG_ENTRY_SUCCESS
+});
+
+export const saveBlogEntryInReducer = (entry) => ({
+    type: ADD_BLOG_ENTRY,
+    entry
+});
+
+export const updateBlogEntryInReducer = (entry) => ({
+    type: UPDATE_BLOG_ENTRY,
+    entry
+});
+
+export const setCurrentBlogEntry = (entry) => {
+    return {
+        type: SET_CURRENT_BLOG_ENTRY,
+        entry
+    };
+};
+
 // Normally we would save the entry into a backend server or database
-export function saveBlogEntry(entry) {
+export const saveBlogEntry = (entry) => {
     return (dispatch, getState) => {
-        // const entries = getState().blog.entries;
-        console.log('entry.id is: ', entry.id);
         // 0 is falsy in JS, so this is working only safely with
         // guid as id...
         if (entry.id) {
             const oldEntry = getState().blog.entries[entry.id];
             const merged = Object.assign({}, oldEntry, entry);
-            // const merged = { ...oldEntry, entry }; // does not work!
-            console.log('newly constructed: ', merged);
             dispatch(updateBlogEntryInReducer(merged));
         } else {
             const id = guid();
             entry.id = id;
-            console.log('constructed: ', entry);
             dispatch(saveBlogEntryInReducer(entry));
         }
         dispatch(saveBlogEntrySuccess());
     };
-}
+};
 
-export function saveBlogEntryInReducer(entry) {
-    console.log('action INSERT_BLOG_ENTRY called with: ', entry);
-    return {
-        type: ADD_BLOG_ENTRY,
-        entry
-    };
-}
-
-export function updateBlogEntryInReducer(entry) {
-    console.log('action UPDATE_BLOG_ENTRY called with: ', entry);
-    return {
-        type: UPDATE_BLOG_ENTRY,
-        entry
-    };
-}
-
-export function saveBlogEntrySuccess() {
-    console.log('action SAVE_BLOG_ENTRY_SUCCESS called');
-    return {
-        type: SAVE_BLOG_ENTRY_SUCCESS
-    };
-}
-
-export function unsetCurrentBlogEntry() {
-    return {
-        type: UNSET_CURRENT_BLOG_ENTRY
-    };
-}
+export const unsetCurrentBlogEntry = () => ({
+    type: UNSET_CURRENT_BLOG_ENTRY
+});
 
 // A bit an artificial example of using thunk capabilities ;-)
 // With thunk, we can use dispatch and getState in action creators
 // to make decisions, async calls etc. (i.e. side-effect stuff, that
 // is not allowed in reducers)
-export function setCurrentBlogEntryById(id) {
+export const setCurrentBlogEntryById = (id) => {
     console.log('action SET_CURRENT_BLOG_ENTRY called');
     
     return (dispatch, getState) => {
@@ -88,26 +77,19 @@ export function setCurrentBlogEntryById(id) {
         }
         dispatch(setCurrentBlogEntry(entry));
     };
-}
+};
 
-export function setCurrentBlogEntry(entry) {
-    return {
-        type: SET_CURRENT_BLOG_ENTRY,
-        entry
-    };
-}
-
-export function deleteBlogEntry(id) {
-    console.log('action DELETE_BLOG_ENTRY called');
+export const removeBlogEntry = (id) => {
+    console.log('action REMOVE_BLOG_ENTRY called');
     return {
         type: REMOVE_BLOG_ENTRY,
         id
     };
-}
+};
 
-export function login() {
+export const login = () => {
     console.log('action LOGIN called');
     return {
         type: LOGIN
     };
-}
+};

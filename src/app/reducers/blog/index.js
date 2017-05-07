@@ -4,7 +4,6 @@ import editBlogEntryForm from './editBlogEntryForm';
 import initialBlogState from './initialBlogState';
 
 const blog = (state = initialBlogState, action) => {
-    // console.log('blog state: ', state);
     return {
         // giving also full state access to be make
         // decisions upon other parts of the state-tree possible

@@ -7,9 +7,9 @@ import * as Actions from '../../actions';
 import BlogItem from '../../components/blog-item/BlogItem';
 
 let BlogList = ({ entries, deleteEntry, setCurrent }) => {
-    let itemList;
+    let itemList = [];
 
-    if (entries) {
+    if (entries != null) {
         itemList = entries.map((entry) => {
             return (
                 <BlogItem
@@ -36,14 +36,13 @@ let BlogList = ({ entries, deleteEntry, setCurrent }) => {
 };
 
 const mapStateToProps = (state) => {
-    // console.log('entries: ', state.blog.entries);
     return {
         entries: state.blog.entries
     };
 };
 
 const mapDispatchToProps = {
-    deleteEntry: Actions.deleteBlogEntry,
+    deleteEntry: Actions.removeBlogEntry,
     setCurrent: Actions.setCurrentBlogEntryById
 };
 

@@ -15,8 +15,15 @@ const initialBlogState = {
             image: 'http://random.cat/i/061_-_qxHYGTX.gif',
             date: null,
             tags: []
+        },
+        {
+            id: '54726e40-3297-11e7-93ae-92361f002671',
+            title: 'jumpy cat',
+            text: 'Told ya, everybody loves cats',
+            image: 'http://random.cat/view?i=428',
+            date: null,
+            tags: []
         }
     ],
-    currentEntry: undefined
 };
 export default initialBlogState;
