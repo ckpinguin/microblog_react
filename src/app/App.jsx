@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
 
 import Layout from './components/layout/Layout';
 import BlogList from './containers/blog-list/BlogList';
@@ -9,7 +8,7 @@ import EditBlogEntryFormContainer from './containers/blog-edit-form-container/Ed
 import './App.css';
 
 const appTitle = 'CK\'s microblog!';
-class App extends Component {  
+export default class App extends Component {  
     render() {
         return (
             <div className="container">
@@ -26,11 +25,3 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    blog: state.blog
-});
-
-export default connect(
-     mapStateToProps,
-     undefined,
-)(App);

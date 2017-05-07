@@ -9,7 +9,7 @@ import BlogItem from '../../components/blog-item/BlogItem';
 let BlogList = ({ entries, deleteEntry, setCurrent }) => {
     let itemList = [];
 
-    if (entries != null) {
+    if (entries) {
         itemList = entries.map((entry) => {
             return (
                 <BlogItem
