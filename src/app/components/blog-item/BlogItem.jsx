@@ -17,7 +17,7 @@ const BlogItem = ({item, onDelete, onEdit}) => {
                         onClick={() => onDelete(item.id)}/>
                     <div className="fa fa-edit"
                         onClick={() => onEdit(item.id)} />
-                    </h2>
+                </h2>
                 <p>{item.text}</p>
             </div>
         </div>

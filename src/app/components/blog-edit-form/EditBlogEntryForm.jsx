@@ -34,11 +34,13 @@ export default class EditBlogEntryForm extends React.Component {
                 pristine, submitting } = this.props;
         return (
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-group">
+                <div className="hidden">
                     <Field name="id"
                         component={this.renderField}
                         type="hidden"
                         />
+                </div>
+                <div className="form-group">
                     <Field name="title"
                         type="text"
                         component={this.renderField}

@@ -37,24 +37,6 @@ export const setCurrentBlogEntry = (entry) => {
     };
 };
 
-// Normally we would save the entry into a backend server or database
-export const saveBlogEntry = (entry) => {
-    return (dispatch, getState) => {
-        // 0 is falsy in JS, so this is working only safely with
-        // guid as id...
-        if (entry.id) {
-            const oldEntry = getState().blog.entries[entry.id];
-            const merged = Object.assign({}, oldEntry, entry);
-            dispatch(updateBlogEntryInReducer(merged));
-        } else {
-            const id = guid();
-            entry.id = id;
-            dispatch(saveBlogEntryInReducer(entry));
-        }
-        dispatch(saveBlogEntrySuccess());
-    };
-};
-
 export const unsetCurrentBlogEntry = () => ({
     type: UNSET_CURRENT_BLOG_ENTRY
 });
@@ -91,5 +73,25 @@ export const login = () => {
     console.log('action LOGIN called');
     return {
         type: LOGIN
+    };
+};
+
+// This is not an action creator, but it calls them after doing some
+// business logic.
+// Normally we would save the entry into a backend server or database
+export const saveBlogEntry = (entry) => {
+    return (dispatch, getState) => {
+        // 0 is falsy in JS, so this is working only safely with
+        // guid as id...
+        if (entry.id) {
+            const oldEntry = getState().blog.entries[entry.id];
+            const merged = Object.assign({}, oldEntry, entry);
+            dispatch(updateBlogEntryInReducer(merged));
+        } else {
+            const id = guid();
+            entry.id = id;
+            dispatch(saveBlogEntryInReducer(entry));
+        }
+        dispatch(saveBlogEntrySuccess());
     };
 };

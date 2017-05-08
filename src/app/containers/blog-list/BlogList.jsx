@@ -50,3 +50,7 @@ export default connect(
      mapStateToProps,
      mapDispatchToProps,
 )(BlogList);
+
+// default behaviour without args would be that `dispatch`
+// is injected to be available as a prop:
+// connect()(BlogList)
