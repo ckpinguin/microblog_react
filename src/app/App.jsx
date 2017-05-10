@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Layout from './components/layout/Layout';
 import BlogList from './containers/blog-list/BlogList';
-import EditBlogEntryFormContainer from './containers/blog-edit-form-container/EditBlogEntryFormContainer';
+import EditBlogEntryFormContainer from './containers/edit-blog-entry-form-container/EditBlogEntryFormContainer';
 
 // import logo from './logo.svg';
 import './App.css';

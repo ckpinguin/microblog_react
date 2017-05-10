@@ -7,7 +7,7 @@ import { reduxForm } from 'redux-form';
 import * as Actions from '../../actions';
 import validate from './validate';
 
-import EditBlogEntryForm from '../../components/blog-edit-form/EditBlogEntryForm';
+import EditBlogEntryForm from '../../components/edit-blog-entry-form/EditBlogEntryForm';
 
 let EditBlogEntryFormContainer = ({ saveBlogEntry, currentEntry, unsetCurrentBlogEntry, ...rest }) => {
     return (

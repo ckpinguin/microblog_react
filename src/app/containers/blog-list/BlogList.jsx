@@ -11,15 +11,19 @@ let BlogList = ({ entries, deleteEntry, setCurrent }) => {
 
     if (entries) {
         itemList = entries.map((entry) => {
-            return (
-                <BlogItem
-                    key={entry.id}
-                    item={entry}
-                    onDelete={deleteEntry}
-                    onEdit={setCurrent}>
-                    {entry}
-                </BlogItem>
-            );
+            if (entry !== null) {
+                return (
+                    <BlogItem
+                        key={entry.id}
+                        item={entry}
+                        onDelete={deleteEntry}
+                        onEdit={setCurrent}>
+                        {entry}
+                    </BlogItem>
+                );
+            } else {
+                return null;
+            }
         });
     }
 

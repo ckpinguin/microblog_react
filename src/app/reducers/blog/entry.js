@@ -15,7 +15,7 @@ const entry = (state, action) => {
             ...action.entry // update the new fields
         };
     case REMOVE_BLOG_ENTRY:
-        return (state.id !== action.id) ? state : {};
+        return (state.id !== action.id) ? state : undefined;
     default:
         return state;
     }

@@ -15,7 +15,7 @@ const entries = (state = initialBlogState.entries, action) => {
     case UPDATE_BLOG_ENTRY:
         return state.map(e => entry(e, action));
     case REMOVE_BLOG_ENTRY:
-        return state.map(e => entry(e, action));        
+        return state.filter(e => entry(e, action));        
     default:
         return state;
     }

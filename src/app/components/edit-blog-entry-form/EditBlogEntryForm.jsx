@@ -44,14 +44,14 @@ export default class EditBlogEntryForm extends React.Component {
                     <Field name="title"
                         type="text"
                         component={this.renderField}
-                        label="Inhalt"
+                        label="Titel"
                         className="form-control"
                         placeholder="Titel eingeben..." />
                 </div>
                 <div className="form-group">
                     <Field name="text"
                         component={this.renderTextArea}
-                        label="Text"
+                        label="Inhalt"
                         className="form-control"
                         placeholder="Textinhalt eingeben..." />
                 </div>  
@@ -59,7 +59,7 @@ export default class EditBlogEntryForm extends React.Component {
                     <Field name="image"
                         type="text"
                         component={this.renderField}
-                        label="Bild-URL:"
+                        label="Bild-URL"
                         className="form-control"
                         placeholder="Bildadresse eingeben..." />
                 </div>  
