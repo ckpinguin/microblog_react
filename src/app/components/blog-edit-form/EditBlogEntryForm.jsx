@@ -44,7 +44,7 @@ export default class EditBlogEntryForm extends React.Component {
                     <Field name="title"
                         type="text"
                         component={this.renderField}
-                        label="Titel"
+                        label="Inhalt"
                         className="form-control"
                         placeholder="Titel eingeben..." />
                 </div>
