@@ -22,6 +22,6 @@ const initialBlogEntries = [
 ];
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App initialBlogEntries={initialBlogEntries} />, div);
+    const div = document.createElement('div');
+    ReactDOM.render(<App initialBlogEntries={initialBlogEntries} />, div);
 });

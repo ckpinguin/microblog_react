@@ -1,4 +1,5 @@
 module.exports = {
+    "complexity": ["error", 2],
     "extends": "react-app",
     "env": {
         "browser": true,

@@ -16,6 +16,9 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.0",
     "expect": "^1.20.2",
     "npm-run-all": "^4.0.2",
     "react-awesome-form-validator": "^1.4.3",
