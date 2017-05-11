@@ -1,5 +1,5 @@
-module.exports = {
-    "extends": "react-app",
+{
+    // "extends": "react-app",
     "env": {
         "browser": true,
         "commonjs": true,
@@ -38,15 +38,6 @@ module.exports = {
         "semi": [
             "error", "always"
         ],
-        "react/jsx-boolean-value": 0,
-        "jsx-quotes": 1,
-        "react/jsx-no-undef": 1,
-        "react/jsx-uses-react": 1,
-        "react/jsx-uses-vars": 1,
-        "react/no-did-mount-set-state": 0,
-        "react/no-did-update-set-state": 2,
-        "react/no-multi-comp": 1,
-        "react/no-unknown-property": 1,
-        "react/self-closing-comp": 1
+        "jsx-quotes": 1
     }
-};
+}
