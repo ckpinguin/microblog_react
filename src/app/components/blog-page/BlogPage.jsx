@@ -1,22 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-import EditBlogEntryFormContainer from '../edit-blog-entry-form-container/EditBlogEntryForm';
-import BlogList from '../blog-list/BlogList';
+import EditBlogEntryFormContainer from '../../containers/edit-blog-entry-form-container/EditBlogEntryFormContainer';
+import BlogList from '../../containers/blog-list/BlogList';
 
 import './BlogPage.css';
 
 export default class BlogPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    title = 'Blog Page';
     componentDidMount() {
-        document.title = 'BlogEditing';
+        document.title = this.title;
     }
 
     render() {
         return (
-        <div className="content">
+        <div>
+            <div className="title">
+                <h1>{this.title}</h1>
+            </div>
             <div className="mainContent">
                 <EditBlogEntryFormContainer />
             </div>
@@ -32,6 +33,6 @@ export default class BlogPage extends React.Component {
                 <p>© Christof Kälin</p>
             </div>
         </div>
-    );
+        );
     }
 }

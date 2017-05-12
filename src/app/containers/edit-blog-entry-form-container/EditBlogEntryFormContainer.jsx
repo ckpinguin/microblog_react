@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
@@ -39,7 +40,7 @@ EditBlogEntryFormContainer = reduxForm({
     validate
 })(EditBlogEntryFormContainer);
 
-export default connect(
+export default withRouter(connect(
      mapStateToProps,
      mapDispatchToProps,
-)(EditBlogEntryFormContainer);
+)(EditBlogEntryFormContainer));

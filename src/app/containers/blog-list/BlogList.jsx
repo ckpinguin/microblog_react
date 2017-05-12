@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 import * as Actions from '../../actions';
@@ -50,10 +51,10 @@ const mapDispatchToProps = {
     setCurrent: Actions.setCurrentBlogEntryById
 };
 
-export default connect(
+export default withRouter(connect(
      mapStateToProps,
      mapDispatchToProps,
-)(BlogList);
+)(BlogList));
 
 // default behaviour without args would be that `dispatch`
 // is injected to be available as a prop:
