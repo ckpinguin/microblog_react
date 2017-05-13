@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import * as Actions from '../../actions';
@@ -32,7 +32,6 @@ let BlogList = ({ entries, deleteEntry, setCurrent }) => {
         <div className="BlogList">
             {itemList 
                 ? <div>
-                      <p>List of blog entries:</p>
                       {itemList}
                   </div>
                 : <p>No blog entries</p>}
@@ -41,6 +40,7 @@ let BlogList = ({ entries, deleteEntry, setCurrent }) => {
 };
 
 const mapStateToProps = (state) => {
+    console.log('state: ', state);
     return {
         entries: state.blog.entries
     };

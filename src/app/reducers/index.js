@@ -10,5 +10,5 @@ import { routerReducer } from 'react-router-redux';
 export default combineReducers({
     blog,
     login,
-    router: routerReducer
+    routing: routerReducer
 });
