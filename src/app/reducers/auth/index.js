@@ -1,14 +1,14 @@
-import currentUser from './currentUser';
+import login from './login';
 import loginForm from './loginForm';
 
-const login = (state = {}, action) => {
+const auth = (state = {}, action) => {
     return {
         // giving also full state access to be make
         // decisions upon other parts of the state-tree possible
-        currentUser: currentUser(state.currentUser, action, state),
+        loggedInUser: login(state.currentUser, action),
         loginForm: loginForm(state.loginForm, action)
     };
 };
-export default login;
+export default auth;
 
 

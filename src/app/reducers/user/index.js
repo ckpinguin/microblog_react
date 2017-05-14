@@ -1,12 +1,18 @@
-import users from './users';
+import { ADD_USER, UPDATE_USER, REMOVE_USER }
+    from '../../actions';
+    
+import initialUsers from './initialUsers';
 
-const user = (state = {}, action) => {
-    return {
-        // giving also full state access to be make
-        // decisions upon other parts of the state-tree possible
-        users: users(state.users, action, state)
-    };
+const users = (state = initialUsers, action) => {
+    switch (action.type) {
+    case ADD_USER:
+    case UPDATE_USER:
+    case REMOVE_USER:
+    default:
+        return state;
+    }
 };
-export default user;
+export default users;
+
 
 

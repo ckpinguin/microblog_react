@@ -9,17 +9,19 @@ import NavBar from '../navbar/NavBar';
 
 const Layout = ({ children }) => {
     return (
-        <div className="Layout">
-            <div className="NavBar">
-                <NavBar />
-            </div>
-            <div className="content">
-                {children}
-            </div>
-            <div className="footer">
-                <p>© Christof Kälin</p>
-            </div>
-        </div>   
+        <div className="container">
+            <div className="Layout">
+                <div className="NavBar">
+                    <NavBar />
+                </div>
+                <div className="content">
+                    {children}
+                </div>
+                <div className="footer">
+                    <p>© Christof Kälin</p>
+                </div>
+            </div> 
+        </div>  
     );
 };
 Layout.propTypes = { 

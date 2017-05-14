@@ -7,7 +7,7 @@ import BlogList from '../../containers/blog-list/BlogList';
 import './BlogPage.css';
 
 export default class BlogPage extends React.Component {
-    title = 'Blog Page';
+    title = 'Blog';
     componentDidMount() {
         document.title = this.title;
     }

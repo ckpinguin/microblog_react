@@ -2,9 +2,8 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import LoginFormContainer from '../../containers/login-form-container/LoginFormContainer';
-import BlogList from '../../containers/blog-list/BlogList';
 
-import './BlogPage.css';
+import './LoginPage.css';
 
 export default class LoginPage extends React.Component {
     title = 'Login';

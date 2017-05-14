@@ -1,16 +1,14 @@
 import { combineReducers } from 'redux';
 
-import login from './login';
+import auth from './auth';
 import blog from './blog';
 import user from './user';
 
-import { routerReducer } from 'react-router-redux';
 
 // we only combine top-levels here, rest wil be handled
 // by reducer-composition pattern
 export default combineReducers({
     blog,
-    login,
-    user,
-    routing: routerReducer
+    auth,
+    user
 });

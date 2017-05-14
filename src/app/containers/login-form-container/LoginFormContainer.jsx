@@ -1,30 +1,33 @@
 import React from 'react';
 
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
-import * as Actions from '../../actions';
+import * as Actions from '../../actions/auth';
 import validate from './validate';
 
 import LoginForm from '../../components/login-form/LoginForm';
 
-let LoginFormContainer = ({ login, cancel, ...rest }) => {
+let LoginFormContainer = ({ login, cancelLogin, loggedInUser, ...rest }) => {
+    console.log('loggedInUser: ', loggedInUser);
     return (
-        <div>
-            <LoginForm
-                onSubmit={login}
-                onCancel={cancel}
-                {...rest}
-            />
-        </div>
+        (loggedInUser.id)
+            ? <div>Already logged in with user {loggedInUser}</div>
+            : <div>
+                <LoginForm
+                    onSubmit={login}
+                    onCancel={cancelLogin}
+                    {...rest}
+                />
+            </div>
     );
 };
 
 const mapStateToProps = (state) => {
+    console.log('state: ', state);
     return {
-        currentUser: state.login.currentUser,
+        loggedInUser: state.auth.loggedInUser,
     };
 };
 
@@ -35,11 +38,12 @@ const mapDispatchToProps = (dispatch) => {
 
 LoginFormContainer = reduxForm({
     form: 'LoginForm',
-    getFormState: (state) => state.login.loginForm,
+    getFormState: (state) => state.auth.loginForm,
     validate
 })(LoginFormContainer);
 
-export default withRouter(connect(
-     // mapStateToProps,
+
+export default connect(
+     mapStateToProps,
      mapDispatchToProps,
-)(LoginFormContainer));
+)(LoginFormContainer);

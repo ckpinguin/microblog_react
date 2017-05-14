@@ -46,6 +46,8 @@ const mapStateToProps = (state) => {
     };
 };
 
+// Alternative would be:  bindActionCreators(Actions, dispatch);
+// where all actions would be bound and available (performance-loss?)
 const mapDispatchToProps = {
     deleteEntry: Actions.removeBlogEntry,
     setCurrent: Actions.setCurrentBlogEntryById

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
@@ -33,14 +32,13 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(Actions, dispatch);
 };
 
-
 EditBlogEntryFormContainer = reduxForm({
     form: 'EditBlogEntryForm',
     getFormState: (state) => state.blog.editBlogEntryForm,
     validate
 })(EditBlogEntryFormContainer);
 
-export default withRouter(connect(
+export default connect(
      mapStateToProps,
      mapDispatchToProps,
-)(EditBlogEntryFormContainer));
+)(EditBlogEntryFormContainer);

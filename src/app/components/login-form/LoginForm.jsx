@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Field } from 'redux-form';
 
+import { Route } from 'react-router-dom';
+
 import './LoginForm.css';
 
 // const  { DOM: { input, textarea } } = React;
@@ -30,11 +32,11 @@ export default class LoginForm extends React.Component {
     }
 
     render() {
-        const { onSubmit, onReset, handleSubmit,
+        const { onSubmit, onCancel, handleSubmit,
                 pristine, submitting } = this.props;
         return (
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="hidden">
+                <div className="form-group">
                     <Field name="name"
                         type="text"
                         component={this.renderField}
@@ -55,11 +57,13 @@ export default class LoginForm extends React.Component {
                         disabled={this.state.errors || submitting || pristine}>
                         Login
                     </button>
-                    <button type="button" className="btn btn-default"
-                        disabled={pristine || submitting}
-                        onClick={onReset}>
-                        Abbrechen
-                    </button>
+                    <Route render={({history}) => (
+                        <button type="button" className="btn btn-default"
+                            disabled={submitting}
+                            onClick={() => {onCancel(); history.push('/');}}>
+                            Abbrechen
+                        </button>
+                    )} />
                 </div>
             </form>
         );
