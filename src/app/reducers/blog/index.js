@@ -1,9 +1,8 @@
 import currentEntry from './currentEntry';
 import entries from './entries';
 import editBlogEntryForm from './editBlogEntryForm';
-import initialBlogState from './initialBlogState';
 
-const blog = (state = initialBlogState, action) => {
+const blog = (state = {}, action) => {
     return {
         // giving also full state access to be make
         // decisions upon other parts of the state-tree possible

@@ -1,11 +1,14 @@
-import { LOGIN  } from '../../actions';
+import currentUser from './currentUser';
+import loginForm from './loginForm';
 
 const login = (state = {}, action) => {
-    switch (action.type) {
-    case LOGIN:
-        return state;
-    default:
-        return state;
-    }
+    return {
+        // giving also full state access to be make
+        // decisions upon other parts of the state-tree possible
+        currentUser: currentUser(state.currentUser, action, state),
+        loginForm: loginForm(state.loginForm, action)
+    };
 };
 export default login;
+
+

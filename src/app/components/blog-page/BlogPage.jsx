@@ -29,9 +29,6 @@ export default class BlogPage extends React.Component {
             <div className="listContent">
                 <BlogList />
             </div>
-            <div className="footer">
-                <p>© Christof Kälin</p>
-            </div>
         </div>
         );
     }

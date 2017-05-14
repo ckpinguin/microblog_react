@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 import login from './login';
 import blog from './blog';
+import user from './user';
 
 import { routerReducer } from 'react-router-redux';
 
@@ -10,5 +11,6 @@ import { routerReducer } from 'react-router-redux';
 export default combineReducers({
     blog,
     login,
+    user,
     routing: routerReducer
 });

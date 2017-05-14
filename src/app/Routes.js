@@ -15,7 +15,8 @@ import BlogPage from './components/blog-page/BlogPage';
 //     }
 // };
 
-const routes = 
+
+const Routes = () => (
     <div>
         <Layout>
             <Switch>
@@ -28,6 +29,8 @@ const routes =
                 <Route path="*" component={() => <h1>Like a 404: unknown page</h1>}/>
             </Switch>
         </Layout>
-    </div>;
+    </div>
+);
 
-export default routes;
+// export default routes;
+export default Routes;

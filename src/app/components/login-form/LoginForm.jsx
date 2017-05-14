@@ -35,43 +35,30 @@ export default class LoginForm extends React.Component {
         return (
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="hidden">
-                    <Field name="id"
-                        component={this.renderField}
-                        type="hidden"
-                        />
-                </div>
-                <div className="form-group">
-                    <Field name="title"
+                    <Field name="name"
                         type="text"
                         component={this.renderField}
-                        label="Titel"
+                        label="Name"
                         className="form-control"
-                        placeholder="Titel eingeben..." />
+                        placeholder="Name eingeben..." />
                 </div>
                 <div className="form-group">
-                    <Field name="text"
-                        component={this.renderTextArea}
-                        label="Inhalt"
-                        className="form-control"
-                        placeholder="Textinhalt eingeben..." />
-                </div>  
-                <div className="form-group">
-                    <Field name="image"
-                        type="text"
+                    <Field name="password"
+                        type="password"
                         component={this.renderField}
-                        label="Bild-URL"
+                        label="Passwort"
                         className="form-control"
-                        placeholder="Bildadresse eingeben..." />
-                </div>  
+                        placeholder="Passwort eingeben..." />
+                </div>
                 <div>
                     <button type="submit" className="btn btn-default"
                         disabled={this.state.errors || submitting || pristine}>
-                        Blogeintrag speichern
+                        Login
                     </button>
                     <button type="button" className="btn btn-default"
                         disabled={pristine || submitting}
                         onClick={onReset}>
-                        Formular leeren
+                        Abbrechen
                     </button>
                 </div>
             </form>
@@ -87,19 +74,6 @@ export default class LoginForm extends React.Component {
                         type={type}
                         className={className}
                         placeholder={placeholder} />
-                {touched && error && <div className="alert alert-danger error-placeholder">{error}</div>}
-            </div>
-        </div>
-    );
-
-    renderTextArea = ({ input, label, className, placeholder,
-                          meta: { touched, error } }) => (
-        <div>
-            <label>{label}</label>
-            <div>
-                <textarea {...input}
-                    className={className}
-                    placeholder={placeholder}  />
                 {touched && error && <div className="alert alert-danger error-placeholder">{error}</div>}
             </div>
         </div>

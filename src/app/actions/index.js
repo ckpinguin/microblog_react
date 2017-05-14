@@ -5,6 +5,11 @@ export const REMOVE_BLOG_ENTRY = 'REMOVE_BLOG_ENTRY';
 export const SET_CURRENT_BLOG_ENTRY = 'SET_CURRENT_BLOG_ENTRY';
 export const UNSET_CURRENT_BLOG_ENTRY = 'UNSET_CURRENT_BLOG_ENTRY';
 export const LOGIN = 'LOGIN';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const UNSET_CURRENT_USER = 'UNSET_CURRENT_USER';
+export const ADD_USER = 'ADD_USER';
+export const UPDATE_USER = 'UPDATE_USER';
+export const REMOVE_USER = 'REMOVE_USER';
 
 const guid = () => {
     const s4 = () => {
@@ -75,6 +80,17 @@ export const login = () => {
         type: LOGIN
     };
 };
+
+export const setCurrentUser = (user) => {
+    return {
+        type: SET_CURRENT_USER,
+        user
+    };
+};
+
+export const unsetCurrentUser = () => ({
+    type: UNSET_CURRENT_USER
+});
 
 // This is not an action creator, but it calls them after doing some
 // business logic.

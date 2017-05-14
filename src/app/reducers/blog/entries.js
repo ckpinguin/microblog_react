@@ -3,9 +3,9 @@ import { ADD_BLOG_ENTRY, UPDATE_BLOG_ENTRY, REMOVE_BLOG_ENTRY }
 
 import entry from './entry';
 
-import initialBlogState from './initialBlogState';
+import initialBlogEntries from './initialBlogEntries';
 
-const entries = (state = initialBlogState.entries, action) => {
+const entries = (state = initialBlogEntries, action) => {
     switch (action.type) {
     case ADD_BLOG_ENTRY:
         return [
