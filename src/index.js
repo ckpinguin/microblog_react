@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { BrowserRouter as Router } from 'react-router-dom';
-// import { createBrowserHistory as createHistory } from 'history';
+import { createBrowserHistory as createHistory } from 'history';
 // import { syncHistoryWithStore } from 'react-router-redux';
 //import { ConnectedRouter as Router } from 'react-router-redux';
 
@@ -20,9 +20,9 @@ import './index.styl';
 
 // We don't need to sync store explicitly, as we use routerMiddleware
 // const history = syncHistoryWithStore(createHistory());
-// const history = createHistory();
+const history = createHistory();
 const initialState = typeof window !== 'undefined' ? window.__INITIAL_STATE__: undefined;
-const store = configureStore(initialState);
+const store = configureStore(initialState, history);
 
 // with v.>4 of react-router, the history will be created automatically
 const router =
