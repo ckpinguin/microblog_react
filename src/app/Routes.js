@@ -7,7 +7,7 @@ import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 
 import Layout from './components/layout/Layout';
 import blog from './modules/blog';
-import login from './modules/auth/login';
+import login from './modules/login';
 
 // import store from './store/store';
 

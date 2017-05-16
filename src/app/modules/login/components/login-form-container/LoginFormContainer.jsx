@@ -24,7 +24,6 @@ let LoginFormContainer = ({ doLogin, cancelLogin, loggedInUser, ...rest }) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log('mapStateToProps called with state: ', state);
     return {
         loggedInUser: login.selectors.getLoggedInUser(state)
     };
