@@ -16,7 +16,6 @@ let LoginFormContainer = ({ doLogin, cancelLogin, loggedInUser, ...rest }) => {
                 <LoginForm
                     onSubmit={doLogin}
                     onCancel={cancelLogin}
-                    fillForm={loggedInUser}
                     {...rest}
                 />
             </div>

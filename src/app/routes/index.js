@@ -3,9 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 
-import Layout from './components/layout/Layout';
-import blog from './modules/blog';
-import login from './modules/auth/login';
+import Layout from '../components/layout/Layout';
+import blog from '../modules/blog';
+import login from '../modules/auth/login';
 
 // const requireAuth = (nextState, replaceState) => {
 //     console.log('auth required');
