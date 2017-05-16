@@ -10,7 +10,7 @@ import validate from './validate';
 let LoginFormContainer = ({ doLogin, cancelLogin, loggedInUser, ...rest }) => {
     const LoginForm = login.components.LoginForm;
     return (
-        (loggedInUser.id)
+        (loggedInUser.id !== undefined)
             ? <div>Already logged in with user {loggedInUser}</div>
             : <div>
                 <LoginForm
@@ -24,7 +24,6 @@ let LoginFormContainer = ({ doLogin, cancelLogin, loggedInUser, ...rest }) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log('mapStateToProps called with state: ', state);
     return {
         loggedInUser: login.selectors.getLoggedInUser(state)
     };

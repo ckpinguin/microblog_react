@@ -1,15 +1,11 @@
 import React from 'react';
 
-// import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
-// import * as Actions from './actions';
 
 import Layout from './components/layout/Layout';
 import blog from './modules/blog';
-import login from './modules/login';
-
-// import store from './store/store';
+import login from './modules/auth/login';
 
 // const requireAuth = (nextState, replaceState) => {
 //     console.log('auth required');
@@ -22,7 +18,7 @@ import login from './modules/login';
 
 const PrivateRoute = ({ component: Component, loggedInUser, ...rest }) => (
   <Route {...rest} render={props => (
-    (loggedInUser.id) ? (
+    (loggedInUser.id !== undefined) ? (
       <Component {...props}/>
     ) : (
       <Redirect to={{
@@ -72,7 +68,7 @@ const Routes = ({loggedInUser}) => (
 const mapStateToProps = (state) => {
     console.log('state: ', state);
     return {
-        loggedInUser: login.selectors.getAll(state)
+        loggedInUser: login.selectors.getLoggedInUser(state)
     };
 };
 

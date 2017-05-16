@@ -1,5 +1,8 @@
 import { NAME } from './constants';
 
-export const getAll = state => state[NAME];
+// We have to postfix auth state structure for nested levels
+// I have to test, if this is not anymore necessary, when auth itself
+// has direct elements/reducers.
+export const getAll = state => state.auth[NAME];
 export const getForm = state => getAll(state).loginForm;
 export const getLoggedInUser = state => getAll(state).loggedInUser;

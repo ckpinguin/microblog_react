@@ -21,8 +21,8 @@ export const doLogin = (userEntry) => {
         // 0 is falsy in JS, so this is working only safely with
         // guid as id...
         if (userEntry.name) {
-            dispatch(loginSuccess());
-            dispatch(setCurrentUser(name));
+            dispatch(loginSuccess(userEntry));
+            dispatch(setCurrentUser(userEntry));
         }
     };
 };
