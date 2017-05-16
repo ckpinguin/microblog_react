@@ -7,9 +7,10 @@ const NavBar = ({ match }) => (
         <nav className="navbar navbar-default">
             <div className="container-fluid">
                 <ul className="nav navbar-nav navbar-left">
-                <li><Link to="/home">Home</Link></li>
-                <li><Link to="/blog">Blog</Link></li>
-                <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/home">Home</Link></li>
+                    <li><Link to="/blog">Blog</Link></li>
+                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/admin">Admin</Link></li>
                 </ul>
             </div>
         </nav>

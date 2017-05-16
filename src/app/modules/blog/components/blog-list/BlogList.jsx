@@ -40,7 +40,6 @@ let BlogList = ({ entries, deleteEntry, setCurrent }) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log('state: ', state);
     return {
         entries: getAllEntries(state)
     };

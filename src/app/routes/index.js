@@ -16,11 +16,13 @@ import login from '../modules/auth/login';
 //     }
 // };
 
-const PrivateRoute = ({ component: Component, loggedInUser, ...rest }) => (
+const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
   <Route {...rest} render={props => (
-    (loggedInUser.id !== undefined) ? (
+    (isAuthenticated)
+    ? (
       <Component {...props}/>
-    ) : (
+    )
+    : (
       <Redirect to={{
           pathname: '/login',
           state: { from: props.location }
@@ -31,7 +33,7 @@ const PrivateRoute = ({ component: Component, loggedInUser, ...rest }) => (
 
 // Best practice (Medium: redux-best-practices-64d59775802e): Only
 // use smart components (aka containers) as Route targets
-const Routes = ({loggedInUser}) => (
+const Routes = (store, {loggedInUser}) => (
     <div>
         <Layout>
             <Switch>
@@ -52,7 +54,7 @@ const Routes = ({loggedInUser}) => (
                     component={login.components.LoginPage}
                 />
                 <PrivateRoute
-                    loggedInUser={loggedInUser}
+                    isAuthenticated={true}
                     path="/admin"
                     component={() => <h1>Private area</h1>}
                 />
@@ -66,7 +68,9 @@ const Routes = ({loggedInUser}) => (
 );
 
 const mapStateToProps = (state) => {
-    console.log('state: ', state);
+    console.log('state userLoggedIn: ', login.selectors.getLoggedInUser(state));
+    console.log('state.routing: ', state.routing);
+    // console.log('state.routing.locationBeforeTransitions: ', state.routing.locationBeforeTransitions);
     return {
         loggedInUser: login.selectors.getLoggedInUser(state)
     };

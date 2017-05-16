@@ -57,13 +57,11 @@ export default class LoginForm extends React.Component {
                         disabled={this.state.errors || submitting || pristine}>
                         Login
                     </button>
-                    <Route render={({history}) => (
-                        <button type="button" className="btn btn-default"
-                            disabled={submitting}
-                            onClick={() => {onCancel(); history.push('/');}}>
-                            Abbrechen
-                        </button>
-                    )} />
+                    <button type="button" className="btn btn-default"
+                        disabled={submitting}
+                        onClick={onCancel}>
+                        Abbrechen
+                     </button>
                 </div>
             </form>
         );

@@ -1,8 +1,12 @@
 import * as t from './actionTypes';
+import { push, go, replace, goBack } from 'react-router-redux';
 
 const loginSuccess = (user) => ({
     type: t.LOGIN_SUCCESS,
     user
+});
+const loginCancelled = () => ({
+    type: t.LOGIN_CANCELLED
 });
 
 const setCurrentUser = (user) => {
@@ -18,18 +22,19 @@ const unsetCurrentUser = () => ({
 
 export const doLogin = (userEntry) => {
     return (dispatch, getState) => {
-        // 0 is falsy in JS, so this is working only safely with
-        // guid as id...
         if (userEntry.name) {
             dispatch(loginSuccess(userEntry));
             dispatch(setCurrentUser(userEntry));
+            dispatch(goBack('home'));
         }
     };
 };
 
 export const cancelLogin = () => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
         console.log('login cancelled');
+        dispatch(loginCancelled());
+        dispatch(goBack('/home'));
     };
 };
 
