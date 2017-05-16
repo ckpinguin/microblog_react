@@ -1,6 +1,6 @@
 import currentEntry from './reducers/currentEntry';
 import entries from './reducers/entries';
-import editBlogEntryForm from './reducers/editBlogEntryForm';
+import editEntryForm from './reducers/editEntryForm';
 
 const blog = (state = {}, action) => {
     return {
@@ -8,7 +8,7 @@ const blog = (state = {}, action) => {
         // decisions upon other parts of the state-tree possible
         entries: entries(state.entries, action, state),
         currentEntry: currentEntry(state.currentEntry, action, state),
-        editBlogEntryForm: editBlogEntryForm(state.editBlogEntryForm, action)
+        editEntryForm: editEntryForm(state.editEntryForm, action)
     };
 };
 export default blog;

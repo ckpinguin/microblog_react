@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Field } from 'redux-form';
 
-import './EditBlogEntryForm.css';
+import './EditEntryForm.css';
 
 // const  { DOM: { input, textarea } } = React;
-export default class EditBlogEntryForm extends React.Component {
+export default class EditEntryForm extends React.Component {
     constructor(props) {
         super(props);
         /**

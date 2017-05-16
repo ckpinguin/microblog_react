@@ -1,5 +1,5 @@
-import { NAME, FORM } from './constants';
+import { NAME } from './constants';
 
 
 export const getAll = state => state[NAME];
-export const getForm = state => state[FORM];
+export const getForm = state => getAll(state).loginForm;

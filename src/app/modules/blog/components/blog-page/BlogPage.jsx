@@ -11,7 +11,7 @@ export default class BlogPage extends React.Component {
     }
 
     render() {
-        const EditBlogEntryFormContainer = blog.components.EditBlogEntryFormContainer;
+        const EditEntryFormContainer = blog.components.EditEntryFormContainer;
         const BlogList = blog.components.BlogList;
         return (
         <div>
@@ -19,7 +19,7 @@ export default class BlogPage extends React.Component {
                 <h1>{this.title}</h1>
             </div>
             <div className="mainContent">
-                <EditBlogEntryFormContainer />
+                <EditEntryFormContainer />
             </div>
             <div className="jumbotron">
                 <div className="attentionItem">

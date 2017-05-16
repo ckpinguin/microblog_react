@@ -7,11 +7,11 @@ import { reduxForm } from 'redux-form';
 import blog from '../..';
 import validate from './validate';
 
-let EditBlogEntryFormContainer = ({ saveEntry, currentEntry, unsetCurrentEntry, ...rest }) => {
-    const EditBlogEntryForm = blog.components.EditBlogEntryForm;
+let EditEntryFormContainer = ({ saveEntry, currentEntry, unsetCurrentEntry, ...rest }) => {
+    const EditEntryForm = blog.components.EditEntryForm;
     return (
         <div>
-            <EditBlogEntryForm
+            <EditEntryForm
                 onSubmit={saveEntry}
                 onReset={unsetCurrentEntry}
                 fillForm={currentEntry}
@@ -31,13 +31,13 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(blog.actions, dispatch);
 };
 
-EditBlogEntryFormContainer = reduxForm({
-    form: 'EditBlogEntryForm',
-    getFormState: (state) => blog.selectors.getEditBlogEntryForm(state),
+EditEntryFormContainer = reduxForm({
+    form: 'EditEntryForm',
+    getFormState: (state) => blog.selectors.getEditEntryForm(state),
     validate
-})(EditBlogEntryFormContainer);
+})(EditEntryFormContainer);
 
 export default connect(
      mapStateToProps,
      mapDispatchToProps,
-)(EditBlogEntryFormContainer);
+)(EditEntryFormContainer);
