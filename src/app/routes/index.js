@@ -30,7 +30,6 @@ const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
     )
   )}/>
 );
-
 // Best practice (Medium: redux-best-practices-64d59775802e): Only
 // use smart components (aka containers) as Route targets
 const Routes = (store, {loggedInUser}) => (
@@ -70,9 +69,6 @@ const Routes = (store, {loggedInUser}) => (
 );
 
 const mapStateToProps = (state) => {
-    console.log('state userLoggedIn: ', login.selectors.getLoggedInUser(state));
-    console.log('state: ', state);
-    // console.log('state.routing.locationBeforeTransitions: ', state.routing.locationBeforeTransitions);
     return {
         loggedInUser: login.selectors.getLoggedInUser(state)
     };

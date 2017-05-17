@@ -25,6 +25,9 @@ const history = createHistory();
 const initialState = typeof window !== 'undefined' ? window.__INITIAL_STATE__: undefined;
 const store = configureStore(initialState, history);
 
+store.subscribe(() => {
+    console.log('state changed in store: ', store.getState());
+});
 // const syncedHistory = syncHistoryWithStore(history, store);
 // const syncedHistory = syncHistoryWithStore(history, store, {
 //     selectLocationState: (state) => state.router
