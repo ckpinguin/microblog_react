@@ -2,8 +2,6 @@ import React from 'react';
 
 import { Field } from 'redux-form';
 
-import { Route } from 'react-router-dom';
-
 import './LoginForm.css';
 
 // const  { DOM: { input, textarea } } = React;

@@ -1,5 +1,6 @@
 import * as t from './actionTypes';
-import { push, go, replace, goBack } from 'react-router-redux';
+// import { push, go, replace, goBack } from 'react-router-redux';
+import { goBack } from 'react-router-redux';
 
 const loginSuccess = (user) => ({
     type: t.LOGIN_SUCCESS,

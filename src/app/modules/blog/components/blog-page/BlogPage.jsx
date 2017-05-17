@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 
 import blog from '../..';
 
@@ -13,6 +14,10 @@ export default class BlogPage extends React.Component {
     render() {
         const EditEntryFormContainer = blog.components.EditEntryFormContainer;
         const BlogList = blog.components.BlogList;
+        console.log('this.props:', this.props);
+        const { match } = this.props;
+        
+
         return (
         <div>
             <div className="title">
@@ -23,7 +28,9 @@ export default class BlogPage extends React.Component {
             </div>
             <div className="jumbotron">
                 <div className="attentionItem">
-                    <p>Attention item</p>
+                    <h1>Attention item:</h1>
+                    <p>path: {match.path}</p>
+                    <p>params: {_.map(match.params, e => e)}</p>
                 </div>
             </div>
             <div className="listContent">

@@ -34,42 +34,44 @@ const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
 // Best practice (Medium: redux-best-practices-64d59775802e): Only
 // use smart components (aka containers) as Route targets
 const Routes = (store, {loggedInUser}) => (
-    <div>
-        <Layout>
-            <Switch>
-                <Route
-                    exact path="/"
-                    component={blog.components.BlogPage}
-                />
-                <Route
-                    path="/home"
-                    component={blog.components.BlogPage}
-                />
-                <Route
-                    path="/blog"
-                    component={blog.components.BlogPage}
-                />
-                <Route
-                    path="/login"
-                    component={login.components.LoginPage}
-                />
-                <PrivateRoute
-                    isAuthenticated={true}
-                    path="/admin"
-                    component={() => <h1>Private area</h1>}
-                />
-                <Route
-                    path="*"
-                    component={() => <h1>Like a 404: unknown page</h1>}
-                />
-            </Switch>
-        </Layout>
-    </div>
+    <Layout>
+        <Switch>
+            <Route
+                exact path="/"
+                component={blog.components.BlogPage}
+            />
+            <Route
+                path="/home"
+                component={blog.components.BlogPage}
+            />
+            <Route
+                path="/blog/:id"
+                component={blog.components.BlogPage}
+            />
+            <Route
+                path="/blog/"
+                component={blog.components.BlogPage}
+            />
+            <Route
+                path="/login/"
+                component={login.components.LoginPage}
+            />
+            <PrivateRoute
+                isAuthenticated={true}
+                path="/admin"
+                component={() => <h1>Private area</h1>}
+            />
+            <Route
+                path="*"
+                component={() => <h1>Like a 404: unknown page</h1>}
+            />
+        </Switch>
+    </Layout>
 );
 
 const mapStateToProps = (state) => {
     console.log('state userLoggedIn: ', login.selectors.getLoggedInUser(state));
-    console.log('state.routing: ', state.routing);
+    console.log('state: ', state);
     // console.log('state.routing.locationBeforeTransitions: ', state.routing.locationBeforeTransitions);
     return {
         loggedInUser: login.selectors.getLoggedInUser(state)
@@ -79,7 +81,7 @@ const mapStateToProps = (state) => {
 // const mapDispatchToProps = (dispatch) => {
 //     return bindActionCreators(Actions, dispatch);
 // };
-
+// withRouter is needed to update page according to URL
 export default withRouter(connect(
      mapStateToProps,
      null // mapDispatchToProps,

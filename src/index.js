@@ -5,13 +5,13 @@ import { Provider } from 'react-redux';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createBrowserHistory as createHistory } from 'history';
-import { syncHistoryWithStore } from 'react-router-redux';
+// import { syncHistoryWithStore } from 'react-router-redux';
 //import { ConnectedRouter as Router } from 'react-router-redux';
 
 import configureStore from './app/store/configureStore';
 import Routes from './app/routes';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.css';
 import './index.styl';
 
@@ -25,7 +25,7 @@ const history = createHistory();
 const initialState = typeof window !== 'undefined' ? window.__INITIAL_STATE__: undefined;
 const store = configureStore(initialState, history);
 
-const syncedHistory = syncHistoryWithStore(history, store);
+// const syncedHistory = syncHistoryWithStore(history, store);
 // const syncedHistory = syncHistoryWithStore(history, store, {
 //     selectLocationState: (state) => state.router
 // });
@@ -34,7 +34,7 @@ const syncedHistory = syncHistoryWithStore(history, store);
 const mount = document.getElementById('root');
 const provider = 
     <Provider store={store}>
-        <Router history={syncedHistory}>
+        <Router>
             <Routes/>
         </Router>
     </Provider>;

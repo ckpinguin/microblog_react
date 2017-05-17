@@ -87,7 +87,7 @@ export default class EditEntryForm extends React.Component {
                         type={type}
                         className={className}
                         placeholder={placeholder} />
-                {touched && error && <div className="alert alert-danger error-placeholder">{error}</div>}
+                {touched && error && <div className="alert alert-danger">{error}</div>}
             </div>
         </div>
     );
@@ -100,7 +100,7 @@ export default class EditEntryForm extends React.Component {
                 <textarea {...input}
                     className={className}
                     placeholder={placeholder}  />
-                {touched && error && <div className="alert alert-danger error-placeholder">{error}</div>}
+                {touched && error && <div className="alert alert-danger">{error}</div>}
             </div>
         </div>
     );
