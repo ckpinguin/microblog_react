@@ -1,15 +1,14 @@
 import React from 'react';
 
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getAllEntries } from '../../selectors';
-import BlogItem from '../blog-item/BlogItem';
-import { removeEntry, setCurrentEntryById } from '../../actions';
+import blog from '../..';
 
 let BlogList = ({ entries, deleteEntry, setCurrent }) => {
     let itemList = [];
-
+    const BlogItem = blog.components.BlogItem;
     if (entries) {
         itemList = entries.map((entry) => {
             if (entry !== null) {
@@ -41,15 +40,14 @@ let BlogList = ({ entries, deleteEntry, setCurrent }) => {
 
 const mapStateToProps = (state) => {
     return {
-        entries: getAllEntries(state)
+        entries: blog.selectors.getAllEntries(state)
     };
 };
 
 // Alternative would be:  bindActionCreators(Actions, dispatch);
 // where all actions would be bound and available (performance-loss?)
-const mapDispatchToProps = {
-    deleteEntry: removeEntry,
-    setCurrent: setCurrentEntryById
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(blog.actions, dispatch);
 };
 
 export default withRouter(connect(

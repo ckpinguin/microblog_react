@@ -58,6 +58,7 @@ export const setCurrentEntryById = (id) => {
 // This is not an action creator, but it calls them after doing some
 // business logic.
 // Normally we would save the entry into a backend server or database
+// asynchronously with dispatching the function (in payload)
 export const saveEntry = (entry) => {
     return (dispatch, getState) => {
         // 0 is falsy in JS, so this is working only safely with
