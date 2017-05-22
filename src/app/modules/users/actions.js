@@ -14,5 +14,6 @@ export const findByName = (name) => {
         getState().users.filter(e => {
             return e.name === name;
         }
-    );};
+    );
+    };
 };

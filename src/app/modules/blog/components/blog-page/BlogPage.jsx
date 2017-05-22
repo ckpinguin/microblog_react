@@ -40,6 +40,7 @@ export default class BlogPage extends React.Component {
                 </div>
             </div>
             <div className="listContent">
+                <button onClick={() => blog.actions.newEntry()} className="btn">Create New Entry</button>
                 <BlogList />
             </div>
 

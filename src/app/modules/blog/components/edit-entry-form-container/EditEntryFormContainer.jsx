@@ -23,7 +23,7 @@ let EditEntryFormContainer = ({ saveEntry, currentEntry, unsetCurrentEntry, ...r
 
 const mapStateToProps = (state) => {
     return {
-        currentEntry: blog.selectors.getCurrentEntry(state),
+        currentEntry: blog.selectors.getCurrentEntry(state)
     };
 };
 
