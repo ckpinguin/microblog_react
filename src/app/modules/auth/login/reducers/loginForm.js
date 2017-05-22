@@ -7,6 +7,8 @@ export default formReducer.plugin({
         switch(action.type) {
         case t.LOGIN_SUCCESS:
             return {};       // <--- blow away form data
+        case t.LOGIN_FAILED:
+            return {};
         case t.LOGIN_CANCELLED:
             return {};
         default:

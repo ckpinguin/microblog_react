@@ -2,30 +2,45 @@ import * as t from './actionTypes';
 // import { push, go, replace, goBack } from 'react-router-redux';
 import { goBack } from 'react-router-redux';
 
-const loginSuccess = (user) => ({
+const login = () => ({
+    type: t.LOGIN
+});
+const loginSuccess = (user) => {
+    return {
     type: t.LOGIN_SUCCESS,
-    user
+    payload: user
+    }
+};
+const loginFailed = (error) => ({
+    type: t.LOGIN_FAILED,
+    payload: error
 });
 const loginCancelled = () => ({
     type: t.LOGIN_CANCELLED
 });
 
+
 const setCurrentUser = (user) => {
     return {
         type: t.SET_LOGGED_IN_USER,
-        user
+        payload: user
     };
 };
-
 const unsetCurrentUser = () => ({
     type: t.UNSET_LOGGED_IN_USER
 });
 
-export const doLogin = (userEntry) => {
+export const doLogin = (user) => {
     return (dispatch, getState) => {
-        if (userEntry.name) {
-            dispatch(loginSuccess(userEntry));
-            dispatch(setCurrentUser(userEntry));
+        if (user.name) {
+            dispatch(login(user));
+
+            // TODO: check password
+            
+            // do async stuff
+
+            dispatch(loginSuccess(user));
+            // dispatch(loginFailed(user));
             dispatch(goBack('home'));
         }
     };
