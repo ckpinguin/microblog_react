@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import blog from '../..';
 
-let BlogList = ({ entries, removeEntry, setCurrentEntryById }) => {
+let BlogList = ({ entries, deleteEntry, setCurrentEntryById }) => {
     let itemList = [];
     const BlogItem = blog.components.BlogItem;
     if (entries) {
@@ -16,7 +16,7 @@ let BlogList = ({ entries, removeEntry, setCurrentEntryById }) => {
                     <BlogItem
                         key={entry.id}
                         item={entry}
-                        onDelete={removeEntry}
+                        onDelete={deleteEntry}
                         onEdit={setCurrentEntryById}>
                         {entry}
                     </BlogItem>

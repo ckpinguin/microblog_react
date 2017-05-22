@@ -10,9 +10,24 @@ const guid = () => {
         s4() + '-' + s4() + s4() + s4();
 };
 
-const addEntry = (entry) => ({
+const fetchEntries = () => {
+    return {
+        type: t.FETCH_ENTRIES
+    };
+};
+
+const fetchEntriesSuccess = (entries) => ({
+    type: t.FETCH_ENTRIES_SUCCESS,
+    payload: entries
+});
+
+const fetchEntriesFailure = (error) => ({
+    type: t.FETCH_ENTRIES_FAILURE,
+    payload: error
+})
+
+const addEntry = () => ({
     type: t.ADD_ENTRY,
-    payload: entry
 });
 
 const addEntrySuccess = (entry) => ({
@@ -20,9 +35,13 @@ const addEntrySuccess = (entry) => ({
     payload: entry
 });
 
-const updateEntry = (entry) => ({
+const addEntryFailure = (error) => ({
+    type: t.ADD_ENTRY_FAILURE,
+    payload: error
+});
+
+const updateEntry = () => ({
     type: t.UPDATE_ENTRY,
-    payload: entry
 });
 
 const updateEntrySuccess = (entry) => ({
@@ -30,15 +49,24 @@ const updateEntrySuccess = (entry) => ({
     payload: entry
 });
 
-export const removeEntry = (id) => ({
+const updateEntryFailure = (error) => ({
+    type: t.UPDATE_ENTRY_FAILURE,
+    payload: error
+});
+
+const removeEntry = () => ({
     type: t.REMOVE_ENTRY,
-    payload: id
     
 });
 
-export const removeEntrySuccess = (id) => ({
+const removeEntrySuccess = (id) => ({
     type: t.REMOVE_ENTRY_SUCCESS,
     payload: id
+});
+
+const removeEntryFailure = (error) => ({
+    type: t.REMOVE_ENTRY_FAILURE,
+    payload: error
 });
 
 export const setCurrentEntry = (entry) => ({
@@ -78,17 +106,48 @@ export const saveEntry = (entry) => {
     return (dispatch, getState) => {
         // 0 is falsy in JS, so this is working only safely with
         // guid as id...
+
         if (entry.id) {
+            dispatch(updateEntry());
+            
+            // Do some async stuff here
+            
+            // This is normally called after async backend op success:
             const oldEntry = getState().blog.entries[entry.id];
             const merged = Object.assign({}, oldEntry, entry);
-            // This is normally called after async backend op success:
             dispatch(updateEntrySuccess(merged));
         } else {
             const id = guid();
             entry.id = id;
+            dispatch(addEntry());
+
+            // Do some async stuff here
+
             // This is normally called after async backend op success:
             dispatch(addEntrySuccess(entry));
         }
         dispatch(unsetCurrentEntry());
     };
 };
+
+export const loadEntries = () => {
+    return (dispatch, getState) => {
+        dispatch(fetchEntries()); // inform state that async fetching started
+        
+        // Do some async stuff here
+        
+        // Mock:
+        const entries = getState().entries.entriesList.entries;
+        dispatch(fetchEntriesSuccess(entries));
+    };
+};
+
+export const deleteEntry = (id) => {
+    return (dispatch) => {
+        dispatch(removeEntry());
+
+        // Do some async stuff here
+
+        dispatch(removeEntrySuccess(id));
+    };
+}

@@ -6,16 +6,26 @@ import initialStateEntries from './initialStateEntries';
 
 const entries = (state = initialStateEntries, action) => {
     let error = null;
+    console.log('reducer called for ', action.type);
     switch (action.type) {
 
     case t.FETCH_ENTRIES:
-        // TODO: simulate async
-        return state;
+        return {
+            ...state,
+            entriesList: {
+                ...state.entriesList,
+                error: null,
+                loading: true
+            }
+        };
     case t.FETCH_ENTRIES_SUCCESS:
         return {
             ...state,
             entriesList: {
-                entries: action.payload,
+                entries: [
+                    ...state.entriesList.entries,
+                    action.payload
+                ],
                 error: null,
                 loading: false
             }
@@ -45,12 +55,9 @@ const entries = (state = initialStateEntries, action) => {
         return {
             ...state,
             entriesList: {
-                entries: [ // delegate it
-                    ...state.entriesList.entries,
-                    entry(undefined, action)
-                ],
+                ...state.entriesList,
                 error: null,
-                loading: false
+                loading: true
             }
         };
     case t.ADD_ENTRY_SUCCESS:
@@ -66,8 +73,16 @@ const entries = (state = initialStateEntries, action) => {
             }
         };
 
-    case t.UPDATE_ENTRY_SUCCESS:
     case t.UPDATE_ENTRY:
+        return {
+            ...state,
+            entriesList: { // delegate it
+                ...state.entriesList,
+                error: null,
+                loading: true
+            }
+        };
+    case t.UPDATE_ENTRY_SUCCESS:
         return {
             ...state,
             entriesList: { // delegate it
@@ -79,6 +94,15 @@ const entries = (state = initialStateEntries, action) => {
         
 
     case t.REMOVE_ENTRY:
+        return {
+            ...state,
+            entriesList: { // delegate it
+                ...state.entriesList,
+                error: null,
+                loading: true
+            }
+        };
+    case t.REMOVE_ENTRY_SUCCESS:
         return {
             ...state,
             entriesList: { // delegate it
