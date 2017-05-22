@@ -1,5 +1,8 @@
 module.exports = {
-    "extends": "react-app",
+    "extends": [
+        "react-app",
+        "eslint:recommended"
+    ],
     "env": {
         "browser": true,
         "commonjs": true,
@@ -11,7 +14,6 @@ module.exports = {
         "jsx": true,
         "modules": true
     },
-    "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -21,10 +23,26 @@ module.exports = {
     },
     "plugins": ["react"],
     "rules": {
-        "complexity": ["error", 2],
+        "complexity": ["warn", 3],
+        "no-multi-spaces": 1,
+        "array-bracket-spacing": 1,
+        "block-spacing": 1,
+        "brace-style": [
+            true,
+            "1tbs",
+            {
+                "allowSingleLine": true
+            }
+        ],
+        "no-mixed-spaces-and-tabs": 1,
+        "spaced-comment": 1,
+        "object-curly-spacing": 0,
+        "no-var": 1,
+        "prefer-arrow-callback": 1,
+        "prefer-const": 1,
         "no-console": 0,
         "no-unused-vars": 1,
-        // "no-unexpected-multilines": 0,
+        "no-unexpected-multilines": 0,
         "no-case-declarations": 0,
         "indent": [
             "warn", 4
@@ -36,7 +54,7 @@ module.exports = {
             "error", "single"
         ],
         "semi": [
-            "error", "always"
+            "warn", "always"
         ],
         "react/jsx-boolean-value": 0,
         "jsx-quotes": 1,
