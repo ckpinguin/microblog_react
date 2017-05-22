@@ -1,9 +1,11 @@
-import * as t from './actionTypes';
-    
-import initialStateUsers from './reducers/initialStateUsers';
+import * as t from '../actionTypes';   
+import initialStateUsers from './initialStateUsers';
 
 const users = (state = initialStateUsers, action) => {
     switch (action.type) {
+    case t.FETCH_USERS:
+    case t.FETCH_USERS_SUCCESS:
+    case t.FETCH_USERS_FAILED:
     case t.ADD:
     case t.UPDATE:
     case t.REMOVE:
@@ -12,6 +14,3 @@ const users = (state = initialStateUsers, action) => {
     }
 };
 export default users;
-
-
-
