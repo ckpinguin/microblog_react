@@ -7,7 +7,6 @@ import users from '../modules/users';
 
 // only top-level here, rest is in the reducers...
 export default combineReducers({
-    // routing,
     [blog.constants.NAME]: blog.reducer,
     [auth.constants.NAME]: auth.reducer,
     [users.constants.NAME]: users.reducer

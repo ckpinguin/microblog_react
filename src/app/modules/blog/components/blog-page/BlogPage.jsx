@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import { Route } from 'react-router-dom';
 
 import blog from '../..';
 
@@ -24,11 +25,16 @@ export default class BlogPage extends React.Component {
                 <h1>{this.title}</h1>
             </div>
             <div className="mainContent">
+                <Route
+                    path={`${match.url}/:id`}
+                    component={blog.components.EditEntryFormContainer}
+                /> 
                 <EditEntryFormContainer />
             </div>
             <div className="jumbotron">
                 <div className="attentionItem">
                     <h1>Attention item:</h1>
+                    <p>url: {match.url}</p>
                     <p>path: {match.path}</p>
                     <p>params: {_.map(match.params, e => e)}</p>
                 </div>
@@ -36,6 +42,7 @@ export default class BlogPage extends React.Component {
             <div className="listContent">
                 <BlogList />
             </div>
+
         </div>
         );
     }

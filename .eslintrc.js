@@ -28,7 +28,7 @@ module.exports = {
         "array-bracket-spacing": 1,
         "block-spacing": 1,
         "brace-style": [
-            true,
+            1,
             "1tbs",
             {
                 "allowSingleLine": true

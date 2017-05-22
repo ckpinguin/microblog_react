@@ -44,10 +44,6 @@ const Routes = (store, {loggedInUser}) => (
                 component={blog.components.BlogPage}
             />
             <Route
-                path="/blog/:id"
-                component={blog.components.BlogPage}
-            />
-            <Route
                 path="/blog/"
                 component={blog.components.BlogPage}
             />

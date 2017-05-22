@@ -1,35 +1,50 @@
 import * as t from './actionTypes';
 
 const guid = () => {
-    const s4 = () => {
-        return Math.floor((1 + Math.random()) * 0x10000)
+    const s4 = () => (
+        Math.floor((1 + Math.random()) * 0x10000)
             .toString(16)
-            .substring(1);
-    };
+            .substring(1)
+    );
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
         s4() + '-' + s4() + s4() + s4();
 };
 
-const saveEntrySuccess = () => ({
-    type: t.SAVE_ENTRY_SUCCESS
-});
-
-const saveEntryInReducer = (entry) => ({
+const addEntry = (entry) => ({
     type: t.ADD_ENTRY,
-    entry
+    payload: entry
 });
 
-const updateEntryInReducer = (entry) => ({
+const addEntrySuccess = (entry) => ({
+    type: t.ADD_ENTRY_SUCCESS,
+    payload: entry
+});
+
+const updateEntry = (entry) => ({
     type: t.UPDATE_ENTRY,
-    entry
+    payload: entry
 });
 
-const setCurrentEntry = (entry) => {
-    return {
-        type: t.SET_CURRENT_ENTRY,
-        entry
-    };
-};
+const updateEntrySuccess = (entry) => ({
+    type: t.UPDATE_ENTRY_SUCCESS,
+    payload: entry
+});
+
+export const removeEntry = (id) => ({
+    type: t.REMOVE_ENTRY,
+    payload: id
+    
+});
+
+export const removeEntrySuccess = (id) => ({
+    type: t.REMOVE_ENTRY_SUCCESS,
+    payload: id
+});
+
+export const setCurrentEntry = (entry) => ({
+    type: t.SET_CURRENT_ENTRY,
+    payload: entry
+});
 
 export const unsetCurrentEntry = () => ({
     type: t.UNSET_CURRENT_ENTRY
@@ -40,13 +55,13 @@ export const unsetCurrentEntry = () => ({
 // to make decisions, async calls etc. (i.e. side-effect stuff, that
 // is not allowed in reducers)
 export const setCurrentEntryById = (id) => {
-    console.log('action SET_CURRENT_ENTRY called');
+    console.log('action SET_CURRENT_ENTRY_BY_ID called');
 
     return (dispatch, getState) => {
         let entry;
         // this is likely more performant than array.filter()
         // O(n) for small, local mockup data should be ok 
-        for (entry of getState().blog.entries) {
+        for (entry of getState().blog.entries.entriesList.entries) {
             if (entry.id === id) {
                 break;
             }
@@ -66,20 +81,14 @@ export const saveEntry = (entry) => {
         if (entry.id) {
             const oldEntry = getState().blog.entries[entry.id];
             const merged = Object.assign({}, oldEntry, entry);
-            dispatch(updateEntryInReducer(merged));
+            // This is normally called after async backend op success:
+            dispatch(updateEntrySuccess(merged));
         } else {
             const id = guid();
             entry.id = id;
-            dispatch(saveEntryInReducer(entry));
+            // This is normally called after async backend op success:
+            dispatch(addEntrySuccess(entry));
         }
-        dispatch(saveEntrySuccess());
-    };
-};
-
-export const removeEntry = (id) => {
-    console.log('action REMOVE_ENTRY called');
-    return {
-        type: t.REMOVE_ENTRY,
-        id
+        dispatch(unsetCurrentEntry());
     };
 };

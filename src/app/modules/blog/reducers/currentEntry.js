@@ -6,7 +6,7 @@ const currentEntry = (state = {}, action) => {
     switch (action.type) {
     case t.SET_CURRENT_ENTRY:
         console.log(`reducer ${action.type} called`);
-        return action.entry;
+        return action.payload;
     case t.UNSET_CURRENT_ENTRY:
         console.log(`reducer ${action.type} called`);
         return {};
