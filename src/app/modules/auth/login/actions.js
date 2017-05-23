@@ -2,14 +2,19 @@ import * as t from './actionTypes';
 // import { push, go, replace, goBack } from 'react-router-redux';
 import { goBack } from 'react-router-redux';
 
+import userModule from '../user';
+
+import md5 from 'md5';
+
+
 const login = () => ({
     type: t.LOGIN
 });
 const loginSuccess = (user) => {
     return {
-    type: t.LOGIN_SUCCESS,
-    payload: user
-    }
+        type: t.LOGIN_SUCCESS,
+        payload: user
+    };
 };
 const loginFailed = (error) => ({
     type: t.LOGIN_FAILED,
@@ -19,29 +24,48 @@ const loginCancelled = () => ({
     type: t.LOGIN_CANCELLED
 });
 
+const logout = () => ({
+    type: t.LOGOUT
+});
+const logoutSuccess = () => ({
+    type: t.LOGOUT_SUCCESS
+});
+const logoutFailed = () => ({
+    type: t.LOGOUT_FAILED
+});
 
-const setCurrentUser = (user) => {
+
+const setLoggedInUser = (id) => {
     return {
         type: t.SET_LOGGED_IN_USER,
-        payload: user
+        payload: id
     };
 };
-const unsetCurrentUser = () => ({
+const unsetLoggedInUser = () => ({
     type: t.UNSET_LOGGED_IN_USER
 });
+
+
+// action creators
 
 export const doLogin = (user) => {
     return (dispatch, getState) => {
         if (user.name) {
             dispatch(login(user));
-
-            // TODO: check password
             
             // do async stuff
-
-            dispatch(loginSuccess(user));
-            // dispatch(loginFailed(user));
-            dispatch(goBack('home'));
+            const storedUser = userModule.selectors.findUserByName(getState(), user.name);
+            console.log('user found: ', storedUser);
+            if (storedUser.password === md5(user.password)) {
+                console.log('login success');
+                dispatch(loginSuccess(user));
+                console.log('trying to store id: ', storedUser.id);
+                dispatch(setLoggedInUser({id: storedUser.id, name: storedUser.name}));
+                dispatch(goBack('home'));
+            } else {
+                console.log('login failure');
+                dispatch(loginFailed(user));
+            }
         }
     };
 };
@@ -54,8 +78,10 @@ export const cancelLogin = () => {
     };
 };
 
-export const logout = () => {
+export const doLogout = () => {
     return (dispatch) => {
-        dispatch(unsetCurrentUser());
+        dispatch(logout());
+        dispatch(logoutSuccess());
+        dispatch(unsetLoggedInUser());
     };
 };
