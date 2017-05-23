@@ -8,7 +8,7 @@ const BlogItem = ({item, onDelete, onEdit}) => {
         <div className="BlogItem">
             <hr />
             {item.image && <div className="blog-image">
-                <img src={item.image} alt={item.title}/>
+                <img src={`/images/${item.image}`} alt={item.title}/>
             </div>}
             <div className="blog-summary">
                 <h2>

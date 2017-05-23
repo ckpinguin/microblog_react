@@ -17,8 +17,6 @@ export default class BlogPage extends React.Component {
         const BlogList = blog.components.BlogList;
         console.log('this.props:', this.props);
         const { match } = this.props;
-        
-
         return (
         <div>
             <div className="title">
@@ -27,9 +25,8 @@ export default class BlogPage extends React.Component {
             <div className="mainContent">
                 <Route
                     path={`${match.url}/:id`}
-                    component={blog.components.EditEntryFormContainer}
-                /> 
-                <EditEntryFormContainer />
+                    component={EditEntryFormContainer}
+                />
             </div>
             <div className="jumbotron">
                 <div className="attentionItem">
