@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 import blog from '../..';
 
-const BlogList = ({ entries, deleteEntry, setCurrentEntryById }) => {
+const BlogList = ({ entries, deleteEntry, editEntry }) => {
     let itemList = [];
     const BlogItem = blog.components.BlogItem;
     if (entries) {
@@ -18,7 +18,7 @@ const BlogList = ({ entries, deleteEntry, setCurrentEntryById }) => {
                         key={entry.id}
                         item={entry}
                         onDelete={deleteEntry}
-                        onEdit={setCurrentEntryById}/>
+                        onEdit={editEntry}/>
                 );
             } else {
                 return null;
@@ -41,7 +41,7 @@ BlogList.propTypes = {
     // injected by mapStateToProps/mapDispatchToProps:
     entries:                PropTypes.array.isRequired,
     deleteEntry:            PropTypes.func.isRequired,
-    setCurrentEntryById:    PropTypes.func.isRequired
+    editEntry:              PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {

@@ -12,6 +12,10 @@ export const FETCH_ENTRY = 'FETCH_ENTRY';
 export const FETCH_ENTRY_SUCCESS = 'FETCH_ENTRY_SUCCESS';
 export const FETCH_ENTRY_FAILURE = 'FETCH_ENTRY_FAILURE';
 
+// Edit entry (show/hide forms etc.)
+export const EDIT_ENTRY = 'EDIT_ENTRY';
+export const EDIT_ENTRY_FINISHED = 'EDIT_ENTRY_FINISHED';
+
 // Add entry
 export const ADD_ENTRY = 'ADD_ENTRY';
 export const ADD_ENTRY_SUCCESS = 'ADD_ENTRY_SUCCESS';

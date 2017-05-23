@@ -51,6 +51,17 @@ const entries = (state = initialStateEntries, action) => {
             }
         };
 
+    case t.EDIT_ENTRY_FINISHED:
+    case t.EDIT_ENTRY:
+        return {
+            ...state,
+            entriesList: { // delegate it
+                entries: state.entriesList.entries.map(e => entry(e, action)),
+                error: null,
+                loading: false
+            }
+        };
+
     case t.ADD_ENTRY:
         return {
             ...state,

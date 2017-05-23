@@ -6,7 +6,7 @@ import Blog from '../..';
 import './BlogItem.css';
 
 const BlogItem = ({item, onDelete, onEdit, ...rest}) => {
-    const EditEntryFormContainer = Blog.components.EditEntryFormContainer;
+    const EditEntryFormContainer = Blog.components.EditEntryFormContainer;;
     return (
         <div className="BlogItem">
             <hr />
@@ -24,7 +24,7 @@ const BlogItem = ({item, onDelete, onEdit, ...rest}) => {
                     <div className="fa fa-trash"
                         onClick={() => onDelete(item.id)}/>
                     <div className="fa fa-edit"
-                        onClick={() => onEdit(item.id)} />
+                        onClick={() => onEdit(item.id) } />
                 </h2>
                 <p>{item.text}</p>
             </div>

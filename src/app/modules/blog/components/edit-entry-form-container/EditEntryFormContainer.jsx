@@ -8,9 +8,12 @@ import { reduxForm } from 'redux-form';
 import blog from '../..';
 import validate from './validate';
 
-let EditEntryFormContainer = ( 
+let EditEntryFormContainer = (
     { entry, saveEntry, currentEntry, unsetCurrentEntry, ...rest }
      ) => {
+    if (!entry.showForm) {
+        return <p> no form will be shown </p>;
+    }
     const EditEntryForm = blog.components.EditEntryForm;
     console.log('rest: ', rest);
     console.log('entry: ', entry);
@@ -53,9 +56,9 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(blog.actions, dispatch);
 };
 
+// reduxForm consumes props.initialValue if provided
 EditEntryFormContainer = reduxForm({
     form: 'EditEntryForm',
-    // form: `EditEntryForm-${entry.id}`,
     getFormState: (state) => blog.selectors.getEditEntryForm(state),
     validate
 })(EditEntryFormContainer);

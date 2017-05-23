@@ -78,13 +78,24 @@ export const unsetCurrentEntry = () => ({
     type: t.UNSET_CURRENT_ENTRY
 });
 
+export const editEntry = (id) => ({
+    type: t.EDIT_ENTRY,
+    payload: id
+});
+
+export const editEntryFinished = (id) => ({
+    type: t.EDIT_ENTRY_FINISHED,
+    payload: id
+});
+
+
+// Action creators:
+
 // A bit an artificial example of using thunk capabilities ;-)
 // With thunk, we can use dispatch and getState in action creators
 // to make decisions, async calls etc. (i.e. side-effect stuff, that
 // is not allowed in reducers)
 export const setCurrentEntryById = (id) => {
-    console.log('action SET_CURRENT_ENTRY_BY_ID called');
-
     return (dispatch, getState) => {
         let entry;
         // this is likely more performant than array.filter()
@@ -113,7 +124,7 @@ export const saveEntry = (entry) => {
             // Do some async stuff here
             
             // This is normally called after async backend op success:
-            const oldEntry = getState().blog.entries[entry.id];
+            const oldEntry = getState().blog.entries.entriesList[entry.id];
             const merged = Object.assign({}, oldEntry, entry);
             dispatch(updateEntrySuccess(merged));
         } else {
