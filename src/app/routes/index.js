@@ -3,9 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 
-import Layout from '../components/layout/Layout';
-import blog from '../modules/blog';
-import login from '../modules/auth/login';
+import Shared from '../modules/shared';
+import Blog from '../modules/blog';
+import Login from '../modules/auth/login';
 
 // const requireAuth = (nextState, replaceState) => {
 //     console.log('auth required');
@@ -32,24 +32,26 @@ const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
 );
 // Best practice (Medium: redux-best-practices-64d59775802e): Only
 // use smart components (aka containers) as Route targets
-const Routes = (store, {loggedInUser}) => (
+const Routes = (store, {loggedInUser}) => {
+    const Layout = Shared.components.Layout;
+    return (
     <Layout>
         <Switch>
             <Route
                 exact path="/"
-                component={blog.components.BlogPage}
+                component={Blog.components.BlogPage}
             />
             <Route
                 path="/home"
-                component={blog.components.BlogPage}
+                component={Blog.components.BlogPage}
             />
             <Route
                 path="/blog/"
-                component={blog.components.BlogPage}
+                component={Blog.components.BlogPage}
             />
             <Route
                 path="/login/"
-                component={login.components.LoginPage}
+                component={Login.components.LoginPage}
             />
             <PrivateRoute
                 isAuthenticated={true}
@@ -63,10 +65,11 @@ const Routes = (store, {loggedInUser}) => (
         </Switch>
     </Layout>
 );
+}
 
 const mapStateToProps = (state) => {
     return {
-        loggedInUser: login.selectors.getLoggedInUser(state)
+        loggedInUser: Login.selectors.getLoggedInUser(state)
     };
 };
 
