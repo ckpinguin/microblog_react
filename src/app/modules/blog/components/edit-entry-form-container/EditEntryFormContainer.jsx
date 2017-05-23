@@ -11,20 +11,34 @@ import validate from './validate';
 let EditEntryFormContainer = (
     { entry, saveEntry, currentEntry, unsetCurrentEntry, ...rest }
      ) => {
-    if (!entry.showForm) {
-        return <p> no form will be shown </p>;
+    // Don't show the form if it is not wanted by the entry or
+    // state.currentEntry (for new entries)
+    let fillEntry = {};
+    if ('undefined' === typeof entry) {
+        if (!currentEntry.showNewEntryForm) {
+            return null;
+        } else {
+            fillEntry = currentEntry;
+        }
+    } else {
+        if (!entry.showForm) {
+            return null;
+        }
+        if (entry.id) {
+            fillEntry = entry;
+        }
     }
     const EditEntryForm = blog.components.EditEntryForm;
-    console.log('rest: ', rest);
+    // console.log('rest: ', rest);
     console.log('entry: ', entry);
     console.log('currentEntry: ', currentEntry);
-    let fillEntry = {};
-    if (entry.id) {
-        fillEntry = entry;
-    } else {
-        fillEntry = currentEntry;
-    }
-    console.log('calling form with: ', fillEntry);
+    
+    // if (entry.id) {
+    //     fillEntry = entry;
+    // } else {
+    //     fillEntry = currentEntry;
+    // }
+    // console.log('calling form with: ', fillEntry);
     return (
         <div>
             <EditEntryForm

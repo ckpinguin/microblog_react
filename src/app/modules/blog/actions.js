@@ -88,8 +88,19 @@ export const editEntryFinished = (id) => ({
     payload: id
 });
 
+const newEntry = () => ({
+    type: t.NEW_ENTRY // for the moment same as UNSET_CURRENT_ENTRY
+});
 
-// Action creators:
+// Action creators with business logic.
+// Can be called as normal functions without injecting dispatch into components
+// by using mapDispatchToProps()
+
+export const createNewEntry = () => {
+    return (dispatch) => {
+        dispatch(newEntry());
+    };
+};
 
 // A bit an artificial example of using thunk capabilities ;-)
 // With thunk, we can use dispatch and getState in action creators
@@ -161,4 +172,4 @@ export const deleteEntry = (id) => {
 
         dispatch(removeEntrySuccess(id));
     };
-}
+};

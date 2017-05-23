@@ -15,6 +15,7 @@ export const FETCH_ENTRY_FAILURE = 'FETCH_ENTRY_FAILURE';
 // Edit entry (show/hide forms etc.)
 export const EDIT_ENTRY = 'EDIT_ENTRY';
 export const EDIT_ENTRY_FINISHED = 'EDIT_ENTRY_FINISHED';
+export const NEW_ENTRY = 'NEW_ENTRY';
 
 // Add entry
 export const ADD_ENTRY = 'ADD_ENTRY';

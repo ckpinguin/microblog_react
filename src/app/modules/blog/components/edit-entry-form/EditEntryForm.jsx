@@ -9,10 +9,6 @@ import './EditEntryForm.css';
 export default class EditEntryForm extends React.Component {
     constructor(props) {
         super(props);
-        // initialize form on first rendering
-        if (props.fillForm) {
-            this.props.initialize(props.fillForm);
-        }
         /**
          *  This local state is totally OK for a presentational
          *  component, because it is UI-related (and needed)
@@ -20,6 +16,16 @@ export default class EditEntryForm extends React.Component {
         this.state = {
             errors: false
         };
+    }
+
+    // According to the react docs, the constructor should be preferred to this, 
+    // but that doesn't work out for me, it's giving warning about too many
+    // updates while re-rendering
+    componentWillMount() {
+        // initialize form on first rendering
+        if (this.props.fillForm) {
+            this.props.initialize(this.props.fillForm);
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -37,8 +43,7 @@ export default class EditEntryForm extends React.Component {
 
     render() {
         const { onSubmit, onReset, handleSubmit,
-                pristine, submitting, ...rest } = this.props;
-        console.log('EditEntryForm rest props: ', rest);
+                pristine, submitting } = this.props;
         return (
             <form
                 onSubmit={handleSubmit(onSubmit)}>
@@ -77,9 +82,9 @@ export default class EditEntryForm extends React.Component {
                         Blogeintrag speichern
                     </button>
                     <button type="button" className="btn btn-default"
-                        disabled={pristine || submitting}
+                        disabled={submitting}
                         onClick={onReset}>
-                        Formular leeren
+                        Zurücksetzen
                     </button>
                 </div>
             </form>
