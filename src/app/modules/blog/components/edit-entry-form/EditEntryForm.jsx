@@ -9,6 +9,10 @@ import './EditEntryForm.css';
 export default class EditEntryForm extends React.Component {
     constructor(props) {
         super(props);
+        // initialize form on first rendering
+        if (props.fillForm) {
+            this.props.initialize(props.fillForm);
+        }
         /**
          *  This local state is totally OK for a presentational
          *  component, because it is UI-related (and needed)
@@ -36,7 +40,8 @@ export default class EditEntryForm extends React.Component {
                 pristine, submitting, ...rest } = this.props;
         console.log('EditEntryForm rest props: ', rest);
         return (
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form
+                onSubmit={handleSubmit(onSubmit)}>
                 <div className="hidden">
                     <Field name="id"
                         component={this.renderField}

@@ -10,7 +10,11 @@ const BlogItem = ({item, onDelete, onEdit, ...rest}) => {
     return (
         <div className="BlogItem">
             <hr />
-            <EditEntryFormContainer entry={item}/>
+            <EditEntryFormContainer
+                key={item.id}
+                form={`EditEntryForm_${item.id}`}
+                entry={item}
+            />
             {item.image && <div className="blog-image">
                 <img src={`/images/${item.image}`} alt={item.title}/>
             </div>}
