@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -6,7 +7,7 @@ import { connect } from 'react-redux';
 
 import blog from '../..';
 
-let BlogList = ({ entries, deleteEntry, setCurrentEntryById }) => {
+const BlogList = ({ entries, deleteEntry, setCurrentEntryById }) => {
     let itemList = [];
     const BlogItem = blog.components.BlogItem;
     if (entries) {
@@ -17,9 +18,7 @@ let BlogList = ({ entries, deleteEntry, setCurrentEntryById }) => {
                         key={entry.id}
                         item={entry}
                         onDelete={deleteEntry}
-                        onEdit={setCurrentEntryById}>
-                        {entry}
-                    </BlogItem>
+                        onEdit={setCurrentEntryById}/>
                 );
             } else {
                 return null;
@@ -36,6 +35,13 @@ let BlogList = ({ entries, deleteEntry, setCurrentEntryById }) => {
                 : <p>No blog entries</p>}
         </div>
     );
+};
+
+BlogList.propTypes = {
+    // injected by mapStateToProps/mapDispatchToProps:
+    entries:                PropTypes.array.isRequired,
+    deleteEntry:            PropTypes.func.isRequired,
+    setCurrentEntryById:    PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {

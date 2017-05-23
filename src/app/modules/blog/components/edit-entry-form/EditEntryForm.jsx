@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Field } from 'redux-form';
 
@@ -25,13 +26,15 @@ export default class EditEntryForm extends React.Component {
         }
         // Prefill form if asked for...
         if (nextProps.fillForm !== this.props.fillForm) {
+            console.log('fillForm prop received: ', nextProps.fillForm);
             nextProps.initialize(nextProps.fillForm);
         }
     }
 
     render() {
         const { onSubmit, onReset, handleSubmit,
-                pristine, submitting } = this.props;
+                pristine, submitting, ...rest } = this.props;
+        console.log('EditEntryForm rest props: ', rest);
         return (
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="hidden">
@@ -105,3 +108,12 @@ export default class EditEntryForm extends React.Component {
         </div>
     );
 }
+EditEntryForm.propTypes = {
+    onSubmit:       PropTypes.func.isRequired,
+    onReset:        PropTypes.func.isRequired,
+    fillForm:       PropTypes.object.isRequired,
+    // reduxForm injected by container:
+    handleSubmit:   PropTypes.func.isRequired,
+    pristine:       PropTypes.bool,
+    submitting:     PropTypes.bool
+};

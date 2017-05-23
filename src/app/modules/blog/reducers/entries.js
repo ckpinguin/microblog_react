@@ -6,7 +6,7 @@ import initialStateEntries from './initialStateEntries';
 
 const entries = (state = initialStateEntries, action) => {
     let error = null;
-    console.log('reducer called for ', action.type);
+    // console.log('reducer called for ', action.type);
     switch (action.type) {
 
     case t.FETCH_ENTRIES:

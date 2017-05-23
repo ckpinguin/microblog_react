@@ -1,5 +1,5 @@
 export const logger = (store) => (next) => (action) => {
-    console.log('action fired: ', action);
+    // console.log('action fired: ', action);
     next(action);
 };
 export const error = (store) => (next) => (action) => {

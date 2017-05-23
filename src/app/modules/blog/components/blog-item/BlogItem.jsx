@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Blog from '../..';
+
 import './BlogItem.css';
 
-const BlogItem = ({item, onDelete, onEdit}) => {
+const BlogItem = ({item, onDelete, onEdit, ...rest}) => {
+    const EditEntryFormContainer = Blog.components.EditEntryFormContainer;
     return (
         <div className="BlogItem">
             <hr />
+            <EditEntryFormContainer entry={item}/>
             {item.image && <div className="blog-image">
                 <img src={`/images/${item.image}`} alt={item.title}/>
             </div>}
@@ -24,6 +28,8 @@ const BlogItem = ({item, onDelete, onEdit}) => {
     );
 };
 BlogItem.propTypes = {
-    item:   PropTypes.object.isRequired
+    item:       PropTypes.object.isRequired,
+    onDelete:   PropTypes.func.isRequired,
+    onEdit:     PropTypes.func.isRequired
 };
 export default BlogItem;

@@ -1,4 +1,4 @@
-{   "comment": "complicated structure, but easy for async reducings",
+{   "comment": "complicated structure, but fitting for async reducings",
     "entriesList": {
         "loading": false,
         "error": null,

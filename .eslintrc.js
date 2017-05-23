@@ -35,6 +35,7 @@ module.exports = {
             }
         ],
         "no-mixed-spaces-and-tabs": 1,
+        "no-class-assign": 1, // react w/decorators!
         "spaced-comment": 1,
         "object-curly-spacing": 0,
         "no-var": 1,

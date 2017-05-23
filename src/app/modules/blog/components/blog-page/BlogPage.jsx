@@ -15,7 +15,7 @@ export default class BlogPage extends React.Component {
     render() {
         const EditEntryFormContainer = blog.components.EditEntryFormContainer;
         const BlogList = blog.components.BlogList;
-        console.log('this.props:', this.props);
+        // console.log('this.props:', this.props);
         const { match } = this.props;
         return (
         <div>
