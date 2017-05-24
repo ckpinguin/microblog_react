@@ -66,5 +66,5 @@ const mapDispatchToProps = (dispatch) => {
 // is better to be more redux-agnostic
 export default connect(
      null,
-     mapDispatchToProps,
+     mapDispatchToProps
 )(BlogPage);
