@@ -2,10 +2,12 @@ import * as t from './actionTypes';
 // import { push, go, replace, goBack } from 'react-router-redux';
 import { goBack } from 'react-router-redux';
 
-import userModule from '../user';
+import userModule from '../../user';
 
 import md5 from 'md5';
 
+
+// Action creators
 
 const login = () => ({
     type: t.LOGIN
@@ -46,7 +48,7 @@ const unsetLoggedInUser = () => ({
 });
 
 
-// action creators
+// Thunk action creators
 
 export const doLogin = (user) => {
     return (dispatch, getState) => {

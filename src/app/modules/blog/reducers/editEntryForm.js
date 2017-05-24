@@ -1,6 +1,6 @@
 import { reducer as formReducer } from 'redux-form';
 
-import * as t from '../actionTypes';
+import * as t from '../actions/actionTypes';
 
 
 export default formReducer.plugin({

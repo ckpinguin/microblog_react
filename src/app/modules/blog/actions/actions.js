@@ -10,6 +10,9 @@ const guid = () => {
         s4() + '-' + s4() + s4() + s4();
 };
 
+
+// Action creators
+
 const fetchEntries = () => {
     return {
         type: t.FETCH_ENTRIES
@@ -92,7 +95,8 @@ const newEntry = () => ({
     type: t.NEW_ENTRY // for the moment same as UNSET_CURRENT_ENTRY
 });
 
-// Action creators with business logic.
+
+// Thunk action creators with business logic.
 // Can be called as normal functions without injecting dispatch into components
 // by using mapDispatchToProps()
 

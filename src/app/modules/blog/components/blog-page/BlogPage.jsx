@@ -21,6 +21,7 @@ class BlogPage extends React.Component {
     render() {
         const EditEntryFormContainer = blog.components.EditEntryFormContainer;
         const BlogList = blog.components.BlogList;
+        console.log('BlogPage props: ', this.props);
         const { createNewEntry, match } = this.props;
         return (
         <div>
@@ -57,9 +58,12 @@ BlogPage.propTypes = {
     createNewEntry:         PropTypes.func.isRequired,
 };
 const mapDispatchToProps = (dispatch) => {
+    console.log('blog.actions: ', blog.actions);
     return bindActionCreators(blog.actions, dispatch);
 };
 
+// Some advice was, that explicit literal object shorthand binding
+// is better to be more redux-agnostic
 export default connect(
      null,
      mapDispatchToProps,

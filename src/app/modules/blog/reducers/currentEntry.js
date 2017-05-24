@@ -1,4 +1,4 @@
-import * as t from '../actionTypes';
+import * as t from '../actions/actionTypes';
 
 const currentEntry = (state = {}, action) => {
     // console.log('currentEntry reducer called: ', state, action);

@@ -1,4 +1,4 @@
-import * as t from '../actionTypes';
+import * as t from '../actions/actionTypes';
 
 const initialState = {
     inProgress: false,

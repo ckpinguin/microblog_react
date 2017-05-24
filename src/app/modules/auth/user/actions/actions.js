@@ -1,5 +1,8 @@
 import t from './actionTypes';
 
+
+// Action creators
+
 const fetchUsers = () => ({
     type: t.FETCH_USERS
 });
@@ -11,6 +14,9 @@ const fetchUsersFailure = (error) => ({
     type: t.FETCH_USERS_FAILURE,
     payload: error
 });
+
+
+// Thunk action creators
 
 export const findUserById = (id) => {
     return (dispatch, getState) => ({
