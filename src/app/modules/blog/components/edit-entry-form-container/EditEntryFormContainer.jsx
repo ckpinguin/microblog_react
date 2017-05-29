@@ -14,13 +14,13 @@ let EditEntryFormContainer = (
     // Don't show the form if it is not wanted by the entry or
     // state.currentEntry (for new entries)
     let fillEntry = {};
-    if ('undefined' === typeof entry) {
+    if ('undefined' === typeof entry) { // no specific entry given
         if (!currentEntry.showNewEntryForm) {
             return null;
         } else {
             fillEntry = currentEntry;
         }
-    } else {
+    } else { // a specific entry has been given
         if (!entry.showForm) {
             return null;
         }
