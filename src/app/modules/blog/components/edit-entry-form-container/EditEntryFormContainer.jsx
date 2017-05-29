@@ -30,15 +30,9 @@ let EditEntryFormContainer = (
     }
     const EditEntryForm = blog.components.EditEntryForm;
     // console.log('rest: ', rest);
-    console.log('entry: ', entry);
-    console.log('currentEntry: ', currentEntry);
+    // console.log('entry: ', entry);
+    // console.log('currentEntry: ', currentEntry);
     
-    // if (entry.id) {
-    //     fillEntry = entry;
-    // } else {
-    //     fillEntry = currentEntry;
-    // }
-    // console.log('calling form with: ', fillEntry);
     return (
         <div>
             <EditEntryForm

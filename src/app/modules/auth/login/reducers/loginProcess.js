@@ -35,6 +35,8 @@ const loginProcess = (state = initialState, action) => {
             inProgress: false,
             error: false
         };
+    default:
+        return state;
     }
 };
 export default loginProcess;

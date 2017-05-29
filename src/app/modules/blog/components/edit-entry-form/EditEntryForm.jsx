@@ -5,7 +5,6 @@ import { Field } from 'redux-form';
 
 import './EditEntryForm.css';
 
-// const  { DOM: { input, textarea } } = React;
 export default class EditEntryForm extends React.Component {
     constructor(props) {
         super(props);

@@ -5,7 +5,10 @@ const entry = (state, action) => {
 
     case t.EDIT_ENTRY:
         if (action.payload !== state.id) {
-            return state;
+            return {
+                ...state,
+                showForm: false
+            };
         }
         return {
             ...state,

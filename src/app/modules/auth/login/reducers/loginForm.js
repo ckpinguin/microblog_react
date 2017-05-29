@@ -12,7 +12,7 @@ export default formReducer.plugin({
         case t.LOGIN_CANCELLED:
             return {};
         default:
-            return {...state};
+            return state;
         }
     }
 });
