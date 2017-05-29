@@ -51,7 +51,7 @@ EditEntryFormContainer.propTypes = {
     saveEntry:          PropTypes.func.isRequired,
     currentEntry:       PropTypes.object.isRequired,
     unsetCurrentEntry:  PropTypes.func.isRequired,
-    EditEntryFinished:  PropTypes.func.isRequired
+    editEntryFinished:  PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {

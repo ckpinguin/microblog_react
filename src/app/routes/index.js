@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
@@ -7,18 +8,9 @@ import Shared from '../modules/shared';
 import Blog from '../modules/blog';
 import Login from '../modules/auth/login';
 
-// const requireAuth = (nextState, replaceState) => {
-//     console.log('auth required');
-//     const state = store.getState();
-//     if (!state.login) {
-//         const redirect = nextState.location.pathname;
-//         replaceState(null, `/login${redirect}`);
-//     }
-// };
-
-const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
+const PrivateRoute = ({component: Component, isAuthorized, ...rest}) => (
   <Route {...rest} render={props => (
-    (isAuthenticated)
+    (isAuthorized)
     ? (
       <Component {...props}/>
     )
@@ -30,10 +22,18 @@ const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
     )
   )}/>
 );
+
+PrivateRoute.propTypes = {
+    component:          PropTypes.func.isRequired,
+    isAuthorized:       PropTypes.bool.isRequired,
+};
+
 // Best practice (Medium: redux-best-practices-64d59775802e): Only
 // use smart components (aka containers) as Route targets
-const Routes = (store, {loggedInUser}) => {
+const Routes = ({loggedInUser, isAuthenticated, ...rest}) => {
+    console.log('rest: ', rest);
     // The components used in such routes, get the `match` property
+    console.log('isAuthenticated: ', isAuthenticated);
     const Layout = Shared.components.Layout;
     return (
     <Layout>
@@ -55,7 +55,7 @@ const Routes = (store, {loggedInUser}) => {
                 component={Login.components.LoginPage}
             />
             <PrivateRoute
-                isAuthenticated={true}
+                isAuthorized={isAuthenticated}
                 path="/admin"
                 component={() => <h1>Private area</h1>}
             />
@@ -65,12 +65,20 @@ const Routes = (store, {loggedInUser}) => {
             />
         </Switch>
     </Layout>
-);
-}
+    );
+};
+
+Routes.propTypes = {
+    // injected by mapStateToProps/mapDispatchToProps:
+    loggedInUser:       PropTypes.object,
+    isAuthenticated:    PropTypes.bool.isRequired,
+};
+
 
 const mapStateToProps = (state) => {
     return {
-        loggedInUser: Login.selectors.getLoggedInUser(state)
+        loggedInUser: Login.selectors.getLoggedInUser(state),
+        isAuthenticated: Login.selectors.isAuthenticated(state)
     };
 };
 
