@@ -16,9 +16,6 @@ const entry = (state, action) => {
         };
 
     case t.EDIT_ENTRY_FINISHED:
-        if (action.payload !== state.id) {
-            return state;
-        }
         return {
             ...state,
             showForm: false

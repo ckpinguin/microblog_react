@@ -9,7 +9,7 @@ import blog from '../..';
 import validate from './validate';
 
 let EditEntryFormContainer = (
-    { entry, saveEntry, currentEntry, unsetCurrentEntry, ...rest }
+    { entry, saveEntry, currentEntry, unsetCurrentEntry, editEntryFinished, ...rest }
      ) => {
     // Don't show the form if it is not wanted by the entry or
     // state.currentEntry (for new entries)
@@ -37,7 +37,7 @@ let EditEntryFormContainer = (
         <div>
             <EditEntryForm
                 onSubmit={saveEntry}
-                onReset={unsetCurrentEntry}
+                onReset={editEntryFinished}
                 fillForm={fillEntry}
                 {...rest}
             />
@@ -50,8 +50,8 @@ EditEntryFormContainer.propTypes = {
     // injected by mapStateToProps/mapDispatchToProps:
     saveEntry:          PropTypes.func.isRequired,
     currentEntry:       PropTypes.object.isRequired,
-    unsetCurrentEntry:  PropTypes.func.isRequired
-
+    unsetCurrentEntry:  PropTypes.func.isRequired,
+    EditEntryFinished:  PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
