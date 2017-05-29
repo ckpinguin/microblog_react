@@ -9,7 +9,7 @@ import blog from '../..';
 import validate from './validate';
 
 let EditEntryFormContainer = (
-    { entry, saveEntry, currentEntry, unsetCurrentEntry, editEntryFinished, ...rest }
+    { entry, saveEntry, currentEntry, editEntryFinished, ...rest }
      ) => {
     // Don't show the form if it is not wanted by the entry or
     // state.currentEntry (for new entries)
@@ -29,9 +29,6 @@ let EditEntryFormContainer = (
         }
     }
     const EditEntryForm = blog.components.EditEntryForm;
-    // console.log('rest: ', rest);
-    // console.log('entry: ', entry);
-    // console.log('currentEntry: ', currentEntry);
     
     return (
         <div>
@@ -50,7 +47,6 @@ EditEntryFormContainer.propTypes = {
     // injected by mapStateToProps/mapDispatchToProps:
     saveEntry:          PropTypes.func.isRequired,
     currentEntry:       PropTypes.object.isRequired,
-    unsetCurrentEntry:  PropTypes.func.isRequired,
     editEntryFinished:  PropTypes.func.isRequired
 };
 
@@ -71,7 +67,8 @@ EditEntryFormContainer = reduxForm({
     validate
 })(EditEntryFormContainer);
 
+// const { saveEntry, editEntryFinished } = blog.actions;
 export default connect(
-     mapStateToProps,
-     mapDispatchToProps,
+    mapStateToProps,
+    mapDispatchToProps
 )(EditEntryFormContainer);
