@@ -6,15 +6,10 @@ import Blog from '../..';
 import './BlogItem.css';
 
 const BlogItem = ({item, onDelete, onEdit, ...rest}) => {
-    const EditEntryFormContainer = Blog.components.EditEntryFormContainer;
     return (
         <div className="BlogItem">
             <hr />
-            <EditEntryFormContainer
-                key={item.id}
-                form={`EditEntryForm_${item.id}`}
-                entry={item}
-            />
+
             {item.image && <div className="blog-image">
                 <img src={`/images/${item.image}`} alt={item.title}/>
             </div>}

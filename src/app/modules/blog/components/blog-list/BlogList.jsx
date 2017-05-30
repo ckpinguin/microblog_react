@@ -10,15 +10,22 @@ import blog from '../..';
 const BlogList = ({ entries, deleteEntry, editEntry }) => {
     let itemList = [];
     const BlogItem = blog.components.BlogItem;
+    const EditEntryFormContainer = blog.components.EditEntryFormContainer;
     if (entries) {
         itemList = entries.map((entry) => {
             if (entry !== null) {
                 return (
-                    <BlogItem
-                        key={entry.id}
-                        item={entry}
-                        onDelete={deleteEntry}
-                        onEdit={editEntry}/>
+                    <div key={entry.id}>
+                        <EditEntryFormContainer
+                            form={`EditEntryForm_${entry.id}`}
+                            entry={entry}
+                        />
+                        <BlogItem
+                            item={entry}
+                            onDelete={deleteEntry}
+                            onEdit={editEntry}
+                        />
+                    </div>
                 );
             } else {
                 return null;
