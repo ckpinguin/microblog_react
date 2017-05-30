@@ -6,7 +6,7 @@ import Blog from '../..';
 import './BlogItem.css';
 
 const BlogItem = ({item, onDelete, onEdit, ...rest}) => {
-    const EditEntryFormContainer = Blog.components.EditEntryFormContainer;;
+    const EditEntryFormContainer = Blog.components.EditEntryFormContainer;
     return (
         <div className="BlogItem">
             <hr />
