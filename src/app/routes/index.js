@@ -30,7 +30,7 @@ PrivateRoute.propTypes = {
 
 // Best practice (Medium: redux-best-practices-64d59775802e): Only
 // use smart components (aka containers) as Route targets
-const Routes = ({loggedInUser, isAuthenticated, ...rest}) => {
+const Routes = ({ loggedInUser, isAuthenticated, ...rest }) => {
     // The components used in such routes, get the `match` property
     const Layout = Shared.components.Layout;
     return (

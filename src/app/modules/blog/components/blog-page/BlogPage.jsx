@@ -22,7 +22,7 @@ class BlogPage extends React.Component {
         const EditEntryFormContainer = blog.components.EditEntryFormContainer;
         const BlogList = blog.components.BlogList;
         // console.log('BlogPage props: ', this.props);
-        const { createNewEntry, match } = this.props;
+        const { lastEntry, createNewEntry, match } = this.props;
         return (
         <div>
             <div className="title">
@@ -32,8 +32,9 @@ class BlogPage extends React.Component {
                 <Route
                     path={`${match.url}/:id`}
                     component={EditEntryFormContainer}
+                    onEnter={true}
                 />
-                <EditEntryFormContainer/>
+                <EditEntryFormContainer entry={lastEntry}/>
                 <button onClick={createNewEntry} className="btn">Create New Entry</button>
             </div>
             <div className="jumbotron">
@@ -56,7 +57,15 @@ class BlogPage extends React.Component {
 BlogPage.propTypes = {
     // injected by mapStateToProps/mapDispatchToProps:
     createNewEntry:         PropTypes.func.isRequired,
+    lastEntry:              PropTypes.object.isRequired
 };
+
+const mapStateToProps = (state) => {
+    return {
+        lastEntry: blog.selectors.getLastEntry(state)
+    };
+};
+
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(blog.actions, dispatch);
 };
@@ -64,6 +73,6 @@ const mapDispatchToProps = (dispatch) => {
 // Some advice was, that explicit literal object shorthand binding
 // is better to be more redux-agnostic
 export default connect(
-     null,
+     mapStateToProps,
      mapDispatchToProps
 )(BlogPage);

@@ -18,14 +18,16 @@ const entry = (state, action) => {
     case t.EDIT_ENTRY_FINISHED:
         return {
             ...state,
-            showForm: false
+            showForm: false,
+            active:true
         };
     
     case t.ADD_ENTRY_SUCCESS:
         return action.payload;
+
     case t.ADD_ENTRY_FAILURE:
         return action.payload;
-
+    
     case t.UPDATE_ENTRY_SUCCESS:
         if (action.payload.id !== state.id) {
             return state;

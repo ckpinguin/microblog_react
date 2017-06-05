@@ -9,24 +9,15 @@ import blog from '../..';
 import validate from './validate';
 
 let EditEntryFormContainer = (
-    { entry, saveEntry, currentEntry, editEntryFinished, ...rest }
+    { entry, saveEntry, editEntryFinished, ...rest }
      ) => {
-    // Don't show the form if it is not wanted by the entry or
-    // state.currentEntry (for new entries)
+    // Don't show the form if it is not wanted by the entry
     let fillEntry = {};
-    if ('undefined' === typeof entry) { // no specific entry given
-        if (!currentEntry.showNewEntryForm) {
-            return null;
-        } else {
-            fillEntry = currentEntry;
-        }
-    } else { // a specific entry has been given
-        if (!entry.showForm) {
-            return null;
-        }
-        if (entry.id) {
-            fillEntry = entry;
-        }
+    if (!entry.showForm) {
+        return null;
+    }
+    if (entry.id) {
+        fillEntry = entry;
     }
     const EditEntryForm = blog.components.EditEntryForm;
     
@@ -46,14 +37,7 @@ EditEntryFormContainer.propTypes = {
     entry:              PropTypes.object,
     // injected by mapStateToProps/mapDispatchToProps:
     saveEntry:          PropTypes.func.isRequired,
-    currentEntry:       PropTypes.object.isRequired,
     editEntryFinished:  PropTypes.func.isRequired
-};
-
-const mapStateToProps = (state) => {
-    return {
-        currentEntry: blog.selectors.getCurrentEntry(state)
-    };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -67,8 +51,7 @@ EditEntryFormContainer = reduxForm({
     validate
 })(EditEntryFormContainer);
 
-// const { saveEntry, editEntryFinished } = blog.actions;
 export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(EditEntryFormContainer);

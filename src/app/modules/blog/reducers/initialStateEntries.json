@@ -12,6 +12,7 @@
                 "author": "The test user himself",
                 "user": "a8655eb5-ca5c-459a-a094-d0e704e80a69",
                 "tags": [],
+                "active": true,
                 "showForm": false
             },
             {
@@ -23,6 +24,7 @@
                 "tags": [],
                 "user": "be7f7340-2c3f-4534-9ec2-cbcc9ddccc2d",
                 "author": "administrator",
+                "active": true,
                 "showForm": false
             },
             {
@@ -34,6 +36,7 @@
                 "user": "a8655eb5-ca5c-459a-a094-d0e704e80a69",
                 "author": "Test user's alias",
                 "tags": [],
+                "active": true,
                 "showForm": false
             }
         ]

@@ -13,7 +13,7 @@ const BlogList = ({ entries, deleteEntry, editEntry }) => {
     const EditEntryFormContainer = blog.components.EditEntryFormContainer;
     if (entries) {
         itemList = entries.map((entry) => {
-            if (entry !== null) {
+            if (entry !== null && entry.active) {
                 return (
                     <div key={entry.id}>
                         <EditEntryFormContainer

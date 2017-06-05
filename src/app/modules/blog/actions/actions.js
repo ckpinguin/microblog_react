@@ -72,15 +72,6 @@ const removeEntryFailure = (error) => ({
     payload: error
 });
 
-export const setCurrentEntry = (entry) => ({
-    type: t.SET_CURRENT_ENTRY,
-    payload: entry
-});
-
-export const unsetCurrentEntry = () => ({
-    type: t.UNSET_CURRENT_ENTRY
-});
-
 export const editEntry = (id) => ({
     type: t.EDIT_ENTRY,
     payload: id
@@ -91,18 +82,19 @@ export const editEntryFinished = (id) => ({
     payload: id
 });
 
-const newEntry = () => ({
-    type: t.NEW_ENTRY // for the moment same as UNSET_CURRENT_ENTRY
-});
-
-
 // Thunk action creators with business logic.
 // Can be called as normal functions without injecting dispatch into components
 // by using mapDispatchToProps()
 
 export const createNewEntry = () => {
-    return (dispatch) => {
-        dispatch(newEntry());
+    return (dispatch, getState) => {
+        dispatch(addEntry()); // start flag
+        const newEntry = { };
+        const id = guid();
+        newEntry.id = id;
+        newEntry.showForm = true; // show the editing form
+        newEntry.active = false; // don't show in list yet
+        dispatch(addEntrySuccess(newEntry));
     };
 };
 
@@ -110,19 +102,15 @@ export const createNewEntry = () => {
 // With thunk, we can use dispatch and getState in action creators
 // to make decisions, async calls etc. (i.e. side-effect stuff, that
 // is not allowed in reducers)
-export const setCurrentEntryById = (id) => {
-    return (dispatch, getState) => {
-        let entry;
+
         // this is likely more performant than array.filter()
         // O(n) for small, local mockup data should be ok 
-        for (entry of getState().blog.entries.entriesList.entries) {
+/*        for (entry of getState().blog.entries.entriesList.entries) {
             if (entry.id === id) {
                 break;
             }
-        }
-        dispatch(setCurrentEntry(entry));
-    };
-};
+        }*/
+
 
 // This is not an action creator, but it calls them after doing some
 // business logic.
@@ -134,7 +122,7 @@ export const saveEntry = (entry) => {
         // guid as id...
 
         if (entry.id) {
-            dispatch(updateEntry());
+            dispatch(updateEntry()); // start flag
             
             // Do some async stuff here
             
@@ -142,23 +130,23 @@ export const saveEntry = (entry) => {
             const oldEntry = getState().blog.entries.entriesList[entry.id];
             const merged = Object.assign({}, oldEntry, entry);
             dispatch(updateEntrySuccess(merged));
-        } else {
+        } else { // new entry to be saved:
             const id = guid();
             entry.id = id;
-            dispatch(addEntry());
+            dispatch(addEntry()); // start flag
 
             // Do some async stuff here
 
             // This is normally called after async backend op success:
             dispatch(addEntrySuccess(entry));
         }
-        dispatch(unsetCurrentEntry());
+        dispatch(editEntryFinished(entry.id));
     };
 };
 
 export const loadEntries = () => {
     return (dispatch, getState) => {
-        dispatch(fetchEntries()); // inform state that async fetching started
+        dispatch(fetchEntries()); // start flag, informs state that async fetching started
         
         // Do some async stuff here
         

@@ -6,10 +6,12 @@ import Blog from '../..';
 import './BlogItem.css';
 
 const BlogItem = ({item, onDelete, onEdit, ...rest}) => {
+    if (!item.active) {
+        return null;
+    }
     return (
         <div className="BlogItem">
             <hr />
-
             {item.image && <div className="blog-image">
                 <img src={`/images/${item.image}`} alt={item.title}/>
             </div>}
