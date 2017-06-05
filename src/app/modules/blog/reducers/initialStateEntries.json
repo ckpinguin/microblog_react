@@ -8,7 +8,9 @@
                 "title": "Testentry",
                 "text": "Just a little\n test",
                 "image": "cat1.jpg",
-                "date": null,
+                "date": "2017-06-05T14:46:23.977Z",
+                "author": "The test user himself",
+                "user": "a8655eb5-ca5c-459a-a094-d0e704e80a69",
                 "tags": [],
                 "showForm": false
             },
@@ -17,10 +19,10 @@
                 "title": "another one",
                 "text": "Cats always work :-)",
                 "image": "cat2.gif",
-                "date": null,
+                "date": "2017-05-05T12:04:01.000Z",
                 "tags": [],
-                "user": "a8655eb5-ca5c-459a-a094-d0e704e80a69",
-                "author": "The test user himself",
+                "user": "be7f7340-2c3f-4534-9ec2-cbcc9ddccc2d",
+                "author": "administrator",
                 "showForm": false
             },
             {
@@ -28,7 +30,9 @@
                 "title": "jumpy cat",
                 "text": "Told ya, everybody loves cats",
                 "image": null,
-                "date": null,
+                "date": "2016-12-31T11:10:11.000Z",
+                "user": "a8655eb5-ca5c-459a-a094-d0e704e80a69",
+                "author": "Test user's alias",
                 "tags": [],
                 "showForm": false
             }
