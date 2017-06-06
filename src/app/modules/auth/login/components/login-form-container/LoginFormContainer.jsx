@@ -11,7 +11,7 @@ let LoginFormContainer = ({ doLogin, cancelLogin, loggedInUser, ...rest }) => {
     const LoginForm = login.components.LoginForm;
     return (
         (loggedInUser.id !== undefined)
-            ? <div>Already logged in with user {loggedInUser.name}</div>
+            ? <div><p>Already logged in with user {loggedInUser.name}</p></div>
             : <div>
                 <LoginForm
                     onSubmit={doLogin}
