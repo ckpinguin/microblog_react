@@ -21,8 +21,9 @@ class BlogPage extends React.Component {
     render() {
         const EditEntryFormContainer = blog.components.EditEntryFormContainer;
         const BlogList = blog.components.BlogList;
-        // console.log('BlogPage props: ', this.props);
         const { lastEntry, createNewEntry, match } = this.props;
+        // Hide the „new entry“ button if form is shown
+        const newButtonShow = { display: lastEntry.showForm ? 'none' : 'block' };
         return (
         <div>
             <div className="title">
@@ -35,7 +36,7 @@ class BlogPage extends React.Component {
                     onEnter={true}
                 />
                 <EditEntryFormContainer entry={lastEntry}/>
-                <button onClick={createNewEntry} className="btn">Create New Entry</button>
+                <button style={newButtonShow} onClick={createNewEntry} className="btn">Create New Entry</button>
             </div>
             <div className="jumbotron">
                 <div className="attentionItem">
