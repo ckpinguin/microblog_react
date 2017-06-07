@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Blog from '../..';
-
 import './BlogItem.css';
 
 const BlogItem = ({item, onDelete, onEdit, ...rest}) => {

@@ -1,6 +1,7 @@
 import * as t from './actionTypes';
 // import { push, go, replace, goBack } from 'react-router-redux';
 import { goBack } from 'react-router-redux';
+import { withRouter } from 'react-router';
 
 import userModule from '../../user';
 
@@ -48,9 +49,9 @@ const unsetLoggedInUser = () => ({
 });
 
 
-// Thunk action creators
+// Thunk action creators (public API)
 
-export const doLogin = (user) => {
+export const doLogin = (history, user) => {
     return (dispatch, getState) => {
         if (user.name) {
             dispatch(login(user));
@@ -63,7 +64,8 @@ export const doLogin = (user) => {
                 dispatch(loginSuccess(user));
                 console.log('trying to store id: ', storedUser.id);
                 dispatch(setLoggedInUser({id: storedUser.id, name: storedUser.name}));
-                dispatch(goBack('home'));
+                // dispatch(goBack('home'));
+                history.push('/home');
             } else {
                 console.log('login failure');
                 dispatch(loginFailed(user));
@@ -72,11 +74,12 @@ export const doLogin = (user) => {
     };
 };
 
-export const cancelLogin = () => {
+// History for navigation has to be provided (actions.js is not a component that is wrapped )
+export const cancelLogin = (history) => {
     return (dispatch, getState) => {
         console.log('login cancelled');
         dispatch(loginCancelled());
-        dispatch(goBack('/home'));
+        history.push('/home');
     };
 };
 

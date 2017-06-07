@@ -1,5 +1,7 @@
 import * as t from './actionTypes';
 
+import { go, goBack, push } from 'react-router-redux';
+
 const guid = () => {
     const s4 = () => (
         Math.floor((1 + Math.random()) * 0x10000)
@@ -112,7 +114,7 @@ export const createNewEntry = () => {
         }*/
 
 
-// This is not an action creator, but it calls them after doing some
+// This is not itself an action creator, but it calls them after doing some
 // business logic.
 // Normally we would save the entry into a backend server or database
 // asynchronously with dispatching the function (in payload)
@@ -163,5 +165,12 @@ export const deleteEntry = (id) => {
         // Do some async stuff here
 
         dispatch(removeEntrySuccess(id));
+    };
+};
+
+export const redirectToLogin = () => {
+    return (dispatch, getState) => {
+        console.log('Redirecting to login');
+        dispatch(goBack('/login'));
     };
 };

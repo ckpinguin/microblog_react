@@ -25,6 +25,7 @@ export default class EditEntryForm extends React.Component {
         if (this.props.fillForm) {
             this.props.initialize(this.props.fillForm);
         }
+
     }
 
     componentWillReceiveProps(nextProps) {
@@ -43,6 +44,7 @@ export default class EditEntryForm extends React.Component {
     render() {
         const { onSubmit, onReset, handleSubmit,
                 pristine, submitting } = this.props;
+        console.log('props: ', this.props);   
         return (
             <form
                 onSubmit={handleSubmit(onSubmit)}>

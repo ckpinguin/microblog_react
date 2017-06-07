@@ -1,17 +1,23 @@
 import React from 'react';
 
-import login from '../..';
+import Login from '../..';
 
 import './LoginPage.css';
 
 export default class LoginPage extends React.Component {
     title = 'Login';
+
+    constructor(props) {
+        super(props);
+    }
+
     componentDidMount() {
         document.title = this.title;
     }
 
     render() {
-        const LoginFormContainer = login.components.LoginFormContainer;
+        console.log('props: ', this.props);
+        const LoginFormContainer = Login.components.LoginFormContainer;
         return (
         <div>
             <div className="title">

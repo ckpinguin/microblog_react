@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createBrowserHistory as createHistory } from 'history';
 // import { syncHistoryWithStore } from 'react-router-redux';
-//import { ConnectedRouter as Router } from 'react-router-redux';
+// import { ConnectedRouter as Router } from 'react-router-redux';
 
 import configureStore from './app/store/configureStore';
 import Routes from './app/routes';

@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import _ from 'lodash';
-import { Route } from 'react-router-dom';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import blog from '../..';
+import Blog from '../..';
 
 import './BlogPage.css';
 
@@ -19,10 +18,16 @@ class BlogPage extends React.Component {
     }
 
     render() {
-        const EditEntryFormContainer = blog.components.EditEntryFormContainer;
-        const BlogList = blog.components.BlogList;
-        const { lastEntry, createNewEntry, match } = this.props;
-        // Hide the „new entry“ button if form is shown
+        const EditEntryFormContainer = Blog.components.EditEntryFormContainer;
+        const BlogList = Blog.components.BlogList;
+        const { lastEntry, createNewEntry, ...rest } = this.props;
+        // const routingProps = {
+        //     match: this.props.match,
+        //     location: this.props.location,
+        //     history: this.props.history
+        // };
+        // console.log('rest ', {...rest});
+        // Hide the „new entry“ button if form is shown for the list (new) entry
         const newButtonShow = { display: lastEntry.showForm ? 'none' : 'block' };
         return (
         <div>
@@ -30,20 +35,16 @@ class BlogPage extends React.Component {
                 <h1>{this.title}</h1>
             </div>
             <div className="mainContent">
-                <Route
-                    path={`${match.url}/:id`}
-                    component={EditEntryFormContainer}
-                    onEnter={true}
-                />
-                <EditEntryFormContainer entry={lastEntry}/>
+                <EditEntryFormContainer entry={lastEntry} />
                 <button style={newButtonShow} onClick={createNewEntry} className="btn">Create New Entry</button>
             </div>
             <div className="jumbotron">
                 <div className="attentionItem">
-                    <h1>Attention item:</h1>
-                    <p>url: {match.url}</p>
-                    <p>path: {match.path}</p>
-                    <p>params: {_.map(match.params, e => e)}</p>
+                    <h2>Attention item</h2>
+                    {/*<p>url: {this.props.match.url}</p>
+                    <p>path: {this.props.match.path}</p>
+                    <p>params: {_.map(this.props.match.params, e => e)}</p>
+                    */}
                 </div>
             </div>
             <div className="listContent">
@@ -63,12 +64,12 @@ BlogPage.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        lastEntry: blog.selectors.getLastEntry(state)
+        lastEntry: Blog.selectors.getLastEntry(state)
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators(blog.actions, dispatch);
+    return bindActionCreators(Blog.actions, dispatch);
 };
 
 // Some advice was, that explicit literal object shorthand binding

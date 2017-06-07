@@ -5,12 +5,12 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import blog from '../..';
+import Blog from '../..';
 
 const BlogList = ({ entries, deleteEntry, editEntry }) => {
     let itemList = [];
-    const BlogItem = blog.components.BlogItem;
-    const EditEntryFormContainer = blog.components.EditEntryFormContainer;
+    const BlogItem = Blog.components.BlogItem;
+    const EditEntryFormContainer = Blog.components.EditEntryFormContainer;
     if (entries) {
         itemList = entries.map((entry) => {
             if (entry !== null && entry.active) {
@@ -53,14 +53,14 @@ BlogList.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        entries: blog.selectors.getAllEntries(state)
+        entries: Blog.selectors.getAllEntries(state)
     };
 };
 
 // Alternative would be:  bindActionCreators(Actions, dispatch);
 // where all actions would be bound and available (performance-loss?)
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators(blog.actions, dispatch);
+    return bindActionCreators(Blog.actions, dispatch);
 };
 
 export default withRouter(connect(

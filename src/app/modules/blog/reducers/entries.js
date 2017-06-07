@@ -111,7 +111,6 @@ const entries = (state = initialStateEntries, action) => {
             }
         };
         
-
     case t.REMOVE_ENTRY:
         return {
             ...state,
