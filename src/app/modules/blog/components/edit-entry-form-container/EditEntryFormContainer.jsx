@@ -15,10 +15,9 @@ import validate from './validate';
 import _ from 'lodash';
 
 let EditEntryFormContainer = (
-    { loggedInUser, entry, saveEntry, editEntryFinished, redirectToLogin,
+    { loggedInUser, entry, saveEntry, editEntryFinished,
         location, ...rest }
      ) => {
-    console.log('loggedInUser: ', loggedInUser);
     // console.log('rest: ', rest);
 
     // Lot of logic follows, I don't really like it, but with the current state
@@ -26,7 +25,6 @@ let EditEntryFormContainer = (
     // afford their video-course right now :(
 
     // Don't show the form if it is not wanted by the entry
-    let fillEntry = {};
     if (!entry.showForm) {
         return null;
     }
@@ -44,7 +42,9 @@ let EditEntryFormContainer = (
             console.log('You can only edit your own entries');
             return null;
         }
-        fillEntry = entry;
+        // enrich with user/author data
+        entry.user = loggedInUser.id;
+        entry.author = loggedInUser.name;
     }
     const EditEntryForm = Blog.components.EditEntryForm;
     
@@ -53,7 +53,7 @@ let EditEntryFormContainer = (
             <EditEntryForm
                 onSubmit={saveEntry}
                 onReset={editEntryFinished}
-                fillForm={fillEntry}
+                fillForm={entry}
                 {...rest}
             />
         </div>
@@ -65,7 +65,6 @@ EditEntryFormContainer.propTypes = {
     // injected by mapStateToProps/mapDispatchToProps:
     saveEntry:          PropTypes.func.isRequired,
     editEntryFinished:  PropTypes.func.isRequired,
-    redirectToLogin:    PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => {

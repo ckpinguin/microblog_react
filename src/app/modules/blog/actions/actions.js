@@ -1,6 +1,6 @@
 import * as t from './actionTypes';
 
-import { go, goBack, push } from 'react-router-redux';
+import { goBack } from 'react-router-redux';
 
 const guid = () => {
     const s4 = () => (
@@ -74,6 +74,9 @@ const removeEntryFailure = (error) => ({
     payload: error
 });
 
+
+// Public actions
+
 export const editEntry = (id) => ({
     type: t.EDIT_ENTRY,
     payload: id
@@ -131,10 +134,12 @@ export const saveEntry = (entry) => {
             // This is normally called after async backend op success:
             const oldEntry = getState().blog.entries.entriesList[entry.id];
             const merged = Object.assign({}, oldEntry, entry);
+            merged.date = new Date().toJSON();
             dispatch(updateEntrySuccess(merged));
         } else { // new entry to be saved:
             const id = guid();
             entry.id = id;
+            entry.date = new Date().toJSON();
             dispatch(addEntry()); // start flag
 
             // Do some async stuff here
@@ -168,9 +173,3 @@ export const deleteEntry = (id) => {
     };
 };
 
-export const redirectToLogin = () => {
-    return (dispatch, getState) => {
-        console.log('Redirecting to login');
-        dispatch(goBack('/login'));
-    };
-};

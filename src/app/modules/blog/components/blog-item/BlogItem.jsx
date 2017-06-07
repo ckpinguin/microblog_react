@@ -21,6 +21,10 @@ const BlogItem = ({item, onDelete, onEdit, ...rest}) => {
                     <div className="fa fa-edit"
                         onClick={() => onEdit(item.id) } />
                 </h2>
+                <div>
+                    {item.author && <h3><small>Written by: <em>{item.author}</em></small></h3>}
+                    {item.date && <div ><h3><small> on <em>{item.date}</em></small></h3></div>}
+                </div>
                 <p>{item.text}</p>
             </div>
         </div>

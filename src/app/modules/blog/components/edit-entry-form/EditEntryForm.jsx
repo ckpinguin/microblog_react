@@ -52,7 +52,14 @@ export default class EditEntryForm extends React.Component {
                     <Field name="id"
                         component={this.renderField}
                         type="hidden"
-                        />
+                    />
+                </div>
+                {/* TODO: make this field editable */}
+                <div className="hidden">
+                    <Field name="author"
+                        component={this.renderField}
+                        type="hidden"
+                    />
                 </div>
                 <div className="form-group">
                     <Field name="title"
@@ -60,14 +67,16 @@ export default class EditEntryForm extends React.Component {
                         component={this.renderField}
                         label="Titel"
                         className="form-control"
-                        placeholder="Titel eingeben..." />
+                        placeholder="Titel eingeben..."
+                    />
                 </div>
                 <div className="form-group">
                     <Field name="text"
                         component={this.renderTextArea}
                         label="Inhalt"
                         className="form-control"
-                        placeholder="Textinhalt eingeben..." />
+                        placeholder="Textinhalt eingeben..."
+                    />
                 </div>  
                 <div className="form-group">
                     <Field name="image"
@@ -75,7 +84,8 @@ export default class EditEntryForm extends React.Component {
                         component={this.renderField}
                         label="Bild-URL"
                         className="form-control"
-                        placeholder="Bildadresse eingeben..." />
+                        placeholder="Bildadresse eingeben..."
+                    />
                 </div>  
                 <div>
                     <button type="submit" className="btn btn-default"
