@@ -23,17 +23,12 @@ import './index.styl';
 
 // We shouldn't need to sync store explicitly, when we use routerMiddleware
 const history = createHistory();
-// const history = browserHistory;
 const initialState = typeof window !== 'undefined' ? window.__INITIAL_STATE__: undefined;
 const store = configureStore(initialState, history);
 
 store.subscribe(() => {
     console.log('state changed in store: ', store.getState());
 });
-// const syncedHistory = syncHistoryWithStore(history, store);
-// const syncedHistory = syncHistoryWithStore(history, store, {
-//     selectLocationState: (state) => state.router
-// });
 
 // with v.>4 of react-router, the history should be created automatically
 const mount = document.getElementById('root');
