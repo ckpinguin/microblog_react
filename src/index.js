@@ -5,15 +5,16 @@ import { Provider } from 'react-redux';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createBrowserHistory as createHistory } from 'history';
-// import { syncHistoryWithStore } from 'react-router-redux';
-// import { ConnectedRouter as Router } from 'react-router-redux';
+
+import ReduxToastr from 'react-redux-toastr';
 
 import configureStore from './app/store/configureStore';
 import Routes from './app/routes';
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.css';
-import 'react-redux-toastr/src/styles/index.scss';
+// import 'react-redux-toastr/src/styles/index.scss';
+import 'react-redux-toastr/src/styles/react-redux-toastr.min.css';
 import './index.styl';
 
 // use this for SSR:
@@ -38,9 +39,14 @@ store.subscribe(() => {
 const mount = document.getElementById('root');
 const provider = 
     <Provider store={store}>
-        <Router>
-            <Routes/>
-        </Router>
+        <div>
+            <Router>
+                <Routes/>
+            </Router>
+            <ReduxToastr
+
+            />
+        </div>
     </Provider>;
 
 ReactDOM.render(provider, mount);

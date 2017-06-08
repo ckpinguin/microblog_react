@@ -1,7 +1,6 @@
 import * as t from './actionTypes';
-// import { push, go, replace, goBack } from 'react-router-redux';
-import { goBack } from 'react-router-redux';
-import { withRouter } from 'react-router';
+
+import { toastr } from 'react-redux-toastr';
 
 import userModule from '../../user';
 
@@ -62,7 +61,7 @@ export const doLogin = (history, user) => {
             if (storedUser.password === md5(user.password)) {
                 console.log('login success');
                 dispatch(loginSuccess(user));
-                console.log('trying to store id: ', storedUser.id);
+                toastr.success(`Welcome, ${user.name}`, 'You have logged in successfully.');
                 dispatch(setLoggedInUser({id: storedUser.id, name: storedUser.name}));
                 // dispatch(goBack('home'));
                 history.push('/home');
