@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './BlogItem.css';
+import { dateFormat } from '../../../shared/utils';
 
 const BlogItem = ({item, onDelete, onEdit, ...rest}) => {
     if (!item.active) {
@@ -23,7 +24,7 @@ const BlogItem = ({item, onDelete, onEdit, ...rest}) => {
                 </h2>
                 <div>
                     {item.author && <h3><small>Written by: <em>{item.author}</em></small></h3>}
-                    {item.date && <div ><h3><small> on <em>{item.date}</em></small></h3></div>}
+                    {item.date && <div ><h3><small> on <em>{dateFormat(item.date)}</em></small></h3></div>}
                 </div>
                 <p>{item.text}</p>
             </div>
