@@ -44,7 +44,12 @@ const provider =
                 <Routes/>
             </Router>
             <ReduxToastr
-
+                timeOut={5000}
+                newestOnTop={true}
+                position="top-right"
+                transitionIn="bounceIn"
+                transitionOut="hinge" // just testing animations.css integration
+                progressBar={true}
             />
         </div>
     </Provider>;
