@@ -7,6 +7,8 @@ import { reduxForm } from 'redux-form';
 import { Redirect } from 'react-router';
 import { withRouter } from 'react-router-dom';
 
+import { toastr } from 'react-redux-toastr';
+
 import Blog from '../..';
 import Login from '../../../auth/login';
 import validate from './validate';
@@ -39,7 +41,7 @@ let EditEntryFormContainer = (
     if (entry.id) {
         // TODO: how to check for new form?
         if (entry.user && entry.user !== loggedInUser.id) {
-            console.log('You can only edit your own entries');
+            toastr.error('You can only edit your own entries');
             return null;
         }
         // enrich with user/author data

@@ -86,6 +86,7 @@ export const doLogout = () => {
     return (dispatch) => {
         dispatch(logout());
         dispatch(logoutSuccess());
+        toastr.success('Goodbye', 'You have logged out.');
         dispatch(unsetLoggedInUser());
     };
 };
