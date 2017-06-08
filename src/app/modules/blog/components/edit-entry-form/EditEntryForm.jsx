@@ -6,6 +6,8 @@ import { Field } from 'redux-form';
 import './EditEntryForm.css';
 
 export default class EditEntryForm extends React.Component {
+    title = 'Edit entry';
+
     constructor(props) {
         super(props);
         /**
@@ -17,6 +19,13 @@ export default class EditEntryForm extends React.Component {
         };
     }
 
+    componentDidMount() {
+        document.title = this.title;
+    }
+
+    componentWillUnmount() {
+        document.title = '';
+    }
     // According to the react docs, the constructor should be preferred to this, 
     // but that doesn't work out for me, it's giving warning about too many
     // updates while re-rendering

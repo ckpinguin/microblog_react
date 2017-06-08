@@ -13,6 +13,7 @@ import Routes from './app/routes';
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.css';
+import 'react-redux-toastr/src/styles/index.scss';
 import './index.styl';
 
 // use this for SSR:
