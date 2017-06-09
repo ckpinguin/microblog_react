@@ -13,7 +13,6 @@ import Blog from '../..';
 import Login from '../../../auth/login';
 import validate from './validate';
 
-
 import _ from 'lodash';
 
 let EditEntryFormContainer = (

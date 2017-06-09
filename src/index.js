@@ -14,7 +14,9 @@ import Routes from './app/routes';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.css';
 // import 'react-redux-toastr/src/styles/index.scss';
-import 'react-redux-toastr/src/styles/react-redux-toastr.min.css';
+// We need the css locally as the original SCSS is not handled by react-create:
+import './react-redux-toastr.min.css';
+
 import './index.styl';
 
 // use this for SSR:
