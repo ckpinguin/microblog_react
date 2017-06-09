@@ -66,7 +66,7 @@ export const doLogin = (history, user) => {
                 // dispatch(goBack('home'));
                 history.push('/home');
             } else {
-                console.log('login failure');
+                toastr.error('Login failed.');
                 dispatch(loginFailed(user));
             }
         }
