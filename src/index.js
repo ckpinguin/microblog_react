@@ -16,6 +16,7 @@ import 'font-awesome/css/font-awesome.css';
 // import 'react-redux-toastr/src/styles/index.scss';
 // We need the css locally as the original SCSS is not handled by react-create:
 import './react-redux-toastr.min.css';
+import 'animate.css/animate.min.css';
 
 import './index.styl';
 
