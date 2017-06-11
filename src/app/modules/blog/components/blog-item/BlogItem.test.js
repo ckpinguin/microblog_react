@@ -10,6 +10,8 @@ const blogItem = {
 };
 
 it('renders without crashing', () => {
+    const mockDelete = () => true;
+    const mockEdit = () => true;
     const div = document.createElement('div');
-    ReactDOM.render(<BlogItem item={blogItem} />, div);
+    ReactDOM.render(<BlogItem item={blogItem} onEdit={mockEdit} onDelete={mockDelete} />, div);
 });
