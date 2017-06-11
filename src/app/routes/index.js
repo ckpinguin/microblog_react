@@ -2,31 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 import Shared from '../modules/shared';
 import Blog from '../modules/blog';
 import Login from '../modules/auth/login';
-
-const PrivateRoute = ({component: Component, isAuthorized, ...rest}) => (
-  <Route {...rest} render={props => (
-    (isAuthorized)
-    ? (
-      <Component {...props}/>
-    )
-    : (
-      <Redirect to={{
-          pathname: '/login',
-          state: { from: props.location }
-      }}/>
-    )
-  )}/>
-);
-
-PrivateRoute.propTypes = {
-    component:          PropTypes.func.isRequired,
-    isAuthorized:       PropTypes.bool.isRequired,
-};
 
 // Best practice (Medium: redux-best-practices-64d59775802e): Only
 // use smart components (aka containers) as Route targets
@@ -34,6 +14,7 @@ const Routes = ({ isAuthenticated, ...rest }) => {
     // console.log('rest ', ...rest);
     // The components used in such routes, get the `match` property
     const Layout = Shared.components.Layout;
+    const PrivateRoute = Shared.components.PrivateRoute;
     return (
     <Layout>
         <Switch>
