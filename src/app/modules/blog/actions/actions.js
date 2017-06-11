@@ -35,7 +35,7 @@ const addEntry = () => ({
     type: t.ADD_ENTRY,
 });
 
-const addEntrySuccess = (entry) => ({
+export const addEntrySuccess = (entry) => ({
     type: t.ADD_ENTRY_SUCCESS,
     payload: entry
 });
