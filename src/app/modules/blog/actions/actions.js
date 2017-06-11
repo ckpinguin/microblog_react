@@ -1,7 +1,5 @@
 import * as t from './actionTypes';
 
-import { goBack } from 'react-router-redux';
-
 const guid = () => {
     const s4 = () => (
         Math.floor((1 + Math.random()) * 0x10000)
@@ -35,6 +33,7 @@ const addEntry = () => ({
     type: t.ADD_ENTRY,
 });
 
+// exported only for the example unit test
 export const addEntrySuccess = (entry) => ({
     type: t.ADD_ENTRY_SUCCESS,
     payload: entry
