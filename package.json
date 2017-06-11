@@ -33,6 +33,7 @@
     "react-addons-perf": "^15.4.2",
     "react-awesome-form-validator": "^1.4.3",
     "react-scripts": "0.9.5",
+    "rewire": "^2.5.2",
     "stylint": "^1.5.9",
     "stylus": "^0.54.5"
   },

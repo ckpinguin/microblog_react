@@ -1,5 +1,6 @@
 import * as actions from './actions';
 import * as types from './actionTypes';
+// import rewire from 'rewire';
 
 describe('actions', () => {
     it('should create an action to add a blog entry', () => {
