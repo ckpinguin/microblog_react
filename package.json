@@ -29,7 +29,6 @@
     "expect": "^1.20.2",
     "npm-run-all": "^4.0.2",
     "react-addons-perf": "^15.4.2",
-    "react-awesome-form-validator": "^1.4.3",
     "react-scripts": "0.9.5",
     "rewire": "^2.5.2",
     "stylint": "^1.5.9",
