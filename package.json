@@ -31,6 +31,7 @@
     "react-addons-perf": "^15.4.2",
     "react-scripts": "1.0.7",
     "rewire": "^2.5.2",
+    "serve": "^5.2.2",
     "stylint": "^1.5.9",
     "stylus": "^0.54.5"
   },
