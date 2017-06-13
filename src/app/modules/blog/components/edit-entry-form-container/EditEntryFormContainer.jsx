@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import debug from '../../../../../debug';
+
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
@@ -19,7 +21,6 @@ let EditEntryFormContainer = (
     { loggedInUser, entry, saveEntry, editEntryFinished,
         location, ...rest }
      ) => {
-    // console.log('rest: ', rest);
 
     // Lot of logic follows, I don't really like it, but with the current state
     // of react router v4, clean routing setup would take way too long and I cannot
@@ -31,7 +32,7 @@ let EditEntryFormContainer = (
     }
     // Redirect to login if not logged in
     if (_.isEmpty(loggedInUser)) {
-        console.log(location);
+        if (debug) console.log(location);
         return <Redirect to={{
             pathname: '/login',
             state: { referrer: location.pathname }
@@ -39,6 +40,7 @@ let EditEntryFormContainer = (
     }
     if (entry.id) {
         // TODO: how to check for new form?
+        // BUG: This shows on every page route after once there is an error
         if (entry.user && entry.user !== loggedInUser.id) {
             toastr.error('You can only edit your own entries');
             return null;

@@ -11,7 +11,6 @@ import Login from '../modules/auth/login';
 // Best practice (Medium: redux-best-practices-64d59775802e): Only
 // use smart components (aka containers) as Route targets
 const Routes = ({ isAuthenticated, ...rest }) => {
-    // console.log('rest ', ...rest);
     // The components used in such routes, get the `match` property
     const Layout = Shared.components.Layout;
     const PrivateRoute = Shared.components.PrivateRoute;

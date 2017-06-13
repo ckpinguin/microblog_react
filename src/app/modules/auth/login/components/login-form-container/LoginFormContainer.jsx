@@ -11,7 +11,6 @@ import validate from './validate';
 
 let LoginFormContainer = ({ doLogin, cancelLogin, loggedInUser, history, ...rest }) => {
     const LoginForm = Login.components.LoginForm;
-    // console.log('rest ', rest);
     return (
         (loggedInUser.id !== undefined)
             ? <div><p>Already logged in with user {loggedInUser.name}</p></div>

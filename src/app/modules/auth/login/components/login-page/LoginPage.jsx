@@ -1,5 +1,7 @@
 import React from 'react';
 
+import debug from '../../../../../../debug';
+
 import Login from '../..';
 
 import './LoginPage.css';
@@ -12,7 +14,7 @@ export default class LoginPage extends React.Component {
     }
 
     render() {
-        console.log('props: ', this.props);
+        if (debug) console.log('props: ', this.props);
         const LoginFormContainer = Login.components.LoginFormContainer;
         return (
         <div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import debug from './debug';
+
 import { Provider } from 'react-redux';
 
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -29,9 +31,11 @@ const history = createHistory();
 const initialState = typeof window !== 'undefined' ? window.__INITIAL_STATE__: undefined;
 const store = configureStore(initialState, history);
 
-store.subscribe(() => {
-    console.log('state changed in store: ', store.getState());
-});
+if (debug) {
+    store.subscribe(() => {
+        console.log('state changed in store: ', store.getState());
+    });
+}
 
 // with v.>4 of react-router, the history should be created automatically
 const mount = document.getElementById('root');

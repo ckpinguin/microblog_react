@@ -3,7 +3,6 @@ import initialStateUsers from './initialStateUsers';
 
 const userList = (state = initialStateUsers, action) => {
     let error = null;
-    // console.log('reducer called for ', action.type);
     switch (action.type) {
     case t.FETCH_USERS:
         return {

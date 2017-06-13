@@ -26,7 +26,6 @@ class BlogPage extends React.Component {
         //     location: this.props.location,
         //     history: this.props.history
         // };
-        // console.log('rest ', {...rest});
         // Hide the „new entry“ button if form is shown for the list (new) entry
         const newButtonShow = { display: lastEntry.showForm ? 'none' : 'block' };
         return (

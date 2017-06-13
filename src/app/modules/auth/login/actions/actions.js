@@ -1,5 +1,7 @@
 import * as t from './actionTypes';
 
+import debug from '../../../../../debug';
+
 import { toastr } from 'react-redux-toastr';
 
 import userModule from '../../user';
@@ -57,9 +59,9 @@ export const doLogin = (history, user) => {
             
             // do async stuff
             const storedUser = userModule.selectors.findUserByName(getState(), user.name);
-            console.log('user found: ', storedUser);
+            if (debug) console.log('user found: ', storedUser);
             if (storedUser.password === md5(user.password)) {
-                console.log('login success');
+                if (debug) console.log('login success');
                 dispatch(loginSuccess(user));
                 toastr.success(`Welcome, ${user.name}`, 'You have logged in successfully.');
                 dispatch(setLoggedInUser({id: storedUser.id, name: storedUser.name}));
@@ -76,7 +78,7 @@ export const doLogin = (history, user) => {
 // History for navigation has to be provided (actions.js is not a component that is wrapped )
 export const cancelLogin = (history) => {
     return (dispatch, getState) => {
-        console.log('login cancelled');
+        if (debug) console.log('login cancelled');
         dispatch(loginCancelled());
         history.push('/home');
     };

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import debug from '../../../../../debug';
+
 import { Field } from 'redux-form';
 
 import './EditEntryForm.css';
@@ -45,7 +47,7 @@ export default class EditEntryForm extends React.Component {
         }
         // Prefill form if asked for...
         if (nextProps.fillForm !== this.props.fillForm) {
-            console.log('fillForm prop received: ', nextProps.fillForm);
+            if (debug) console.log('fillForm prop received: ', nextProps.fillForm);
             nextProps.initialize(nextProps.fillForm);
         }
     }
@@ -53,7 +55,7 @@ export default class EditEntryForm extends React.Component {
     render() {
         const { onSubmit, onReset, handleSubmit,
                 pristine, submitting } = this.props;
-        console.log('props: ', this.props);   
+        if (debug) console.log('props: ', this.props);   
         return (
             <form
                 onSubmit={handleSubmit(onSubmit)}>
