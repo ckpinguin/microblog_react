@@ -29,9 +29,9 @@ const userList = (state = initialStateUsers, action) => {
             error: error,
             loading: false
         };
-    case t.ADD:
-    case t.UPDATE:
-    case t.REMOVE:
+    case t.ADD_USER:
+    case t.UPDATE_USER:
+    case t.REMOVE_USER:
     default:
         return state;
     }

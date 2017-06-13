@@ -1,4 +1,4 @@
-import t from './actionTypes';
+import * as t from './actionTypes';
 
 
 // Action creators
@@ -20,7 +20,7 @@ const fetchUsersFailure = (error) => ({
 
 export const findUserById = (id) => {
     return (dispatch, getState) => ({
-        type: t.FETCH,
+        type: t.FETCH_USERS,
         result: getState().users.filter(e => {
             return e.id === id;
         })
