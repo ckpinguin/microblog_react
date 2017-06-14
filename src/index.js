@@ -13,7 +13,7 @@ import ReduxToastr from 'react-redux-toastr';
 import configureStore from './app/store/configureStore';
 import Routes from './app/routes';
 
-// import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.css';
@@ -59,5 +59,5 @@ const provider =
     </Provider>;
 
 ReactDOM.render(provider, mount);
-// registerServiceWorker();
+registerServiceWorker();
 
