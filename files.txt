@@ -1,7 +1,7 @@
 src/app/modules/auth/constants.js
 src/app/modules/auth/index.js
-src/app/modules/auth/login/actions/actionTypes.js
 src/app/modules/auth/login/actions/actions.js
+src/app/modules/auth/login/actions/actionTypes.js
 src/app/modules/auth/login/components/index.js
 src/app/modules/auth/login/components/login-form-container/LoginFormContainer.jsx
 src/app/modules/auth/login/components/login-form-container/LoginFormContainer.test.js
@@ -12,6 +12,7 @@ src/app/modules/auth/login/components/login-form/LoginForm.test.js
 src/app/modules/auth/login/components/login-page/LoginPage.jsx
 src/app/modules/auth/login/components/login-page/LoginPage.test.js
 src/app/modules/auth/login/constants.js
+src/app/modules/auth/login/index.js
 src/app/modules/auth/login/reducer.js
 src/app/modules/auth/login/reducers/loggedInUser.js
 src/app/modules/auth/login/reducers/loginForm.js
@@ -19,16 +20,16 @@ src/app/modules/auth/login/reducers/loginProcess.js
 src/app/modules/auth/login/selectors.js
 src/app/modules/auth/reducer.js
 src/app/modules/auth/selectors.js
-src/app/modules/auth/user/actions/actionTypes.js
 src/app/modules/auth/user/actions/actions.js
+src/app/modules/auth/user/actions/actionTypes.js
 src/app/modules/auth/user/constants.js
 src/app/modules/auth/user/index.js
 src/app/modules/auth/user/reducer.js
 src/app/modules/auth/user/reducers/userList.js
 src/app/modules/auth/user/selectors.js
-src/app/modules/blog/actions/actionTypes.js
 src/app/modules/blog/actions/actions.js
 src/app/modules/blog/actions/actions.test.js
+src/app/modules/blog/actions/actionTypes.js
 src/app/modules/blog/components/blog-item/BlogItem.jsx
 src/app/modules/blog/components/blog-item/BlogItem.test.js
 src/app/modules/blog/components/blog-list/BlogList.jsx
