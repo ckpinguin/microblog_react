@@ -23,20 +23,14 @@
     "rules": {
         "complexity": ["error", 2],
         "no-console": 0,
-        "no-unused-vars": 1,
+        "no-unused-vars": 0,
         // "no-unexpected-multilines": 0,
         "no-case-declarations": 0,
-        "indent": [
-            "warn", 4
-        ],
         "linebreak-style": [
             "error", "unix"
         ],
         "quotes": [
             "error", "single"
-        ],
-        "semi": [
-            "error", "always"
         ],
         "jsx-quotes": 1
     }
