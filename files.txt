@@ -6,7 +6,6 @@ src/app/modules/auth/login/components/index.js
 src/app/modules/auth/login/components/login-form-container/LoginFormContainer.jsx
 src/app/modules/auth/login/components/login-form-container/LoginFormContainer.test.js
 src/app/modules/auth/login/components/login-form-container/validate.js
-src/app/modules/auth/login/components/login-form/LoginForm.css
 src/app/modules/auth/login/components/login-form/LoginForm.jsx
 src/app/modules/auth/login/components/login-form/LoginForm.test.js
 src/app/modules/auth/login/components/login-page/LoginPage.jsx
@@ -39,7 +38,6 @@ src/app/modules/blog/components/blog-page/BlogPage.test.js
 src/app/modules/blog/components/edit-entry-form-container/EditEntryFormContainer.jsx
 src/app/modules/blog/components/edit-entry-form-container/EditEntryFormContainer.test.js
 src/app/modules/blog/components/edit-entry-form-container/validate.js
-src/app/modules/blog/components/edit-entry-form/EditEntryForm.css
 src/app/modules/blog/components/edit-entry-form/EditEntryForm.jsx
 src/app/modules/blog/components/edit-entry-form/EditEntryForm.test.js
 src/app/modules/blog/components/index.js
