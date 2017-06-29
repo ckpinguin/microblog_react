@@ -112,11 +112,11 @@ export const createNewEntry = () => {
 
         // this is likely more performant than array.filter()
         // O(n) for small, local mockup data should be ok 
-/*        for (entry of getState().blog.entries.entriesList.entries) {
-            if (entry.id === id) {
-                break;
-            }
-        }*/
+        // for (entry of getState().blog.entries.entriesList.entries) {
+        //     if (entry.id === id) {
+        //         break;
+        //     }
+        // }
 
 
 // This is not itself an action creator, but it calls them after doing some

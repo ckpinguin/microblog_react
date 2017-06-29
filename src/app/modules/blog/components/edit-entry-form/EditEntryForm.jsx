@@ -60,53 +60,38 @@ export default class EditEntryForm extends React.Component {
             <form
                 onSubmit={handleSubmit(onSubmit)}>
                 <div className="hidden">
-                    <Field name="id"
-                        component={this.renderField}
-                        type="hidden"
+                    <Field name="id" type="hidden"
+                        component={this.renderField} 
                     />
                 </div>
                 {/* TODO: make this field editable */}
                 <div className="hidden">
-                    <Field name="author"
+                    <Field name="author" type="hidden"
                         component={this.renderField}
-                        type="hidden"
                     />
                 </div>
                 <div className="form-group">
-                    <Field name="title"
-                        type="text"
+                    <Field name="title" type="text" label="Titel" className="form-control" placeholder="Titel eingeben."
                         component={this.renderField}
-                        label="Titel"
-                        className="form-control"
-                        placeholder="Titel eingeben."
                     />
                 </div>
                 <div className="form-group">
-                    <Field name="text"
+                    <Field name="text" label="Inhalt" className="form-control" placeholder="Textinhalt eingeben."
                         component={this.renderTextArea}
-                        label="Inhalt"
-                        className="form-control"
-                        placeholder="Textinhalt eingeben."
                     />
                 </div>  
                 <div className="form-group">
-                    <Field name="image"
-                        type="text"
+                    <Field name="image" type="text" label="Bild-URL" className="form-control" placeholder="Bildadresse eingeben."
                         component={this.renderField}
-                        label="Bild-URL"
-                        className="form-control"
-                        placeholder="Bildadresse eingeben."
                     />
                 </div>  
                 <div>
                     <button type="submit" className="btn btn-default"
-                        disabled={this.state.errors || submitting || pristine}>
-                        Blogeintrag speichern
+                        disabled={this.state.errors || submitting || pristine}>Blogeintrag speichern
                     </button>
                     <button type="button" className="btn btn-default"
                         disabled={submitting}
-                        onClick={onReset}>
-                        Zurücksetzen
+                        onClick={onReset}>Zurücksetzen
                     </button>
                 </div>
             </form>
@@ -118,11 +103,15 @@ export default class EditEntryForm extends React.Component {
         <div>
             <label>{label}</label>
             <div>
-                <input {...input}
-                        type={type}
-                        className={className}
-                        placeholder={placeholder} />
-                {touched && error && <div className="alert alert-danger">{error}</div>}
+                <input
+                    {...input}
+                    type={type}
+                    className={className}
+                    placeholder={placeholder} />
+                {touched && error &&
+                    <div className="alert alert-danger">
+                        {error}
+                    </div>}
             </div>
         </div>
     );
@@ -130,12 +119,18 @@ export default class EditEntryForm extends React.Component {
     renderTextArea = ({ input, label, className, placeholder,
                           meta: { touched, error } }) => (
         <div>
-            <label>{label}</label>
+            <label>
+                {label}
+            </label>
             <div>
-                <textarea {...input}
+                <textarea
+                    {...input}
                     className={className}
-                    placeholder={placeholder}  />
-                {touched && error && <div className="alert alert-danger">{error}</div>}
+                    placeholder={placeholder} />
+                {touched && error &&
+                    <div className="alert alert-danger">
+                        {error}
+                    </div>}
             </div>
         </div>
     );

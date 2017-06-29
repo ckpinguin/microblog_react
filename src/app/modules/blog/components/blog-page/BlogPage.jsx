@@ -31,13 +31,21 @@ class BlogPage extends React.Component {
         return (
         <div>
             <div className="title">
-                <h1>{this.title}</h1>
+                <h1>
+                    {this.title}
+                </h1>
             </div>
-            <div className="mainContent">
-                <EditEntryFormContainer entry={lastEntry} />
-                <button style={newButtonShow} onClick={createNewEntry} className="btn">Create New Entry</button>
+            <div
+                className="mainContent">
+                <EditEntryFormContainer
+                    entry={lastEntry} />
+                <button className="btn"
+                    style={newButtonShow}
+                    onClick={createNewEntry}>Create New Entry
+                </button>
             </div>
-            <div className="jumbotron">
+            <div
+                className="jumbotron">
                 <div className="attentionItem">
                     <h2>Attention item</h2>
                     {/*<p>url: {this.props.match.url}</p>

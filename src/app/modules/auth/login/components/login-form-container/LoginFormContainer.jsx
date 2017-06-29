@@ -13,7 +13,11 @@ let LoginFormContainer = ({ doLogin, cancelLogin, loggedInUser, history, ...rest
     const LoginForm = Login.components.LoginForm;
     return (
         (loggedInUser.id !== undefined)
-            ? <div><p>Already logged in with user {loggedInUser.name}</p></div>
+            ? <div>
+                  <p>Already logged in with user
+                    {loggedInUser.name}
+                  </p>
+              </div>
             : <div>
                 <LoginForm
                     // actions do not have access to history directly, so we need to

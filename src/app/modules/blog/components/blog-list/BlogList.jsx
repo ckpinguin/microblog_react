@@ -15,7 +15,8 @@ const BlogList = ({ entries, deleteEntry, editEntry }) => {
         itemList = entries.map((entry) => {
             if (entry !== null && entry.active) {
                 return (
-                    <div key={entry.id}>
+                    <div
+                        key={entry.id}>
                         <EditEntryFormContainer
                             form={`EditEntryForm_${entry.id}`}
                             entry={entry}
