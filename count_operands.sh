@@ -12,7 +12,7 @@ RESERVED='(^@[A-Z]\w+$)|^as$|^static$|^const$|^from$|^let$|^private$|^protected$
 PATTERN="$IDENTIFIER|$TYPENAME|$CONSTANT"
 
 COMMENTS='^ *//|^ */\*\*|^ *\*|^ *<\!--'
-TAGS='^<.+>.*|[?:].+<.+>.*'
+TAGS='<.+.*|[?:].+<.+>.*'
 #FUNCS='function |[a-z]+\(.*\) \{'
 #SPECIALS='^import '
 
