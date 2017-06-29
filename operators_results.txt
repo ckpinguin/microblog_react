@@ -1,0 +1,1876 @@
+File: src/app/modules/auth/constants.js
+-----------------------------
+with filtering:
+===============
+      1 ;
+      1 =
+      1 const
+Total operators (first run): 3 of 3 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/constants.js: 4 : 3
+
+
+File: src/app/modules/auth/index.js
+-----------------------------
+with filtering:
+===============
+      2 ,
+      1 ;
+      1 const
+      1 {
+Total operators (first run): 5 of 4 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+      3 ;
+      3 import 
+Import stuff to count: 6 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/index.js: 5 : 11
+
+
+File: src/app/modules/auth/login/actions/actions.js
+-----------------------------
+with filtering:
+===============
+      5  if 
+     54 (
+     12 ,
+     34 ;
+     13 =
+      1 ===
+     15 =>
+     13 const
+      2 do
+      1 else
+      5 return
+     22 {
+Total operators (first run): 177 of 12 unique operators
+
+2nd run / corrections: 
+     26 .
+     15 :
+Total corrections to count: 41 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      5 ;
+      5 import 
+Import stuff to count: 10 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/actions/actions.js: 15 : 228
+
+
+File: src/app/modules/auth/login/actions/actionTypes.js
+-----------------------------
+with filtering:
+===============
+      9 ;
+      9 =
+      9 const
+Total operators (first run): 27 of 3 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/actions/actionTypes.js: 4 : 27
+
+
+File: src/app/modules/auth/login/components/index.js
+-----------------------------
+with filtering:
+===============
+      2 ,
+      1 ;
+      1 {
+Total operators (first run): 4 of 3 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+      3 ;
+      3 import 
+Import stuff to count: 6 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/components/index.js: 4 : 10
+
+
+File: src/app/modules/auth/login/components/login-form-container/LoginFormContainer.jsx
+-----------------------------
+with filtering:
+===============
+      1 !==
+     16 (
+     12 ,
+      2 ...
+      9 ;
+      7 <
+      7 =
+      4 =>
+      7 >
+      3 const
+      2 do
+      1 let
+      3 return
+     10 {
+Total operators (first run): 84 of 14 unique operators
+
+2nd run / corrections: 
+     13 .
+      3 :
+Total corrections to count: 16 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      7 ;
+      7 import 
+Import stuff to count: 14 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/components/login-form-container/LoginFormContainer.jsx: 17 : 114
+
+
+File: src/app/modules/auth/login/components/login-form-container/LoginFormContainer.test.js
+-----------------------------
+with filtering:
+===============
+      8 (
+      6 ,
+      8 ;
+      5 <
+      8 =
+      2 =>
+      5 >
+      5 const
+      1 do
+      3 try
+      7 {
+Total operators (first run): 58 of 11 unique operators
+
+2nd run / corrections: 
+      3 .
+      5 :
+Total corrections to count: 8 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      7 ;
+      7 import 
+Import stuff to count: 14 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/components/login-form-container/LoginFormContainer.test.js: 14 : 80
+
+
+File: src/app/modules/auth/login/components/login-form-container/validate.js
+-----------------------------
+with filtering:
+===============
+      2  if 
+      2 !
+      2 (
+      6 ;
+      4 =
+      1 =>
+      2 const
+      1 else
+      1 return
+      4 {
+Total operators (first run): 25 of 10 unique operators
+
+2nd run / corrections: 
+      4 .
+Total corrections to count: 4 of 1 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/components/login-form-container/validate.js: 12 : 29
+
+
+File: src/app/modules/auth/login/components/login-form/LoginForm.jsx
+-----------------------------
+with filtering:
+===============
+      2  if 
+      1 !==
+      2 &&
+     10 (
+     10 ,
+      3 ...
+      8 ;
+     23 <
+     29 =
+      1 =>
+     23 >
+      1 class 
+      1 const
+      1 else
+      1 extends 
+      2 false
+      1 return
+      8 this
+      1 true
+     23 {
+      2 ||
+Total operators (first run): 153 of 21 unique operators
+
+2nd run / corrections: 
+     16 .
+      4 :
+Total corrections to count: 20 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      3 ;
+      3 import 
+Import stuff to count: 6 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/components/login-form/LoginForm.jsx: 24 : 179
+
+
+File: src/app/modules/auth/login/components/login-form/LoginForm.test.js
+-----------------------------
+with filtering:
+===============
+     10 (
+      4 ,
+      6 ;
+      1 <
+      4 =
+      3 =>
+      1 >
+      3 const
+      1 do
+      5 {
+Total operators (first run): 38 of 10 unique operators
+
+2nd run / corrections: 
+      5 .
+      4 :
+Total corrections to count: 9 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      5 ;
+      5 import 
+Import stuff to count: 10 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/components/login-form/LoginForm.test.js: 13 : 57
+
+
+File: src/app/modules/auth/login/components/login-page/LoginPage.jsx
+-----------------------------
+with filtering:
+===============
+      1  if 
+      3 (
+      1 ,
+      5 ;
+      9 <
+      5 =
+      9 >
+      1 class 
+      1 const
+      1 do
+      1 extends 
+      1 return
+      3 this
+      2 {
+Total operators (first run): 43 of 14 unique operators
+
+2nd run / corrections: 
+      8 .
+      1 :
+Total corrections to count: 9 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      4 ;
+      4 import 
+Import stuff to count: 8 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/components/login-page/LoginPage.jsx: 17 : 60
+
+
+File: src/app/modules/auth/login/components/login-page/LoginPage.test.js
+-----------------------------
+with filtering:
+===============
+      6 (
+      3 ,
+      5 ;
+      5 <
+      4 =
+      1 =>
+      5 >
+      3 const
+      1 do
+      3 {
+Total operators (first run): 36 of 10 unique operators
+
+2nd run / corrections: 
+      2 .
+Total corrections to count: 2 of 1 unique operators
+
+3rd run / count import and it's commas: 
+      7 ;
+      7 import 
+Import stuff to count: 14 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/components/login-page/LoginPage.test.js: 12 : 52
+
+
+File: src/app/modules/auth/login/constants.js
+-----------------------------
+with filtering:
+===============
+      1 ;
+      1 =
+      1 const
+Total operators (first run): 3 of 3 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/constants.js: 4 : 3
+
+
+File: src/app/modules/auth/login/index.js
+-----------------------------
+with filtering:
+===============
+      4 ,
+      1 ;
+      1 const
+      1 {
+Total operators (first run): 7 of 4 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+      5 ;
+      5 import 
+Import stuff to count: 10 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/index.js: 5 : 17
+
+
+File: src/app/modules/auth/login/reducer.js
+-----------------------------
+with filtering:
+===============
+      4 (
+      6 ,
+      3 ;
+      2 =
+      1 =>
+      1 const
+      1 return
+      3 {
+Total operators (first run): 21 of 8 unique operators
+
+2nd run / corrections: 
+      3 .
+      3 :
+Total corrections to count: 6 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      3 ;
+      3 import 
+Import stuff to count: 6 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/reducer.js: 11 : 33
+
+
+File: src/app/modules/auth/login/reducers/loggedInUser.js
+-----------------------------
+with filtering:
+===============
+      2  if 
+      6 (
+      1 ,
+      7 ;
+      2 =
+      1 =>
+      2 case
+      1 const
+      1 default:
+      3 return
+      1 switch 
+      6 {
+Total operators (first run): 33 of 12 unique operators
+
+2nd run / corrections: 
+      8 .
+      3 :
+Total corrections to count: 11 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      2 ;
+      2 import 
+Import stuff to count: 4 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/reducers/loggedInUser.js: 15 : 48
+
+
+File: src/app/modules/auth/login/reducers/loginForm.js
+-----------------------------
+with filtering:
+===============
+      3 (
+      1 ,
+      2 --
+      5 ;
+      2 <
+      1 =>
+      3 case
+      1 default:
+      4 return
+      5 {
+Total operators (first run): 27 of 10 unique operators
+
+2nd run / corrections: 
+      4 .
+      5 :
+Total corrections to count: 9 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      2 ;
+      2 import 
+Import stuff to count: 4 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/reducers/loginForm.js: 13 : 40
+
+
+File: src/app/modules/auth/login/reducers/loginProcess.js
+-----------------------------
+with filtering:
+===============
+      2 (
+      9 ,
+      4 ...
+     10 ;
+      4 =
+      1 =>
+      5 case
+      2 const
+      1 default:
+      5 false
+      1 let
+      5 return
+      1 switch 
+      1 true
+      8 {
+      1 ||
+Total operators (first run): 60 of 16 unique operators
+
+2nd run / corrections: 
+     13 .
+     16 :
+Total corrections to count: 29 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      1 ;
+      1 import 
+Import stuff to count: 2 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/reducers/loginProcess.js: 19 : 91
+
+
+File: src/app/modules/auth/login/selectors.js
+-----------------------------
+with filtering:
+===============
+      1 !
+      4 (
+      4 ;
+      4 =
+      4 =>
+      1 [
+      4 const
+Total operators (first run): 22 of 7 unique operators
+
+2nd run / corrections: 
+      5 .
+Total corrections to count: 5 of 1 unique operators
+
+3rd run / count import and it's commas: 
+      2 ;
+      2 import 
+Import stuff to count: 4 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/login/selectors.js: 9 : 31
+
+
+File: src/app/modules/auth/reducer.js
+-----------------------------
+with filtering:
+===============
+      3 (
+      4 ,
+      3 ;
+      2 =
+      1 =>
+      1 const
+      1 return
+      3 {
+Total operators (first run): 18 of 8 unique operators
+
+2nd run / corrections: 
+      2 .
+      2 :
+Total corrections to count: 4 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      2 ;
+      2 import 
+Import stuff to count: 4 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/reducer.js: 11 : 26
+
+
+File: src/app/modules/auth/selectors.js
+-----------------------------
+with filtering:
+===============
+      1 ;
+      1 =
+      1 =>
+      1 [
+      1 const
+Total operators (first run): 5 of 5 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+      1 ;
+      1 import 
+Import stuff to count: 2 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/selectors.js: 6 : 7
+
+
+File: src/app/modules/auth/user/actions/actions.js
+-----------------------------
+with filtering:
+===============
+     15 (
+      5 ,
+     10 ;
+      5 =
+      2 ===
+      9 =>
+      5 const
+      4 return
+      9 {
+Total operators (first run): 64 of 9 unique operators
+
+2nd run / corrections: 
+     10 .
+      7 :
+Total corrections to count: 17 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      1 ;
+      1 import 
+Import stuff to count: 2 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/user/actions/actions.js: 12 : 83
+
+
+File: src/app/modules/auth/user/actions/actionTypes.js
+-----------------------------
+with filtering:
+===============
+      6 ;
+      6 =
+      6 const
+Total operators (first run): 18 of 3 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/user/actions/actionTypes.js: 4 : 18
+
+
+File: src/app/modules/auth/user/constants.js
+-----------------------------
+with filtering:
+===============
+      1 ;
+      1 =
+      1 const
+Total operators (first run): 3 of 3 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/user/constants.js: 4 : 3
+
+
+File: src/app/modules/auth/user/index.js
+-----------------------------
+with filtering:
+===============
+      3 ,
+      1 ;
+      1 const
+      1 {
+Total operators (first run): 6 of 4 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+      4 ;
+      4 import 
+Import stuff to count: 8 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/user/index.js: 5 : 14
+
+
+File: src/app/modules/auth/user/reducer.js
+-----------------------------
+with filtering:
+===============
+      2 (
+      3 ,
+      3 ;
+      2 =
+      1 =>
+      1 const
+      1 return
+      3 {
+Total operators (first run): 16 of 8 unique operators
+
+2nd run / corrections: 
+      1 .
+      1 :
+Total corrections to count: 2 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      1 ;
+      1 import 
+Import stuff to count: 2 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/user/reducer.js: 11 : 20
+
+
+File: src/app/modules/auth/user/reducers/userList.js
+-----------------------------
+with filtering:
+===============
+      2 (
+      9 ,
+      3 ...
+      8 ;
+      4 =
+      1 =>
+      2 [
+      6 case
+      1 const
+      1 default:
+      2 false
+      1 let
+      4 return
+      1 switch 
+      1 true
+      6 {
+      1 ||
+Total operators (first run): 53 of 17 unique operators
+
+2nd run / corrections: 
+     15 .
+     16 :
+Total corrections to count: 31 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      2 ;
+      2 import 
+Import stuff to count: 4 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/user/reducers/userList.js: 20 : 88
+
+
+File: src/app/modules/auth/user/selectors.js
+-----------------------------
+with filtering:
+===============
+      7 (
+      3 ,
+      5 ;
+      4 =
+      1 ===
+      5 =>
+      1 [
+      4 const
+      1 return
+      2 {
+Total operators (first run): 33 of 10 unique operators
+
+2nd run / corrections: 
+     10 .
+      1 :
+Total corrections to count: 11 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      2 ;
+      2 import 
+Import stuff to count: 4 of 1 import stuff
+
+n1 and N1 for src/app/modules/auth/user/selectors.js: 13 : 48
+
+
+File: src/app/modules/blog/actions/actions.js
+-----------------------------
+with filtering:
+===============
+      1  * 
+     11  + 
+      2  if 
+     84 (
+     19 ,
+     49 ;
+     32 =
+      1 ===
+     24 =>
+      1 [
+      1 break
+     26 const
+      1 delete
+      2 do
+      1 else
+      1 false
+      6 return
+      1 true
+     44 try
+     29 {
+Total operators (first run): 336 of 20 unique operators
+
+2nd run / corrections: 
+     37 .
+     25 :
+Total corrections to count: 62 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      1 ;
+      1 import 
+Import stuff to count: 2 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/actions/actions.js: 23 : 400
+
+
+File: src/app/modules/blog/actions/actions.test.js
+-----------------------------
+with filtering:
+===============
+      7 (
+     12 ,
+      5 ;
+      2 =
+      2 =>
+      1 [
+      2 const
+      1 false
+      1 true
+      6 try
+      4 {
+Total operators (first run): 43 of 11 unique operators
+
+2nd run / corrections: 
+      5 .
+     14 :
+Total corrections to count: 19 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      2 ;
+      2 import 
+Import stuff to count: 4 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/actions/actions.test.js: 14 : 66
+
+
+File: src/app/modules/blog/actions/actionTypes.js
+-----------------------------
+with filtering:
+===============
+     24 ;
+     24 =
+     24 const
+Total operators (first run): 72 of 3 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/actions/actionTypes.js: 4 : 72
+
+
+File: src/app/modules/blog/components/blog-item/BlogItem.jsx
+-----------------------------
+with filtering:
+===============
+      1  if 
+      1 !
+      3 &&
+      8 (
+      5 ,
+      1 ...
+      5 ;
+     31 <
+     11 =
+      3 =>
+     31 >
+      1 const
+      3 let
+      2 return
+     16 {
+Total operators (first run): 122 of 15 unique operators
+
+2nd run / corrections: 
+     20 .
+      4 :
+Total corrections to count: 24 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      4 ;
+      4 import 
+Import stuff to count: 8 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/components/blog-item/BlogItem.jsx: 18 : 154
+
+
+File: src/app/modules/blog/components/blog-item/BlogItem.test.js
+-----------------------------
+with filtering:
+===============
+      6 (
+      5 ,
+      1 ...
+      6 ;
+      1 <
+      7 =
+      3 =>
+      1 >
+      4 const
+      1 do
+      3 let
+      2 true
+      5 {
+Total operators (first run): 45 of 13 unique operators
+
+2nd run / corrections: 
+      4 .
+      5 :
+Total corrections to count: 9 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      3 ;
+      3 import 
+Import stuff to count: 6 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/components/blog-item/BlogItem.test.js: 16 : 60
+
+
+File: src/app/modules/blog/components/blog-list/BlogList.jsx
+-----------------------------
+with filtering:
+===============
+      2  if 
+      1 !==
+      1 &&
+     14 (
+      7 ,
+     14 ;
+     10 <
+     15 =
+      4 =>
+     10 >
+      1 [
+      5 const
+      3 delete
+      1 else
+      2 let
+      5 return
+     18 try
+     19 {
+Total operators (first run): 132 of 18 unique operators
+
+2nd run / corrections: 
+     18 .
+      4 :
+Total corrections to count: 22 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      6 ;
+      6 import 
+Import stuff to count: 12 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/components/blog-list/BlogList.jsx: 21 : 166
+
+
+File: src/app/modules/blog/components/blog-list/BlogList.test.js
+-----------------------------
+with filtering:
+===============
+      6 (
+      3 ,
+      5 ;
+      5 <
+      4 =
+      1 =>
+      5 >
+      3 const
+      1 do
+      3 {
+Total operators (first run): 36 of 10 unique operators
+
+2nd run / corrections: 
+      2 .
+Total corrections to count: 2 of 1 unique operators
+
+3rd run / count import and it's commas: 
+      7 ;
+      7 import 
+Import stuff to count: 14 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/components/blog-list/BlogList.test.js: 12 : 52
+
+
+File: src/app/modules/blog/components/blog-page/BlogPage.jsx
+-----------------------------
+with filtering:
+===============
+      1  ? 'none' :
+      8 (
+      6 ,
+      1 ...
+     13 ;
+     26 <
+     18 =
+      3 =>
+     26 >
+      1 class 
+      6 const
+      1 do
+      1 extends 
+      3 return
+      6 this
+     14 try
+     15 {
+Total operators (first run): 149 of 17 unique operators
+
+2nd run / corrections: 
+     29 .
+      7 :
+Total corrections to count: 36 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      7 ;
+      7 import 
+Import stuff to count: 14 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/components/blog-page/BlogPage.jsx: 20 : 199
+
+
+File: src/app/modules/blog/components/blog-page/BlogPage.test.js
+-----------------------------
+with filtering:
+===============
+      6 (
+      3 ,
+      5 ;
+      5 <
+      4 =
+      1 =>
+      5 >
+      3 const
+      1 do
+      3 {
+Total operators (first run): 36 of 10 unique operators
+
+2nd run / corrections: 
+      2 .
+Total corrections to count: 2 of 1 unique operators
+
+3rd run / count import and it's commas: 
+      7 ;
+      7 import 
+Import stuff to count: 14 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/components/blog-page/BlogPage.test.js: 12 : 52
+
+
+File: src/app/modules/blog/components/edit-entry-form-container/EditEntryFormContainer.jsx
+-----------------------------
+with filtering:
+===============
+      4  if 
+      1 !
+      1 !==
+      1 &&
+     19 (
+     13 ,
+      2 ...
+     17 ;
+      4 <
+     12 =
+      4 =>
+      4 >
+      3 const
+      1 let
+      6 return
+     25 try
+     17 {
+Total operators (first run): 134 of 17 unique operators
+
+2nd run / corrections: 
+     27 .
+      9 :
+Total corrections to count: 36 of 2 unique operators
+
+3rd run / count import and it's commas: 
+     13 ;
+     13 import 
+Import stuff to count: 26 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/components/edit-entry-form-container/EditEntryFormContainer.jsx: 20 : 196
+
+
+File: src/app/modules/blog/components/edit-entry-form-container/EditEntryFormContainer.test.js
+-----------------------------
+with filtering:
+===============
+      8 (
+      6 ,
+      8 ;
+      5 <
+      9 =
+      2 =>
+      5 >
+      5 const
+      1 do
+      1 true
+      7 try
+      8 {
+Total operators (first run): 65 of 12 unique operators
+
+2nd run / corrections: 
+      3 .
+      5 :
+Total corrections to count: 8 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      7 ;
+      7 import 
+Import stuff to count: 14 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/components/edit-entry-form-container/EditEntryFormContainer.test.js: 15 : 87
+
+
+File: src/app/modules/blog/components/edit-entry-form-container/validate.js
+-----------------------------
+with filtering:
+===============
+      4  if 
+      2 !
+      4 (
+      8 ;
+      1 <
+      6 =
+      1 =>
+      1 >
+      2 const
+      2 else
+      1 return
+      6 {
+Total operators (first run): 38 of 12 unique operators
+
+2nd run / corrections: 
+     10 .
+Total corrections to count: 10 of 1 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/components/edit-entry-form-container/validate.js: 14 : 48
+
+
+File: src/app/modules/blog/components/edit-entry-form/EditEntryForm.jsx
+-----------------------------
+with filtering:
+===============
+      5  if 
+      1 !==
+      4 &&
+     18 (
+     22 ,
+      5 ...
+     16 ;
+     41 <
+     51 =
+      2 =>
+     41 >
+      1 class 
+      1 const
+      2 do
+      1 else
+      1 extends 
+      2 false
+      1 return
+     17 this
+      1 true
+      3 try
+     37 {
+      2 ||
+Total operators (first run): 275 of 23 unique operators
+
+2nd run / corrections: 
+     44 .
+     14 :
+Total corrections to count: 58 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      5 ;
+      5 import 
+Import stuff to count: 10 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/components/edit-entry-form/EditEntryForm.jsx: 26 : 343
+
+
+File: src/app/modules/blog/components/edit-entry-form/EditEntryForm.test.js
+-----------------------------
+with filtering:
+===============
+     10 (
+      4 ,
+      6 ;
+      1 <
+      4 =
+      3 =>
+      1 >
+      3 const
+      1 do
+      2 try
+      5 {
+Total operators (first run): 40 of 11 unique operators
+
+2nd run / corrections: 
+      5 .
+      4 :
+Total corrections to count: 9 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      5 ;
+      5 import 
+Import stuff to count: 10 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/components/edit-entry-form/EditEntryForm.test.js: 14 : 59
+
+
+File: src/app/modules/blog/components/index.js
+-----------------------------
+with filtering:
+===============
+      4 ,
+      1 ;
+      2 try
+      1 {
+Total operators (first run): 8 of 4 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+      5 ;
+      5 import 
+Import stuff to count: 10 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/components/index.js: 5 : 18
+
+
+File: src/app/modules/blog/constants.js
+-----------------------------
+with filtering:
+===============
+      1 ;
+      1 =
+      1 const
+Total operators (first run): 3 of 3 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/constants.js: 4 : 3
+
+
+File: src/app/modules/blog/index.js
+-----------------------------
+with filtering:
+===============
+      4 ,
+      1 ;
+      1 const
+      1 {
+Total operators (first run): 7 of 4 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+      5 ;
+      5 import 
+Import stuff to count: 10 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/index.js: 5 : 17
+
+
+File: src/app/modules/blog/reducer.js
+-----------------------------
+with filtering:
+===============
+      3 (
+      5 ,
+      3 ;
+      2 =
+      1 =>
+      1 const
+      1 return
+      3 try
+      3 {
+Total operators (first run): 22 of 9 unique operators
+
+2nd run / corrections: 
+      2 .
+      2 :
+Total corrections to count: 4 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      2 ;
+      2 import 
+Import stuff to count: 4 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/reducer.js: 12 : 30
+
+
+File: src/app/modules/blog/reducers/editEntryForm.js
+-----------------------------
+with filtering:
+===============
+      3 (
+      1 ,
+      3 --
+      4 ;
+      3 <
+      1 =>
+      2 case
+      1 default:
+      3 return
+      2 try
+      2 {
+Total operators (first run): 25 of 11 unique operators
+
+2nd run / corrections: 
+      3 .
+      4 :
+Total corrections to count: 7 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      2 ;
+      2 import 
+Import stuff to count: 4 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/reducers/editEntryForm.js: 14 : 36
+
+
+File: src/app/modules/blog/reducers/entries.js
+-----------------------------
+with filtering:
+===============
+     11 (
+     44 ,
+     18 ...
+     17 ;
+      4 =
+      5 =>
+      4 [
+     12 case
+      1 const
+      1 default:
+      8 false
+      1 let
+     13 return
+      1 switch 
+      4 true
+      5 try
+     27 {
+      1 ||
+Total operators (first run): 177 of 18 unique operators
+
+2nd run / corrections: 
+     55 .
+     58 :
+Total corrections to count: 113 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      3 ;
+      3 import 
+Import stuff to count: 6 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/reducers/entries.js: 21 : 296
+
+
+File: src/app/modules/blog/reducers/entry.js
+-----------------------------
+with filtering:
+===============
+      2  ? state :
+      3  if 
+      5 !==
+      7 (
+      7 ,
+      7 ...
+     14 ;
+      1 =
+      1 =>
+      8 case
+      1 const
+      1 default:
+      2 false
+     12 return
+      1 switch 
+      2 true
+      2 try
+     10 {
+Total operators (first run): 86 of 18 unique operators
+
+2nd run / corrections: 
+     32 .
+     13 :
+Total corrections to count: 45 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      1 ;
+      1 import 
+Import stuff to count: 2 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/reducers/entry.js: 21 : 133
+
+
+File: src/app/modules/blog/selectors.js
+-----------------------------
+with filtering:
+===============
+      5 (
+      5 ;
+      5 =
+      5 =>
+      2 [
+      5 const
+      3 try
+Total operators (first run): 30 of 7 unique operators
+
+2nd run / corrections: 
+     11 .
+Total corrections to count: 11 of 1 unique operators
+
+3rd run / count import and it's commas: 
+      1 ;
+      1 import 
+Import stuff to count: 2 of 1 import stuff
+
+n1 and N1 for src/app/modules/blog/selectors.js: 9 : 43
+
+
+File: src/app/modules/shared/components/index.js
+-----------------------------
+with filtering:
+===============
+      2 ,
+      1 ;
+      1 {
+Total operators (first run): 4 of 3 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+      3 ;
+      3 import 
+Import stuff to count: 6 of 1 import stuff
+
+n1 and N1 for src/app/modules/shared/components/index.js: 4 : 10
+
+
+File: src/app/modules/shared/components/layout/Layout.jsx
+-----------------------------
+with filtering:
+===============
+      2 (
+      1 ,
+      4 ;
+     13 <
+      7 =
+      1 =>
+     13 >
+      1 const
+      1 return
+      4 {
+Total operators (first run): 47 of 10 unique operators
+
+2nd run / corrections: 
+      3 .
+      1 :
+Total corrections to count: 4 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      4 ;
+      4 import 
+Import stuff to count: 8 of 1 import stuff
+
+n1 and N1 for src/app/modules/shared/components/layout/Layout.jsx: 13 : 59
+
+
+File: src/app/modules/shared/components/layout/Layout.test.js
+-----------------------------
+with filtering:
+===============
+      1 !
+      4 (
+      3 ,
+      4 ...
+      4 ;
+     20 <
+      3 =
+      1 =>
+     20 >
+      2 const
+      1 do
+      2 {
+Total operators (first run): 65 of 12 unique operators
+
+2nd run / corrections: 
+      2 .
+Total corrections to count: 2 of 1 unique operators
+
+3rd run / count import and it's commas: 
+      4 ;
+      4 import 
+Import stuff to count: 8 of 1 import stuff
+
+n1 and N1 for src/app/modules/shared/components/layout/Layout.test.js: 14 : 75
+
+
+File: src/app/modules/shared/components/navbar/NavBar.jsx
+-----------------------------
+with filtering:
+===============
+      2 (
+      2 ;
+     22 <
+      8 =
+      1 =>
+     22 >
+      1 const
+      1 {
+Total operators (first run): 59 of 8 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+      3 ;
+      3 import 
+Import stuff to count: 6 of 1 import stuff
+
+n1 and N1 for src/app/modules/shared/components/navbar/NavBar.jsx: 9 : 65
+
+
+File: src/app/modules/shared/components/navbar/NavBar.test.js
+-----------------------------
+with filtering:
+===============
+      4 (
+      2 ,
+      3 ;
+      3 <
+      1 =
+      1 =>
+      3 >
+      1 const
+      1 do
+      1 {
+Total operators (first run): 20 of 10 unique operators
+
+2nd run / corrections: 
+      2 .
+Total corrections to count: 2 of 1 unique operators
+
+3rd run / count import and it's commas: 
+      4 ;
+      4 import 
+Import stuff to count: 8 of 1 import stuff
+
+n1 and N1 for src/app/modules/shared/components/navbar/NavBar.test.js: 12 : 30
+
+
+File: src/app/modules/shared/components/privateroute/PrivateRoute.jsx
+-----------------------------
+with filtering:
+===============
+      6 (
+      5 ,
+      3 ...
+      3 ;
+      3 <
+      4 =
+      2 =>
+      3 >
+      1 const
+      8 {
+Total operators (first run): 38 of 10 unique operators
+
+2nd run / corrections: 
+      9 .
+      6 :
+Total corrections to count: 15 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      1 ,
+      3 ;
+      3 import 
+Import stuff to count: 7 of 1 import stuff
+
+n1 and N1 for src/app/modules/shared/components/privateroute/PrivateRoute.jsx: 13 : 60
+
+
+File: src/app/modules/shared/components/privateroute/PrivateRoute.test.js
+-----------------------------
+with filtering:
+===============
+      5 (
+      2 ,
+      3 ;
+      5 <
+      3 =
+      2 =>
+      5 >
+      1 const
+      1 do
+      1 false
+      3 {
+Total operators (first run): 31 of 11 unique operators
+
+2nd run / corrections: 
+      2 .
+Total corrections to count: 2 of 1 unique operators
+
+3rd run / count import and it's commas: 
+      4 ;
+      4 import 
+Import stuff to count: 8 of 1 import stuff
+
+n1 and N1 for src/app/modules/shared/components/privateroute/PrivateRoute.test.js: 13 : 41
+
+
+File: src/app/modules/shared/index.js
+-----------------------------
+with filtering:
+===============
+      1 ,
+      1 ;
+      1 {
+Total operators (first run): 3 of 3 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+      2 ;
+      2 import 
+Import stuff to count: 4 of 1 import stuff
+
+n1 and N1 for src/app/modules/shared/index.js: 4 : 7
+
+
+File: src/app/modules/shared/utils/dateFormat.js
+-----------------------------
+with filtering:
+===============
+      4 (
+      3 ,
+      1 ;
+      1 return
+      1 {
+Total operators (first run): 10 of 5 unique operators
+
+2nd run / corrections: 
+      3 .
+Total corrections to count: 3 of 1 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/app/modules/shared/utils/dateFormat.js: 7 : 13
+
+
+File: src/app/modules/shared/utils/index.js
+-----------------------------
+with filtering:
+===============
+      1 ;
+      1 {
+Total operators (first run): 2 of 2 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+      1 ;
+      1 import 
+Import stuff to count: 2 of 1 import stuff
+
+n1 and N1 for src/app/modules/shared/utils/index.js: 3 : 4
+
+
+File: src/app/routes/index.js
+-----------------------------
+with filtering:
+===============
+      9 (
+      5 ,
+      1 ...
+      8 ;
+     14 <
+     18 =
+      4 =>
+     14 >
+      4 const
+      2 return
+     12 {
+Total operators (first run): 91 of 11 unique operators
+
+2nd run / corrections: 
+     19 .
+      4 :
+Total corrections to count: 23 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      2 ,
+      7 ;
+      7 import 
+Import stuff to count: 16 of 1 import stuff
+
+n1 and N1 for src/app/routes/index.js: 14 : 130
+
+
+File: src/app/store/configureStore.js
+-----------------------------
+with filtering:
+===============
+      5 (
+      7 ,
+      1 ...
+      5 ;
+      4 =
+      1 =>
+      1 [
+      3 const
+      1 return
+      2 {
+Total operators (first run): 30 of 10 unique operators
+
+2nd run / corrections: 
+      3 .
+Total corrections to count: 3 of 1 unique operators
+
+3rd run / count import and it's commas: 
+      1 ,
+      6 ;
+      6 import 
+Import stuff to count: 13 of 1 import stuff
+
+n1 and N1 for src/app/store/configureStore.js: 12 : 46
+
+
+File: src/app/store/index.js
+-----------------------------
+with filtering:
+===============
+      1  ? window.__INITIAL_STATE__:
+      1 !==
+      1 (
+      3 ;
+      2 =
+      2 const
+      1 do
+      1 typeof
+Total operators (first run): 12 of 8 unique operators
+
+2nd run / corrections: 
+      1 .
+      1 :
+Total corrections to count: 2 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      1 ;
+      1 import 
+Import stuff to count: 2 of 1 import stuff
+
+n1 and N1 for src/app/store/index.js: 11 : 16
+
+
+File: src/app/store/middleware.js
+-----------------------------
+with filtering:
+===============
+      9 (
+      1 ,
+      5 ;
+      2 =
+      6 =>
+      2 const
+      1 try
+      3 {
+Total operators (first run): 29 of 8 unique operators
+
+2nd run / corrections: 
+      1 .
+      1 :
+Total corrections to count: 2 of 2 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/app/store/middleware.js: 11 : 31
+
+
+File: src/app/store/rootReducer.js
+-----------------------------
+with filtering:
+===============
+      1 (
+      2 ,
+      1 ;
+      2 [
+      2 const
+      1 {
+Total operators (first run): 9 of 6 unique operators
+
+2nd run / corrections: 
+      6 .
+      1 :
+Total corrections to count: 7 of 2 unique operators
+
+3rd run / count import and it's commas: 
+      4 ;
+      4 import 
+Import stuff to count: 8 of 1 import stuff
+
+n1 and N1 for src/app/store/rootReducer.js: 9 : 24
+
+
+File: src/debug.js
+-----------------------------
+with filtering:
+===============
+      2 ;
+      1 =
+      1 const
+      1 false
+Total operators (first run): 5 of 4 unique operators
+
+2nd run / corrections: 
+Total corrections to count: 0 of 0 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/debug.js: 5 : 5
+
+
+File: src/index.js
+-----------------------------
+with filtering:
+===============
+      1  ? window.__INITIAL_STATE__:
+      1 !==
+     10 (
+      3 ,
+      9 ;
+      8 <
+     12 =
+      1 =>
+      8 >
+      5 const
+      2 do
+      2 true
+      1 typeof
+      6 {
+Total operators (first run): 69 of 14 unique operators
+
+2nd run / corrections: 
+      7 .
+      2 :
+Total corrections to count: 9 of 2 unique operators
+
+3rd run / count import and it's commas: 
+     14 ;
+     14 import 
+Import stuff to count: 28 of 1 import stuff
+
+n1 and N1 for src/index.js: 17 : 106
+
+
+File: src/registerServiceWorker.js
+-----------------------------
+with filtering:
+===============
+      4  if 
+      1 &&
+     16 (
+      2 ,
+     12 ;
+      4 =
+      2 ===
+      6 =>
+      1 catch
+      2 const
+      1 do
+      1 else
+      1 for 
+     12 {
+Total operators (first run): 65 of 14 unique operators
+
+2nd run / corrections: 
+     23 .
+      1 :
+Total corrections to count: 24 of 2 unique operators
+
+3rd run / count import and it's commas: 
+Import stuff to count: 0 of 1 import stuff
+
+n1 and N1 for src/registerServiceWorker.js: 17 : 89
+
+

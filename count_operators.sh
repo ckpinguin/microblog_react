@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Optimized for angular/typescript!
+# Optimized for react/js(x)!
 SCSPEC='static'
 SCSPEC_ACK='(static)'
 TYPE_QUAL='const|let|private|protected|public'
