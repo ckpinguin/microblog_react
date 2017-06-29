@@ -1,12 +1,10 @@
 #!/bin/bash
 
-# Optimized for react/js(x)!
+# Optimized for angular/typescript!
 SCSPEC='static'
-SCSPEC_ACK='(static)'
 TYPE_QUAL='const|let|private|protected|public'
-TYPE_QUAL_ACK='(const)|(let)|(private)|(protected)|(public)'
 RESERVED='(@[A-Z]\w+)| if |import |else|break|case|class |continue|default:|do|for |new\(|return|switch |while |this|try|catch|throw|throws|finally|instanceof|interface |extends |implements |abstract |true|false'
-RESERVED_ACK='(@[A-Z]+)| (if) |(else)|(import) |(break)|(case)|(class) |(continue)|(default)|(do)|(for) |(new\()|(return)|(sizeof)|(switch) |(while) |(this)|(try)|(catch)|(throw)|(throws)|(finally)|(instanceof)|(interface) |(extends) |(implements) |(abstract) |(true)|(false)'
+
 # Most arithmetic operators should have consequently whitespace before and after to be found consistently!
 OPERATOR_ARITH="\s\+\s|\+\+|\s-\s|--|\s\*\s|\s/\s|%"
 OPERATOR_ASSIGN="=||\+=|-=|\*=|/=|%="
@@ -20,12 +18,16 @@ OPERATORS="$OPERATOR_ARITH|$OPERATOR_ASSIGN|$OPERATOR_COMP|$OPERATOR_TERN|$OPERA
 
 # stuff, that falls down with above regex (a pro surely could do all of this better)
 # we use perl-re with negative lookahead for this
-CORRECTIONS="(?<!')(?!=\w)\.(?=\w)|(?<!')(?<=\w):"
-
+# It's really very hard to get the . operator right. 20% too high is estimated,
+# because . in './example.dotted' gets counted (1 time), because the point is
+# not directly after '
+CORRECTIONS="(?<!')(?<=\w)\.(?=\w)|(?<=\))\.|(?<=\s)\.(?!\.)|(?<!')(?<=\w):"
+#CORRECTIONS="(?<!')(?:(\w+))\.(?=\w)(?!')|(?<=\))\.|(?<=\s)\.(?!\.)"
+#CORRECTIONS="(?:(?<![\"'])\.|(?![\"']))|(?<=\))\.|(?<=\s)\.(?!\.)"
+#CORRECTIONS="(?:(?<!['])\w+)\.(?!['])|(?<=\))\.|(?<=\s)\.(?!\.)|(?<!')(?<=\w):"
+#CORRECTIONS="(?:(?<!['])(?:\w+))\.|(?<=\))\.|(?<=\s)\.(?!\.)"
+#echo $CORRECTIONS
 PATTERN="$SCSPEC|$TYPE_QUAL|$RESERVED|$OPERATORS"
-
-OPERATOR_ACK="(,)|(\!)|(\!=)|(%)|(%=)|(&)|(&&)|(&=)|(\|\|)|(\()|(\[)|(\*)|(;)|(\{)|(\[)|(\*)|(\*=)|(\+)|(\+\+)|(\+=)| (-)|(--)|(-=)|(=>)|(?<!').*(\.+)|(?<!').+(\/)|(\/=)|(:)|(<)|(<=)|(=)|(==)|(>)|(>=)|(\?)|(\|)|(=&)"
-PATTERN_ACK="$SCSPEC_ACK|$TYPE_QUAL_ACK|$RESERVED_ACK|$OPERATOR_ACK"
 
 COMMENTS='^ *//|^ */\*\*|^ *\*|^ *<\!--'
 FUNCS='function |[a-z]+\(.*\) \{'
@@ -38,8 +40,6 @@ IMPORT_SPECIAL='^import |,|;'
 echo "File: $1"
 echo "-----------------------------"
 
-#ack "$PATTERN" $1
-#ack -c "$PATTERN" $1
 echo "with filtering:"
 echo "==============="
 egrep -v "$EXCEPTIONS" $1 | egrep -o "$PATTERN" | sort -n | uniq -c
@@ -55,6 +55,11 @@ corrn1=`egrep -v "$EXCEPTIONS" $1 | grep -Po "$CORRECTIONS" | sort -n | uniq -c 
 let corrN1=$corrN1+0
 echo -n "Total corrections to count: "
 echo "$corrN1 of $corrn1 unique operators"
+# introducing an error factor of 10% to count the fact, that . operator
+# is not counted correctly (. inside 'abc.xyz' are counted)
+### let corrN1=$corrN1-$corrN1*10/100
+### echo -n "Total corrections with corrected factor to count: "
+### echo "$corrN1 of $corrn1 unique operators"
 echo
 echo "3rd run / count import and it's commas: "
 egrep '^import' $1 | egrep -o "$IMPORT_SPECIAL" | sort -n | uniq -c
@@ -74,15 +79,15 @@ echo
 echo
 # for verbosity just add a `v` as second argument
 if [ "$2" == "v" ]; then
+    # echo "ack corrections:"
+    # echo "================"
+    # ack "$PATTERN" $1
+    # echo
     echo "no filtering:"
     echo "============="
     egrep -o "$PATTERN" $1 | sort -n | uniq -c
     echo -n "Total operators (unfiltered): "
     egrep -o "$PATTERN" $1 | sort -n | uniq -c | awk '{print $1}' | paste -sd+ | bc
-    echo
-    echo "using ack:"
-    echo "=========="
-    egrep -v "$EXCEPTIONS" $1 | ack "$PATTERN_ACK"
     echo
     echo "exceptions filter:"
     echo "=================="
