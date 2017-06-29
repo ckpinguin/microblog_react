@@ -78,7 +78,7 @@ export default class EditEntryForm extends React.Component {
                         component={this.renderField}
                         label="Titel"
                         className="form-control"
-                        placeholder="Titel eingeben..."
+                        placeholder="Titel eingeben."
                     />
                 </div>
                 <div className="form-group">
@@ -86,7 +86,7 @@ export default class EditEntryForm extends React.Component {
                         component={this.renderTextArea}
                         label="Inhalt"
                         className="form-control"
-                        placeholder="Textinhalt eingeben..."
+                        placeholder="Textinhalt eingeben."
                     />
                 </div>  
                 <div className="form-group">
@@ -95,7 +95,7 @@ export default class EditEntryForm extends React.Component {
                         component={this.renderField}
                         label="Bild-URL"
                         className="form-control"
-                        placeholder="Bildadresse eingeben..."
+                        placeholder="Bildadresse eingeben."
                     />
                 </div>  
                 <div>

@@ -40,7 +40,7 @@ export default class LoginForm extends React.Component {
                         component={this.renderField}
                         label="Name"
                         className="form-control"
-                        placeholder="Name eingeben..." />
+                        placeholder="Name eingeben." />
                 </div>
                 <div className="form-group">
                     <Field name="password"
@@ -48,7 +48,7 @@ export default class LoginForm extends React.Component {
                         component={this.renderField}
                         label="Passwort"
                         className="form-control"
-                        placeholder="Passwort eingeben..." />
+                        placeholder="Passwort eingeben." />
                 </div>
                 <div>
                     <button type="submit" className="btn btn-default"
