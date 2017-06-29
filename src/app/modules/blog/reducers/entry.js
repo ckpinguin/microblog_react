@@ -34,7 +34,8 @@ const entry = (state, action) => {
         }
         return {
             ...state,
-            ...action.payload // update the new fields
+            // update the new fields
+            ...action.payload
         };
     case t.UPDATE_ENTRY_FAILURE:
         if (action.payload.id !== state.id) {
@@ -42,7 +43,8 @@ const entry = (state, action) => {
         }
         return {
             ...state,
-            ...action.payload // update the new fields
+            // update the new fields
+            ...action.payload
         };
 
     case t.REMOVE_ENTRY_SUCCESS:

@@ -64,5 +64,6 @@ const mapStateToProps = (state) => {
 // withRouter is needed to update page according to URL
 export default withRouter(connect(
      mapStateToProps,
-     null // mapDispatchToProps,
+     // mapDispatchToProps,
+     null
 )(Routes));

@@ -3,10 +3,12 @@ import { reducer as formReducer } from 'redux-form';
 import * as t from '../actions/actionTypes';
 
 export default formReducer.plugin({
-    LoginForm: (state, action) => { // <--- 'LoginForm' is name of form given to reduxForm()
+    // 'LoginForm' is name of form given to reduxForm()
+    LoginForm: (state, action) => {
         switch(action.type) {
         case t.LOGIN_SUCCESS:
-            return {};       // <--- blow away form data
+            // blow away form data
+            return {};
         case t.LOGIN_FAILED:
             return {};
         case t.LOGIN_CANCELLED:

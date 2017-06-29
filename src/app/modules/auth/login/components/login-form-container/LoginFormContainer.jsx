@@ -19,7 +19,8 @@ let LoginFormContainer = ({ doLogin, cancelLogin, loggedInUser, history, ...rest
                     // actions do not have access to history directly, so we need to
                     // provide them explicitly (TODO: find something nicer to solve this)
                     // tried: withRouter in actions => fail / bind this here and access props in function => fail
-                    onSubmit={doLogin.bind(null, history)} // currying, as we need more args later
+                    // currying, as we need more args later
+                    onSubmit={doLogin.bind(null, history)}
                     onCancel={cancelLogin.bind(null, history)} 
                     {...rest}
                 />

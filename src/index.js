@@ -52,7 +52,8 @@ const provider =
                 newestOnTop={true}
                 position="top-right"
                 transitionIn="bounceIn"
-                transitionOut="hinge" // just testing animations.css integration
+                // just testing animations.css integration
+                transitionOut="hinge"
                 progressBar={true}
             />
         </div>

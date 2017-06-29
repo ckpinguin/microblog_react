@@ -53,7 +53,8 @@ const entries = (state = initialStateEntries, action) => {
     case t.EDIT_ENTRY_FINISHED:
         return {
             ...state,
-            entriesList: { // delegate it
+            // delegate it
+            entriesList: {
                 entries: state.entriesList.entries.map(e => entry(e, action)),
                 error: null,
                 loading: false
@@ -62,7 +63,8 @@ const entries = (state = initialStateEntries, action) => {
     case t.EDIT_ENTRY:
         return {
             ...state,
-            entriesList: { // delegate it
+            // delegate it
+            entriesList: {
                 entries: state.entriesList.entries.map(e => entry(e, action)),
                 error: null,
                 loading: false
@@ -82,7 +84,8 @@ const entries = (state = initialStateEntries, action) => {
         return {
             ...state,
             entriesList: {
-                entries: [ // delegate it
+                // delegate it
+                entries: [
                     ...state.entriesList.entries,
                     entry(undefined, action)
                 ],
@@ -94,7 +97,8 @@ const entries = (state = initialStateEntries, action) => {
     case t.UPDATE_ENTRY:
         return {
             ...state,
-            entriesList: { // delegate it
+            // delegate it
+            entriesList: {
                 ...state.entriesList,
                 error: null,
                 loading: true
@@ -103,7 +107,8 @@ const entries = (state = initialStateEntries, action) => {
     case t.UPDATE_ENTRY_SUCCESS:
         return {
             ...state,
-            entriesList: { // delegate it
+            // delegate it
+            entriesList: {
                 entries: state.entriesList.entries.map(e => entry(e, action)),
                 error: null,
                 loading: false
@@ -113,7 +118,8 @@ const entries = (state = initialStateEntries, action) => {
     case t.REMOVE_ENTRY:
         return {
             ...state,
-            entriesList: { // delegate it
+            // delegate it
+            entriesList: {
                 ...state.entriesList,
                 error: null,
                 loading: true
@@ -122,7 +128,8 @@ const entries = (state = initialStateEntries, action) => {
     case t.REMOVE_ENTRY_SUCCESS:
         return {
             ...state,
-            entriesList: { // delegate it
+            // delegate it
+            entriesList: {
                 entries: state.entriesList.entries.filter(e => entry(e, action)),
                 error: null,
                 loading: false

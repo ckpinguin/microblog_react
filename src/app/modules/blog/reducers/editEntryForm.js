@@ -4,12 +4,15 @@ import * as t from '../actions/actionTypes';
 
 
 export default formReducer.plugin({
-    EditEntryForm: (state, action) => { // <--- 'EditEntryForm' is name of form given to reduxForm()
+    // 'EditEntryForm' is name of form given to reduxForm()
+    EditEntryForm: (state, action) => {
         switch(action.type) {
         case t.ADD_ENTRY_SUCCESS:
-            return undefined;       // <--- blow away form data
+            // blow away form data
+            return undefined;
         case t.UNSET_CURRENT_ENTRY:
-            return undefined;       // <--- blow away form data
+            // blow away form data
+            return undefined;
         default:
             return state;
         }

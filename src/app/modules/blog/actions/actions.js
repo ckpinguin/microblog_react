@@ -92,12 +92,15 @@ export const editEntryFinished = (id) => ({
 
 export const createNewEntry = () => {
     return (dispatch, getState) => {
-        dispatch(addEntry()); // start flag
+        // start flag
+        dispatch(addEntry());
         const newEntry = { };
         const id = guid();
         newEntry.id = id;
-        newEntry.showForm = true; // show the editing form
-        newEntry.active = false; // don't show in list yet
+        // show the editing form
+        newEntry.showForm = true;
+        // don't show in list yet
+        newEntry.active = false;
         dispatch(addEntrySuccess(newEntry));
     };
 };
@@ -126,7 +129,8 @@ export const saveEntry = (entry) => {
         // guid as id...
 
         if (entry.id) {
-            dispatch(updateEntry()); // start flag
+            // start flag
+            dispatch(updateEntry());
             
             // Do some async stuff here
             
@@ -135,11 +139,13 @@ export const saveEntry = (entry) => {
             const merged = Object.assign({}, oldEntry, entry);
             merged.date = new Date().toJSON();
             dispatch(updateEntrySuccess(merged));
-        } else { // new entry to be saved:
+        // new entry to be saved:
+        } else {
             const id = guid();
             entry.id = id;
             entry.date = new Date().toJSON();
-            dispatch(addEntry()); // start flag
+            // start flag
+            dispatch(addEntry());
 
             // Do some async stuff here
 
@@ -152,8 +158,8 @@ export const saveEntry = (entry) => {
 
 export const loadEntries = () => {
     return (dispatch, getState) => {
-        dispatch(fetchEntries()); // start flag, informs state that async fetching started
-        
+        // start flag, informs state that async fetching started
+        dispatch(fetchEntries());
         // Do some async stuff here
         
         // Mock:
