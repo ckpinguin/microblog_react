@@ -110,4 +110,7 @@ if [ "$2" == "v" ]; then
     echo "================"
     egrep "$EXCEPTIONS" $1
     echo
+    echo "grep TERN (filtered):"
+    echo "====================="
+    grep -Pv "$EXCEPTIONS" $1 | grep -Po "$OPERATOR_TERN" | sort -n | uniq -c
 fi

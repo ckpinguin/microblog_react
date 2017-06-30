@@ -111,6 +111,7 @@ with filtering:
 ===============
       7 =
       4 =>
+      1             :
      11 ,
       9 ;
       1 !==
@@ -120,7 +121,7 @@ with filtering:
       3 const
       1 let
       3 return
-Total operators (first run): 67 of 11 unique operators
+Total operators (first run): 68 of 12 unique operators
 
 2nd run / corrections: 
       3 :
@@ -132,7 +133,7 @@ Total corrections to count: 14 of 2 unique operators
       7 import 
 Import stuff to count: 14 of 1 import stuff
 
-n1 and N1 for src/app/modules/auth/login/components/login-form-container/LoginFormContainer.jsx: 14 : 95
+n1 and N1 for src/app/modules/auth/login/components/login-form-container/LoginFormContainer.jsx: 15 : 96
 
 
 File: src/app/modules/auth/login/components/login-form-container/LoginFormContainer.test.js
@@ -868,6 +869,7 @@ with filtering:
 ===============
      14 =
       4 =>
+      1                 :
       7 ,
      14 ;
       1 !==
@@ -881,7 +883,7 @@ with filtering:
       5 let
       5 return
      17 try
-Total operators (first run): 110 of 15 unique operators
+Total operators (first run): 111 of 16 unique operators
 
 2nd run / corrections: 
       4 :
@@ -893,7 +895,7 @@ Total corrections to count: 22 of 2 unique operators
       6 import 
 Import stuff to count: 12 of 1 import stuff
 
-n1 and N1 for src/app/modules/blog/components/blog-list/BlogList.jsx: 18 : 144
+n1 and N1 for src/app/modules/blog/components/blog-list/BlogList.jsx: 19 : 145
 
 
 File: src/app/modules/blog/components/blog-list/BlogList.test.js

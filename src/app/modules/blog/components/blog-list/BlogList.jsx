@@ -40,7 +40,8 @@ const BlogList = ({ entries, deleteEntry, editEntry }) => {
                 ? <div>
                       {itemList}
                   </div>
-                : <p>No blog entries</p>}
+                :
+                    <p>No blog entries</p>}
         </div>
     );
 };
