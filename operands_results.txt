@@ -257,13 +257,17 @@ File: src/app/modules/auth/login/components/login-form/LoginForm.jsx
 -----------------------------
 with filtering:
 ===============
+      1 "alert alert-danger error-placeholder"
+      2 "btn btn-default"
+      1 "button"
       2 className
       1 Component
       3 error
       4 errors
       1 Field
       3 fillForm
-      1 "form-group"
+      2 "form-control"
+      2 "form-group"
       1 handleSubmit
       2 input
       1 invalid
@@ -271,9 +275,15 @@ with filtering:
       1 LoginForm
       1 './LoginForm.css'
       1 meta
+      1 "name"
+      1 "Name"
+      1 "Name eingeben."
       5 nextProps
       2 onCancel
       2 onSubmit
+      2 "password"
+      1 "Passwort"
+      1 "Passwort eingeben."
       2 placeholder
       1 pristine
       4 props
@@ -282,15 +292,17 @@ with filtering:
       1 'redux-form'
       3 renderField
       2 state
+      1 "submit"
       3 submitting
+      1 "text"
       2 touched
       2 type
-Total operands (first run): 56 of 28 unique operands
+Total operands (first run): 72 of 40 unique operands
 
 2nd run / corrections: 
 Total corrections to count: 0 of 0 unique operators
 
-n2 and N2 for src/app/modules/auth/login/components/login-form/LoginForm.jsx: 28 : 56
+n2 and N2 for src/app/modules/auth/login/components/login-form/LoginForm.jsx: 40 : 72
 
 
 File: src/app/modules/auth/login/components/login-form/LoginForm.test.js
@@ -345,17 +357,19 @@ with filtering:
       2 LoginFormContainer
       1 LoginPage
       1 './LoginPage.css'
+      1 "mainContent"
       1 props
       1 'props: '
       1 'react'
       2 React
       4 title
-Total operands (first run): 24 of 17 unique operands
+      1 "title"
+Total operands (first run): 26 of 19 unique operands
 
 2nd run / corrections: 
 Total corrections to count: 0 of 0 unique operators
 
-n2 and N2 for src/app/modules/auth/login/components/login-page/LoginPage.jsx: 17 : 24
+n2 and N2 for src/app/modules/auth/login/components/login-page/LoginPage.jsx: 19 : 26
 
 
 File: src/app/modules/auth/login/components/login-page/LoginPage.test.js

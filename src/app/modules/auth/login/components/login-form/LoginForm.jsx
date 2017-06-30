@@ -37,20 +37,35 @@ export default class LoginForm extends React.Component {
                 onSubmit={handleSubmit(onSubmit)}>
                 <div
                     className="form-group">
-                    <Field name="name" type="text" label="Name" className="form-control" placeholder="Name eingeben."
+                    <Field
+                        name="name"
+                        type="text"
+                        label="Name"
+                        className="form-control"
+                        placeholder="Name eingeben."
                         component={this.renderField}
                     />
                 </div>
-                <div className="form-group">
-                    <Field name="password" type="password" label="Passwort" className="form-control" placeholder="Passwort eingeben."
+                <div
+                    className="form-group">
+                    <Field
+                        name="password"
+                        type="password"
+                        label="Passwort"
+                        className="form-control"
+                        placeholder="Passwort eingeben."
                         component={this.renderField}                        
                     />
                 </div>
                 <div>
-                    <button type="submit" className="btn btn-default"
+                    <button
+                        type="submit"
+                        className="btn btn-default"
                         disabled={this.state.errors || submitting || pristine}>Login
                     </button>
-                    <button type="button" className="btn btn-default"
+                    <button
+                        type="button"
+                        className="btn btn-default"
                         disabled={submitting}
                         onClick={onCancel}>Abbrechen
                      </button>
@@ -73,7 +88,8 @@ export default class LoginForm extends React.Component {
                     placeholder={placeholder}
                 />
                 {touched && error &&
-                    <div className="alert alert-danger error-placeholder">
+                    <div
+                        className="alert alert-danger error-placeholder">
                         {error}
                     </div>
                 }

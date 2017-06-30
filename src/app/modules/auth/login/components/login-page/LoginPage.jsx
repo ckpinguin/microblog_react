@@ -18,12 +18,14 @@ export default class LoginPage extends React.Component {
         const LoginFormContainer = Login.components.LoginFormContainer;
         return (
         <div>
-            <div className="title">
+            <div
+                className="title">
                 <h1>
                     {this.title}
                 </h1>
             </div>
-            <div className="mainContent">
+            <div
+                className="mainContent">
                 <LoginFormContainer />
             </div>
         </div>
