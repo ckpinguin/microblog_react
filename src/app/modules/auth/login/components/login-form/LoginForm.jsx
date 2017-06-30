@@ -47,9 +47,7 @@ export default class LoginForm extends React.Component {
                     />
                 </div>
                 <div>
-                    <button
-                        type="submit"
-                        className="btn btn-default"
+                    <button type="submit" className="btn btn-default"
                         disabled={this.state.errors || submitting || pristine}>Login
                     </button>
                     <button type="button" className="btn btn-default"

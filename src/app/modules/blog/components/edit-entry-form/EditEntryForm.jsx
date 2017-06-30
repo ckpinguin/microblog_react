@@ -59,37 +59,64 @@ export default class EditEntryForm extends React.Component {
         return (
             <form
                 onSubmit={handleSubmit(onSubmit)}>
-                <div className="hidden">
-                    <Field name="id" type="hidden"
+                <div
+                    className="hidden">
+                    <Field
+                        name="id"
+                        type="hidden"
                         component={this.renderField} 
                     />
                 </div>
                 {/* TODO: make this field editable */}
-                <div className="hidden">
-                    <Field name="author" type="hidden"
+                <div
+                    className="hidden">
+                    <Field
+                        name="author"
+                        type="hidden"
                         component={this.renderField}
                     />
                 </div>
-                <div className="form-group">
-                    <Field name="title" type="text" label="Titel" className="form-control" placeholder="Titel eingeben."
+                <div
+                    className="form-group">
+                    <Field
+                        name="title"
+                        type="text"
+                        label="Titel"
+                        className="form-control"
+                        placeholder="Titel eingeben."
                         component={this.renderField}
                     />
                 </div>
-                <div className="form-group">
-                    <Field name="text" label="Inhalt" className="form-control" placeholder="Textinhalt eingeben."
+                <div
+                    className="form-group">
+                    <Field
+                        name="text"
+                        label="Inhalt"
+                        className="form-control"
+                        placeholder="Textinhalt eingeben."
                         component={this.renderTextArea}
                     />
                 </div>  
-                <div className="form-group">
-                    <Field name="image" type="text" label="Bild-URL" className="form-control" placeholder="Bildadresse eingeben."
+                <div
+                    className="form-group">
+                    <Field
+                        name="image"
+                        type="text"
+                        label="Bild-URL"
+                        className="form-control"
+                        placeholder="Bildadresse eingeben."
                         component={this.renderField}
                     />
                 </div>  
                 <div>
-                    <button type="submit" className="btn btn-default"
+                    <button
+                        type="submit"
+                        className="btn btn-default"
                         disabled={this.state.errors || submitting || pristine}>Blogeintrag speichern
                     </button>
-                    <button type="button" className="btn btn-default"
+                    <button
+                        type="button"
+                        className="btn btn-default"
                         disabled={submitting}
                         onClick={onReset}>Zurücksetzen
                     </button>
@@ -101,7 +128,9 @@ export default class EditEntryForm extends React.Component {
     renderField = ({ input, label, className, placeholder,
                        type, meta: { touched, error } }) => (
         <div>
-            <label>{label}</label>
+            <label>
+                {label}
+            </label>
             <div>
                 <input
                     {...input}
@@ -109,7 +138,8 @@ export default class EditEntryForm extends React.Component {
                     className={className}
                     placeholder={placeholder} />
                 {touched && error &&
-                    <div className="alert alert-danger">
+                    <div
+                        className="alert alert-danger">
                         {error}
                     </div>}
             </div>
@@ -128,7 +158,8 @@ export default class EditEntryForm extends React.Component {
                     className={className}
                     placeholder={placeholder} />
                 {touched && error &&
-                    <div className="alert alert-danger">
+                    <div
+                        className="alert alert-danger">
                         {error}
                     </div>}
             </div>

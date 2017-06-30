@@ -9,21 +9,26 @@ const BlogItem = ({item, onDelete, onEdit, ...rest}) => {
         return null;
     }
     return (
-        <div className="BlogItem">
+        <div
+            className="BlogItem">
             <hr />
             {item.image &&
-                <div className="blog-image">
+                <div
+                    className="blog-image">
                     <img
                         src={`/images/${item.image}`}
                         alt={item.title}/>
                 </div>}
-            <div className="blog-summary">
+            <div
+                className="blog-summary">
                 <h2>
                     {item.title}
                     <br />
-                    <div className="fa fa-trash"
+                    <div
+                        className="fa fa-trash"
                         onClick={() => onDelete(item.id)}/>
-                    <div className="fa fa-edit"
+                    <div
+                        className="fa fa-edit"
                         onClick={() => onEdit(item.id) }/>
                 </h2>
                 <div>

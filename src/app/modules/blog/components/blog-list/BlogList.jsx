@@ -35,7 +35,8 @@ const BlogList = ({ entries, deleteEntry, editEntry }) => {
     }
 
     return (
-        <div className="BlogList">
+        <div
+            className="BlogList">
             {itemList 
                 ? <div>
                       {itemList}

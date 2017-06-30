@@ -30,7 +30,8 @@ class BlogPage extends React.Component {
         const newButtonShow = { display: lastEntry.showForm ? 'none' : 'block' };
         return (
         <div>
-            <div className="title">
+            <div
+                className="title">
                 <h1>
                     {this.title}
                 </h1>
@@ -39,14 +40,16 @@ class BlogPage extends React.Component {
                 className="mainContent">
                 <EditEntryFormContainer
                     entry={lastEntry} />
-                <button className="btn"
+                <button
+                    className="btn"
                     style={newButtonShow}
                     onClick={createNewEntry}>Create New Entry
                 </button>
             </div>
             <div
                 className="jumbotron">
-                <div className="attentionItem">
+                <div
+                    className="attentionItem">
                     <h2>Attention item</h2>
                     {/*<p>url: {this.props.match.url}</p>
                     <p>path: {this.props.match.path}</p>
@@ -54,7 +57,8 @@ class BlogPage extends React.Component {
                     */}
                 </div>
             </div>
-            <div className="listContent">
+            <div
+                className="listContent">
                 <BlogList />
             </div>
 
