@@ -43,16 +43,16 @@ echo "-----------------------------"
 
 echo "with filtering:"
 echo "==============="
-egrep -v "$EXCEPTIONS" $1 | egrep -o "$PATTERN" | sort -n | uniq -c
+grep -Pv "$EXCEPTIONS" $1 | egrep -o "$PATTERN" | sort -n | uniq -c
 echo -n "Total operators (first run): "
-resN1=`egrep -v "$EXCEPTIONS" $1 | egrep -o "$PATTERN" | sort -n | uniq -c | awk '{print $1}' | paste -sd+ | bc`
-resn1=`egrep -v "$EXCEPTIONS" $1 | egrep -o "$PATTERN" | sort -n | uniq -c | wc -l`
+resN1=`grep -Pv "$EXCEPTIONS" $1 | egrep -o "$PATTERN" | sort -n | uniq -c | awk '{print $1}' | paste -sd+ | bc`
+resn1=`grep -Pv "$EXCEPTIONS" $1 | egrep -o "$PATTERN" | sort -n | uniq -c | wc -l`
 echo "$resN1 of $resn1 unique operators"
 echo
 echo "2nd run / corrections: "
-egrep -v "$EXCEPTIONS" $1 | grep -Po "$CORRECTIONS" | sort -n | uniq -c
-corrN1=`egrep -v "$EXCEPTIONS" $1 | grep -Po "$CORRECTIONS" | sort -n | uniq -c | awk '{print $1}' | paste -sd+ | bc`
-corrn1=`egrep -v "$EXCEPTIONS" $1 | grep -Po "$CORRECTIONS" | sort -n | uniq -c | wc -l`
+grep -Pv "$EXCEPTIONS" $1 | grep -Po "$CORRECTIONS" | sort -n | uniq -c
+corrN1=`grep -Pv "$EXCEPTIONS" $1 | grep -Po "$CORRECTIONS" | sort -n | uniq -c | awk '{print $1}' | paste -sd+ | bc`
+corrn1=`grep -Pv "$EXCEPTIONS" $1 | grep -Po "$CORRECTIONS" | sort -n | uniq -c | wc -l`
 let corrN1=$corrN1+0
 echo -n "Total corrections to count: "
 echo "$corrN1 of $corrn1 unique operators"

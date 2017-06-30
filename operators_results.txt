@@ -1549,17 +1549,17 @@ File: src/app/modules/shared/utils/dateFormat.js
 -----------------------------
 with filtering:
 ===============
-      3  :
       3 ,
       1 ;
       4 (
       1 {
       1 return
-Total operators (first run): 13 of 6 unique operators
+Total operators (first run): 10 of 5 unique operators
 
 2nd run / corrections: 
+      3 :
       3 .
-Total corrections to count: 3 of 1 unique operators
+Total corrections to count: 6 of 2 unique operators
 
 3rd run / count import and it's commas: 
 Import stuff to count: 0 of 1 import stuff
