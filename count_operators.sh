@@ -9,7 +9,7 @@ RESERVED='(@[A-Z]\w+)| if |import |else|break|case|class |continue|default:|do |
 OPERATOR_ARITH="\s\+\s|\+\+|\s-\s|--|\s\*\s|\s/\s|%"
 OPERATOR_ASSIGN="=||\+=|-=|\*=|/=|%="
 OPERATOR_COMP="==+|\!=+| >|< |>=|<="
-OPERATOR_TERN="\s\?\s.+:"
+OPERATOR_TERN="\s\?\s.+:|^:|\s+\:"
 OPERATOR_LOGIC="&&|\|\||\!"
 OPERATOR_BITWISE="&|\|||~|^|\s<<\s|\s>>\s"
 # We don't use the `in` operator

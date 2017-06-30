@@ -3,7 +3,7 @@
 # Optimized for angular/typescript!
 
 NODE1_EDGE2='if |for |\*ngFor=|\*ngIf=|do |while '
-OPERATOR_TERN="\s\?\s.+:|\s:"
+OPERATOR_TERN="\s\?\s.+:|^:|\s+\:"
 NODE1_EDGE1='switch '
 # Not sure about `else if`
 EDGE1='case |default: |else if'
@@ -20,7 +20,7 @@ echo "-----------------------------"
 echo "NODE1_EDGE2:"
 echo "==============="
 egrep -v "$EXCEPTIONS" $1 | grep -Po "$NODE1_EDGE2|$OPERATOR_TERN" | sort -n | uniq -c
-count=`egrep -v "$EXCEPTIONS" $1 | egrep -o "$NODE1_EDGE2" | wc -l`
+count=`egrep -v "$EXCEPTIONS" $1 | grep -Po "$NODE1_EDGE2|$OPERATOR_TERN" | wc -l`
 let n=count
 let e=count*2
 echo "counted: $count n=$n e=$e"

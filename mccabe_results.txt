@@ -78,8 +78,8 @@ File: src/app/modules/auth/login/components/login-form-container/LoginFormContai
 -----------------------------
 NODE1_EDGE2:
 ===============
-      1  :
-counted: 0 n=0 e=0
+      1             :
+counted: 1 n=1 e=2
 NODE1_EDGE1:
 ===============
 counted: 0 n=0 e=0
@@ -87,7 +87,7 @@ EDGE1:
 ===============
 counted: 0 e=0
 
-n and e for src/app/modules/auth/login/components/login-form-container/LoginFormContainer.jsx: 0 : 0
+n and e for src/app/modules/auth/login/components/login-form-container/LoginFormContainer.jsx: 1 : 2
 
 
 File: src/app/modules/auth/login/components/login-form-container/LoginFormContainer.test.js
@@ -513,9 +513,9 @@ File: src/app/modules/blog/components/blog-list/BlogList.jsx
 -----------------------------
 NODE1_EDGE2:
 ===============
-      1  :
+      1                 :
       2 if 
-counted: 2 n=2 e=4
+counted: 3 n=3 e=6
 NODE1_EDGE1:
 ===============
 counted: 0 n=0 e=0
@@ -523,7 +523,7 @@ EDGE1:
 ===============
 counted: 0 e=0
 
-n and e for src/app/modules/blog/components/blog-list/BlogList.jsx: 2 : 4
+n and e for src/app/modules/blog/components/blog-list/BlogList.jsx: 3 : 6
 
 
 File: src/app/modules/blog/components/blog-list/BlogList.test.js
@@ -546,7 +546,7 @@ File: src/app/modules/blog/components/blog-page/BlogPage.jsx
 NODE1_EDGE2:
 ===============
       1  ? 'none' :
-counted: 0 n=0 e=0
+counted: 1 n=1 e=2
 NODE1_EDGE1:
 ===============
 counted: 0 n=0 e=0
@@ -554,7 +554,7 @@ EDGE1:
 ===============
 counted: 0 e=0
 
-n and e for src/app/modules/blog/components/blog-page/BlogPage.jsx: 0 : 0
+n and e for src/app/modules/blog/components/blog-page/BlogPage.jsx: 1 : 2
 
 
 File: src/app/modules/blog/components/blog-page/BlogPage.test.js
@@ -750,7 +750,7 @@ NODE1_EDGE2:
 ===============
       3 if 
       2  ? state :
-counted: 3 n=3 e=6
+counted: 5 n=5 e=10
 NODE1_EDGE1:
 ===============
       1 switch 
@@ -760,7 +760,7 @@ EDGE1:
       8 case 
 counted: 8 e=8
 
-n and e for src/app/modules/blog/reducers/entry.js: 4 : 15
+n and e for src/app/modules/blog/reducers/entry.js: 6 : 19
 
 
 File: src/app/modules/blog/selectors.js
@@ -857,8 +857,8 @@ File: src/app/modules/shared/components/privateroute/PrivateRoute.jsx
 -----------------------------
 NODE1_EDGE2:
 ===============
-      1  :
-counted: 0 n=0 e=0
+      1       :
+counted: 1 n=1 e=2
 NODE1_EDGE1:
 ===============
 counted: 0 n=0 e=0
@@ -866,7 +866,7 @@ EDGE1:
 ===============
 counted: 0 e=0
 
-n and e for src/app/modules/shared/components/privateroute/PrivateRoute.jsx: 0 : 0
+n and e for src/app/modules/shared/components/privateroute/PrivateRoute.jsx: 1 : 2
 
 
 File: src/app/modules/shared/components/privateroute/PrivateRoute.test.js
@@ -904,7 +904,7 @@ File: src/app/modules/shared/utils/dateFormat.js
 NODE1_EDGE2:
 ===============
       3  :
-counted: 0 n=0 e=0
+counted: 3 n=3 e=6
 NODE1_EDGE1:
 ===============
 counted: 0 n=0 e=0
@@ -912,7 +912,7 @@ EDGE1:
 ===============
 counted: 0 e=0
 
-n and e for src/app/modules/shared/utils/dateFormat.js: 0 : 0
+n and e for src/app/modules/shared/utils/dateFormat.js: 3 : 6
 
 
 File: src/app/modules/shared/utils/index.js
@@ -965,7 +965,7 @@ File: src/app/store/index.js
 NODE1_EDGE2:
 ===============
       1  ? window.__INITIAL_STATE__:
-counted: 0 n=0 e=0
+counted: 1 n=1 e=2
 NODE1_EDGE1:
 ===============
 counted: 0 n=0 e=0
@@ -973,7 +973,7 @@ EDGE1:
 ===============
 counted: 0 e=0
 
-n and e for src/app/store/index.js: 0 : 0
+n and e for src/app/store/index.js: 1 : 2
 
 
 File: src/app/store/middleware.js
@@ -1027,7 +1027,7 @@ NODE1_EDGE2:
 ===============
       1 if 
       1  ? window.__INITIAL_STATE__:
-counted: 1 n=1 e=2
+counted: 2 n=2 e=4
 NODE1_EDGE1:
 ===============
 counted: 0 n=0 e=0
@@ -1035,7 +1035,7 @@ EDGE1:
 ===============
 counted: 0 e=0
 
-n and e for src/index.js: 1 : 2
+n and e for src/index.js: 2 : 4
 
 
 File: src/registerServiceWorker.js
