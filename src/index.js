@@ -60,5 +60,5 @@ const provider =
     </Provider>;
 
 ReactDOM.render(provider, mount);
-registerServiceWorker();
+// registerServiceWorker();
 
