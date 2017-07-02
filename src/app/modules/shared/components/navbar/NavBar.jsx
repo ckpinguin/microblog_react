@@ -5,7 +5,7 @@ import './NavBar.css';
 
 const NavBar = ({ match }) => (
         <nav
-            className="navbar navbar-default">
+            className="collapse navbar navbar-default navbar-collapse">
             <div
                 className="container-fluid">
                 <ul
